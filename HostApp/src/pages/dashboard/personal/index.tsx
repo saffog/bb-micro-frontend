@@ -1,31 +1,31 @@
 import React, { useEffect, useRef } from "react";
-import { mount } from "landingApp/landingPageIndex";
+import { mount } from "clientLoginApp/clientLoginAppIndex";
 import { useLocation, useNavigate } from "react-router-dom";
 import { clientLoginAppPrefix } from "../../../constants/routes.constant";
 
-const ClientLoginBaseName = `/${clientLoginAppPrefix}`;
+const PersonalLoginBaseName = `/${clientLoginAppPrefix}`;
 
 export default () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Listen to navigation events dispatched inside appClientLogin mfe.
+  // Listen to navigation events dispatched inside appPersonalLogin mfe.
   useEffect(() => {
-    const appClientLoginNavigationEventHandler = (event: Event) => {
+    const appPersonalLoginNavigationEventHandler = (event: Event) => {
       const pathname = (event as CustomEvent<string>).detail;
-      const newPathname = `${ClientLoginBaseName}${pathname}`;
+      const newPathname = `${PersonalLoginBaseName}${pathname}`;
       if (newPathname === location.pathname) {
         return;
       }
       navigate(newPathname);
     };
-    window.addEventListener("[appClientLogin] navigated", appClientLoginNavigationEventHandler);
+    window.addEventListener("[appPersonalLogin] navigated", appPersonalLoginNavigationEventHandler);
 
     return () => {
       window.removeEventListener(
-        "[appClientLogin] navigated",
-        appClientLoginNavigationEventHandler
+        "[appPersonalLogin] navigated",
+        appPersonalLoginNavigationEventHandler
       );
     };
   }, [location]);
@@ -33,10 +33,10 @@ export default () => {
   // Listen for shell location changes and dispatch a notification.
   useEffect(
     () => {
-      if (location.pathname.startsWith(ClientLoginBaseName)) {
+      if (location.pathname.startsWith(PersonalLoginBaseName)) {
         window.dispatchEvent(
           new CustomEvent("[shell] navigated", {
-            detail: location.pathname.replace(ClientLoginBaseName, ""),
+            detail: location.pathname.replace(PersonalLoginBaseName, ""),
           })
         );
       }
@@ -46,7 +46,7 @@ export default () => {
 
   const isFirstRunRef = useRef(true);
   const unmountRef = useRef(() => {});
-  // Mount appClientLogin MFE
+  // Mount appPersonalLogin MFE
   useEffect(
     () => {
       if (!isFirstRunRef.current) {
@@ -55,7 +55,7 @@ export default () => {
       unmountRef.current = mount({
         mountPoint: wrapperRef.current!,
         initialPathname: location.pathname.replace(
-          ClientLoginBaseName,
+          PersonalLoginBaseName,
           ''
         ),
       });
@@ -66,5 +66,5 @@ export default () => {
 
   useEffect(() => unmountRef.current, []);
 
-  return <div ref={wrapperRef} id="appClientLogin-mfe" />;
+  return <div ref={wrapperRef} id="appPersonalLogin-mfe" />;
 };

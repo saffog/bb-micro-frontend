@@ -4,7 +4,12 @@ import { LayoutRouter } from "../organisms/layout-router";
 import { clientDashboardAppPrefix, clientLoginAppPrefix, enterpriseDashboardAppPrefix, enterpriseLoginAppPrefix, internetBankingMenuAppPrefix, landingAppPrefix } from "../constants/routes.constant";
 
 
-const AppLoginClientLazy = lazy(() => import("./../pages/login/client/index"));
+const AppLoginClientLazy = lazy(() => import("../pages/login/personal/index"));
+const AppLoginEnterpriseLazy = lazy(() => import("./../pages/login/enterprise/index"));
+const AppLandingLazy = lazy(() => import("./../pages/landing/index"));
+const AppInternetBanking = lazy(() => import("./../pages/internet-banking/index"));
+const AppPersonalDashboard = lazy(() => import("./../pages/dashboard/personal/index"));
+const AppEnterpriseDashboard = lazy(() => import("./../pages/dashboard/enterprise/index"));
 // const App2Lazy = lazy(() => import("../components/App2"));
 
 export const routes: RouteObject[] = [
@@ -17,25 +22,29 @@ export const routes: RouteObject[] = [
         element: <Navigate to={`/${landingAppPrefix}`} />,
       },
       {
+        path: `/${landingAppPrefix}/*`,
+        element: <Suspense fallback="Loading Login Client..."><AppLandingLazy /></Suspense>,
+      },
+      {
         path: `/${clientLoginAppPrefix}/*`,
         element: <Suspense fallback="Loading Login Client..."><AppLoginClientLazy /></Suspense>,
       },
-    //   {
-    //     path: `/${enterpriseLoginAppPrefix}/*`,
-    //     element: <Suspense fallback="Loading Login Enterprise..."><App2Lazy /></Suspense>,
-    //   },
-    //   {
-    //     path: `/${internetBankingMenuAppPrefix}/*`,
-    //     element: <Suspense fallback="Loading Internet Banking Main Menu..."><App2Lazy /></Suspense>,
-    //   },
-    //   {
-    //     path: `/${clientDashboardAppPrefix}/*`,
-    //     element: <Suspense fallback="Loading Dashboard Client..."><App2Lazy /></Suspense>,
-    //   },
-    //   {
-    //     path: `/${enterpriseDashboardAppPrefix}/*`,
-    //     element: <Suspense fallback="Loading Dashboard Enterprise..."><App2Lazy /></Suspense>,
-    //   },
+      {
+        path: `/${enterpriseLoginAppPrefix}/*`,
+        element: <Suspense fallback="Loading Login Enterprise..."><AppLoginEnterpriseLazy /></Suspense>,
+      },
+      {
+        path: `/${internetBankingMenuAppPrefix}/*`,
+        element: <Suspense fallback="Loading Internet Banking Main Menu..."><AppInternetBanking /></Suspense>,
+      },
+      {
+        path: `/${clientDashboardAppPrefix}/*`,
+        element: <Suspense fallback="Loading Dashboard Client..."><AppPersonalDashboard /></Suspense>,
+      },
+      {
+        path: `/${enterpriseDashboardAppPrefix}/*`,
+        element: <Suspense fallback="Loading Dashboard Enterprise..."><AppEnterpriseDashboard /></Suspense>,
+      },
     ],
   }
 ];

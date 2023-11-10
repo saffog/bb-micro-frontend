@@ -44,13 +44,14 @@ module.exports = (_, argv) => ({
       name: "HostApp",
       filename: "remoteEntry.js",
       remotes: {
-        landingApp: 'landingAppIndex@http://localhost:9001/remoteEntry.js',
-        clientLoginApp: 'clientLoginAppIndex@http://localhost:9002/remoteEntry.js',
-        enterpriseLoginApp: 'enterpriseLoginAppIndex@http://localhost:9003/remoteEntry.js',
-        internetBankingMenuApp: 'internetBankingMenuAppIndex@http://localhost:9004/remoteEntry.js',
-        clientDashboardApp: 'clientDashboardAppIndex@http://localhost:9005/remoteEntry.js',
-        enterpriseDashboardApp: 'enterpriseDashboardAppIndex@http://localhost:9006/remoteEntry.js',
-
+        landingApp: 'landingApp@http://localhost:9001/remoteEntry.js',
+        clientLoginApp: 'clientLoginApp@http://localhost:9002/remoteEntry.js',
+        enterpriseLoginApp: 'enterpriseLoginApp@http://localhost:9003/remoteEntry.js',
+        internetBankingMenuApp: 'internetBankingMenuApp@http://localhost:9004/remoteEntry.js',
+        clientDashboardApp: 'clientDashboardApp@http://localhost:9005/remoteEntry.js',
+        enterpriseDashboardApp: 'clientDashboardApp@http://localhost:9006/remoteEntry.js',
+        aboutUsApp: 'aboutUsApp@http://localhost:9007/remoteEntry.js',
+        productsApp: 'productsApp@http://localhost:9008/remoteEntry.js',
       },
       exposes: {},
       shared: {

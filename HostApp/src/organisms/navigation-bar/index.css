@@ -1,8 +1,8 @@
 /* Style the navigation bar */
 .navbar {
-    width: 100%;
     background-color: #ffffff;
     overflow: auto;
+    margin: 20px;
 }
 
 /* Navbar links */
