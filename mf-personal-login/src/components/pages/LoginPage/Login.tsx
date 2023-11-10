@@ -1,4 +1,9 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
+
+import InputLabel from '../../molecules/InputLabel';
+import Card from '../../molecules/Card';
+import ButtonForm from '../../atoms/Button';
+
 import './Login.css';
 
 const Login = () => {
@@ -21,30 +26,25 @@ const Login = () => {
 
   return (
     <div className="container">
-      <div className="card">
-        <h2>Iniciar sesión</h2>
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="form-group">
-            <label>Email:</label>
-            <input
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Contraseña:</label>
-            <input
-              type="password"
-              value={password}
-              onChange={handlePasswordChange}
-              required
-            />
-          </div>
-          <button type="submit">Iniciar sesión</button>
+      <Card title='Iniciar sesión'>
+        <form onSubmit={handleSubmit} className="loginForm">
+          <InputLabel
+            name='email'
+            title='Email: '
+            type='email'
+            value={email}
+            onChange={handleEmailChange}
+          />
+          <InputLabel
+            name='password'
+            title='Contraseña: '
+            type='password'
+            value={password}
+            onChange={handlePasswordChange}
+          />
+          <ButtonForm type="submit">Iniciar sesión</ButtonForm>
         </form>
-      </div>
+      </Card>
     </div>
   );
 };
