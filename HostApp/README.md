@@ -165,4 +165,5 @@ import('./bootstrap').then(
 - That should be that for the microfrontend, run and execute.
 
 - Follow the next example if you have doubts about the microfrontend configuration for this project.
+  - https://github.com/saffog/bb-micro-frontend/tree/examplemf/landing-app
 
