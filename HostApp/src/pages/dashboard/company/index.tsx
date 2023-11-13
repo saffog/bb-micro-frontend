@@ -1,31 +1,31 @@
 import React, { useEffect, useRef } from "react";
-import { mount } from "enterpriseLoginApp/enterpriseLoginAppIndex";
+import { mount } from "companyDashboardApp/companyDashboardAppIndex";
 import { useLocation, useNavigate } from "react-router-dom";
-import { enterpriseLoginAppPrefix } from "../../../constants/routes.constant";
+import { companyDashboardAppPrefix } from "../../../constants/routes.constant";
 
-const EnterpriseLoginBaseName = `/${enterpriseLoginAppPrefix}`;
+const CompanyDashboardBaseName = `/${companyDashboardAppPrefix}`;
 
 export default () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Listen to navigation events dispatched inside appEnterpriseLogin mfe.
+  // Listen to navigation events dispatched inside appCompanyDashboard mfe.
   useEffect(() => {
-    const appEnterpriseLoginNavigationEventHandler = (event: Event) => {
+    const appCompanyDashboardNavigationEventHandler = (event: Event) => {
       const pathname = (event as CustomEvent<string>).detail;
-      const newPathname = `${EnterpriseLoginBaseName}${pathname}`;
+      const newPathname = `${CompanyDashboardBaseName}${pathname}`;
       if (newPathname === location.pathname) {
         return;
       }
       navigate(newPathname);
     };
-    window.addEventListener("[appEnterpriseLogin] navigated", appEnterpriseLoginNavigationEventHandler);
+    window.addEventListener("[appCompanyDashboard] navigated", appCompanyDashboardNavigationEventHandler);
 
     return () => {
       window.removeEventListener(
-        "[appEnterpriseLogin] navigated",
-        appEnterpriseLoginNavigationEventHandler
+        "[appCompanyDashboard] navigated",
+        appCompanyDashboardNavigationEventHandler
       );
     };
   }, [location]);
@@ -33,10 +33,10 @@ export default () => {
   // Listen for shell location changes and dispatch a notification.
   useEffect(
     () => {
-      if (location.pathname.startsWith(EnterpriseLoginBaseName)) {
+      if (location.pathname.startsWith(CompanyDashboardBaseName)) {
         window.dispatchEvent(
           new CustomEvent("[shell] navigated", {
-            detail: location.pathname.replace(EnterpriseLoginBaseName, ""),
+            detail: location.pathname.replace(CompanyDashboardBaseName, ""),
           })
         );
       }
@@ -46,7 +46,7 @@ export default () => {
 
   const isFirstRunRef = useRef(true);
   const unmountRef = useRef(() => {});
-  // Mount appEnterpriseLogin MFE
+  // Mount appCompanyDashboard MFE
   useEffect(
     () => {
       if (!isFirstRunRef.current) {
@@ -55,7 +55,7 @@ export default () => {
       unmountRef.current = mount({
         mountPoint: wrapperRef.current!,
         initialPathname: location.pathname.replace(
-          EnterpriseLoginBaseName,
+          CompanyDashboardBaseName,
           ''
         ),
       });
@@ -66,5 +66,5 @@ export default () => {
 
   useEffect(() => unmountRef.current, []);
 
-  return <div ref={wrapperRef} id="appEnterpriseLogin-mfe" />;
+  return <div ref={wrapperRef} id="appCompanyDashboard-mfe" />;
 };

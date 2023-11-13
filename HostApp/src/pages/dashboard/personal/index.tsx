@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { mount } from "clientLoginApp/clientLoginAppIndex";
+import { mount } from "personalDashboardApp/personalDashboardAppIndex";
 import { useLocation, useNavigate } from "react-router-dom";
-import { clientLoginAppPrefix } from "../../../constants/routes.constant";
+import { personalDashboardAppPrefix } from "../../../constants/routes.constant";
 
-const PersonalLoginBaseName = `/${clientLoginAppPrefix}`;
+const PersonalDashboardBaseName = `/${personalDashboardAppPrefix}`;
 
 export default () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -14,7 +14,7 @@ export default () => {
   useEffect(() => {
     const appPersonalLoginNavigationEventHandler = (event: Event) => {
       const pathname = (event as CustomEvent<string>).detail;
-      const newPathname = `${PersonalLoginBaseName}${pathname}`;
+      const newPathname = `${PersonalDashboardBaseName}${pathname}`;
       if (newPathname === location.pathname) {
         return;
       }
@@ -33,10 +33,10 @@ export default () => {
   // Listen for shell location changes and dispatch a notification.
   useEffect(
     () => {
-      if (location.pathname.startsWith(PersonalLoginBaseName)) {
+      if (location.pathname.startsWith(PersonalDashboardBaseName)) {
         window.dispatchEvent(
           new CustomEvent("[shell] navigated", {
-            detail: location.pathname.replace(PersonalLoginBaseName, ""),
+            detail: location.pathname.replace(PersonalDashboardBaseName, ""),
           })
         );
       }
@@ -55,7 +55,7 @@ export default () => {
       unmountRef.current = mount({
         mountPoint: wrapperRef.current!,
         initialPathname: location.pathname.replace(
-          PersonalLoginBaseName,
+          PersonalDashboardBaseName,
           ''
         ),
       });

@@ -1,6 +1,6 @@
 export const landingAppPrefix = 'landing';
-export const clientLoginAppPrefix = 'clientLogin';
-export const enterpriseLoginAppPrefix = 'enterpriseLogin';
+export const personalLoginAppPrefix = 'clientLogin';
+export const companyLoginAppPrefix = 'companyLogin';
 export const internetBankingMenuAppPrefix = 'internetBankingMenu';
-export const clientDashboardAppPrefix = 'clientDashboard';
-export const enterpriseDashboardAppPrefix = 'enterpriseDashboard';
+export const personalDashboardAppPrefix = 'personalDashboard';
+export const companyDashboardAppPrefix = 'companyDashboard';

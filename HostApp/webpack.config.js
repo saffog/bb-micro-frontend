@@ -44,14 +44,12 @@ module.exports = (_, argv) => ({
       name: "HostApp",
       filename: "remoteEntry.js",
       remotes: {
-        landingApp: 'landingApp@http://localhost:9001/remoteEntry.js',
-        clientLoginApp: 'clientLoginApp@http://localhost:9002/remoteEntry.js',
-        enterpriseLoginApp: 'enterpriseLoginApp@http://localhost:9003/remoteEntry.js',
-        internetBankingMenuApp: 'internetBankingMenuApp@http://localhost:9004/remoteEntry.js',
-        clientDashboardApp: 'clientDashboardApp@http://localhost:9005/remoteEntry.js',
-        enterpriseDashboardApp: 'clientDashboardApp@http://localhost:9006/remoteEntry.js',
-        aboutUsApp: 'aboutUsApp@http://localhost:9007/remoteEntry.js',
-        productsApp: 'productsApp@http://localhost:9008/remoteEntry.js',
+        // landingApp: 'landingApp@http://localhost:9001/remoteEntry.js', Example to integrate a MF within the HostApp
+        personalLoginApp: 'personalLoginApp@http://localhost:9001/remoteEntry.js',
+        companyLoginApp: 'companyLoginApp@http://localhost:9002/remoteEntry.js',
+        internetBankingMenuApp: 'internetBankingMenuApp@http://localhost:9003/remoteEntry.js',
+        personalDashboardApp: 'personalDashboardApp@http://localhost:9004/remoteEntry.js',
+        companyDashboardApp: 'companyDashboardApp@http://localhost:9005/remoteEntry.js',
       },
       exposes: {},
       shared: {

@@ -1,31 +1,31 @@
 import React, { useEffect, useRef } from "react";
-import { mount } from "clientDashboardApp/clientDashboardAppIndex";
+import { mount } from "personalLoginApp/personalLoginAppIndex";
 import { useLocation, useNavigate } from "react-router-dom";
-import { clientDashboardAppPrefix } from "../../../constants/routes.constant";
+import { personalLoginAppPrefix } from "../../../constants/routes.constant";
 
-const PersonalDashboardBaseName = `/${clientDashboardAppPrefix}`;
+const PersonalLoginBaseName = `/${personalLoginAppPrefix}`;
 
 export default () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Listen to navigation events dispatched inside appPersonalDashboard mfe.
+  // Listen to navigation events dispatched inside appPersonalLogin mfe.
   useEffect(() => {
-    const appPersonalDashboardNavigationEventHandler = (event: Event) => {
+    const appPersonalLoginNavigationEventHandler = (event: Event) => {
       const pathname = (event as CustomEvent<string>).detail;
-      const newPathname = `${PersonalDashboardBaseName}${pathname}`;
+      const newPathname = `${PersonalLoginBaseName}${pathname}`;
       if (newPathname === location.pathname) {
         return;
       }
       navigate(newPathname);
     };
-    window.addEventListener("[appPersonalDashboard] navigated", appPersonalDashboardNavigationEventHandler);
+    window.addEventListener("[appPersonalLogin] navigated", appPersonalLoginNavigationEventHandler);
 
     return () => {
       window.removeEventListener(
-        "[appPersonalDashboard] navigated",
-        appPersonalDashboardNavigationEventHandler
+        "[appPersonalLogin] navigated",
+        appPersonalLoginNavigationEventHandler
       );
     };
   }, [location]);
@@ -33,10 +33,10 @@ export default () => {
   // Listen for shell location changes and dispatch a notification.
   useEffect(
     () => {
-      if (location.pathname.startsWith(PersonalDashboardBaseName)) {
+      if (location.pathname.startsWith(PersonalLoginBaseName)) {
         window.dispatchEvent(
           new CustomEvent("[shell] navigated", {
-            detail: location.pathname.replace(PersonalDashboardBaseName, ""),
+            detail: location.pathname.replace(PersonalLoginBaseName, ""),
           })
         );
       }
@@ -46,7 +46,7 @@ export default () => {
 
   const isFirstRunRef = useRef(true);
   const unmountRef = useRef(() => {});
-  // Mount appPersonalDashboard MFE
+  // Mount appPersonalLogin MFE
   useEffect(
     () => {
       if (!isFirstRunRef.current) {
@@ -55,7 +55,7 @@ export default () => {
       unmountRef.current = mount({
         mountPoint: wrapperRef.current!,
         initialPathname: location.pathname.replace(
-          PersonalDashboardBaseName,
+          PersonalLoginBaseName,
           ''
         ),
       });
@@ -66,5 +66,5 @@ export default () => {
 
   useEffect(() => unmountRef.current, []);
 
-  return <div ref={wrapperRef} id="appPersonalDashboard-mfe" />;
+  return <div ref={wrapperRef} id="appPersonalLogin-mfe" />;
 };
