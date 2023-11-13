@@ -5,10 +5,17 @@ import Card from '../../molecules/Card';
 import ButtonForm from '../../atoms/Button';
 
 import './Login.css';
+import usePost from '../../../hooks/usePost';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const {data, callPost } = usePost(
+    '/login',
+    {
+      body: JSON.stringify({ email, password }),
+    });
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -18,10 +25,11 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log('Email: ', email);
     console.log('Password: ', password);
+    callPost();
   };
 
   return (

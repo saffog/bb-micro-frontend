@@ -5,10 +5,17 @@ import ButtonForm from '../../atoms/Button';
 import Card from '../../molecules/Card';
 
 import './ForgotPassword.css';
+import usePost from '../../../hooks/usePost';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const [emailSent, setEmailSent] = useState(false);
+
+  const {data, callPost } = usePost(
+    '/forgot-password',
+    {
+      body: JSON.stringify({ email }),
+    });
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -16,6 +23,7 @@ const ForgotPassword = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    callPost();
 
     setEmailSent(true);
   };

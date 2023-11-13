@@ -6,6 +6,7 @@ import CheckboxForm from '../../atoms/CheckBox';
 import Card from '../../molecules/Card';
 
 import './Register.css';
+import usePost from '../../../hooks/usePost';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -14,6 +15,12 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(true);
+
+  const {data, callPost } = usePost(
+    '/signup',
+    {
+      body: JSON.stringify({ name, email, password, agreeTerms }),
+    });
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -46,11 +53,10 @@ const Register = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    if (password === confirmPassword) {
-      setPasswordMatch(true);
-    } else {
-      setPasswordMatch(false);
+    if (passwordMatch) {
+      callPost();
     }
+
   };
 
   return (
