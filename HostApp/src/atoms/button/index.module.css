@@ -1,17 +1,26 @@
 .buttonContainer{
-    margin:10xp;
+    margin:20xp;
+}
+.buttonContainer:nth-child(2){
+    margin-left: 20px;
 }
 .buttonContainer button{
     background-color:#8EB010 ;
     color: #FFFFFF;
+    font-size: 11pt;
     font-style: normal;
     font-weight: bold;
     height: 50px;
-    width: 100px;
+    width: 150px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 1px 1px 10px #d1f833;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .buttonContainer button:hover{
-    background-color:#d6f079 ;
+    background-color:#cbec54 ;
     color: #FFFFFF;
     cursor: pointer;
+    animation: 0.2 linear infinite;
 }

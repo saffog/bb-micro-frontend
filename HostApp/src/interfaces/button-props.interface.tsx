@@ -2,5 +2,6 @@ export default interface ButtonProps{
     name?:string;
     width?:number;
     onClick?:()=>void;
-    type?: "button" | "submit" | "reset" | undefined
+    type?: "button" | "submit" | "reset" | undefined;
+    backgroundColor?:string;
 }

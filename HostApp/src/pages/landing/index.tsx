@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../atoms/button/index';
-import { LoginContainer } from '../../organisms/login-container/index';
+import { HeroContainer } from '../../organisms/hero-container/index';
 import { AboutContainer } from '../../organisms/about-container';
 import { ProductsContainer } from '../../organisms/products-container';
 import { ContactContainer } from '../../organisms/contact-container';
@@ -14,7 +14,7 @@ export default () => {
   return (
     <>
       <div className='container'>
-        <LoginContainer />
+        <HeroContainer />
         <AboutContainer />
         <ProductsContainer />
         <ContactContainer />
