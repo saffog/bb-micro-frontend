@@ -1,9 +1,9 @@
 import React from 'react'
 import { Line } from "react-chartjs-2";
-import { Chart, LineElement, CategoryScale, LinearScale, PointElement } from "chart.js";
+import { Chart, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend } from "chart.js";
 
 Chart.register(
-  LineElement, CategoryScale, LinearScale, PointElement
+  LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend
 )
 
 export const Graphic = () => {
@@ -16,11 +16,15 @@ export const Graphic = () => {
       {
         label: "Ingresos",
         data: [8, 7, 4, 6, 8, 5, 10],
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
         tension: 0.5
       },
       {
         label: "Egresos",
-        data: [8, 7, 4, 6, 8, 5, 10],
+        data: [4, 2, 5, 8, 2, 7, 1],
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
         tension: 0.5
       },
     ]
@@ -32,15 +36,11 @@ export const Graphic = () => {
       legend: {
         position: 'top' as const,
       },
-      title: {
-        display: true,
-        text: 'Chart.js Line Chart',
-      },
     },
   }
 
   return (
-    <div className="text-center bg-blue-500 rounded-lg shadow-lg p-5" >
+    <div className="text-center bg-blue-500 rounded-lg shadow-lg ml-2 md:container" >
         <h1 className="border-2 border-black">Info</h1>
 
         <h4 className="flex-grow" > Ingresos vs Egresos </h4>

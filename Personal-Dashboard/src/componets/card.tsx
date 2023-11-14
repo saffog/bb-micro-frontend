@@ -13,7 +13,7 @@ function Card() {
 
             <div key= {Info.userId}>
                 { Info.products.map((Info: any) => (
-                    <div className="bg-white border rounded-lg shadow-lg p-5" key= {Info.type}>
+                    <div className="bg-white border rounded-lg shadow-lg p-5 mt-2" key= {Info.type}>
                       <h1 className="text-2xl capitalize" > {Info.type} </h1>
                       <h1 className="text-2xl capitalize" > {Info.description} </h1>
                       
