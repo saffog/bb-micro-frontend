@@ -1,3 +1,3 @@
 export * from './LoginPage';
-export * from './RegisterPage';
+export * from './SignupPage';
 export * from './ForgotPasswordPage';

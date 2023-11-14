@@ -12,3 +12,9 @@
     padding: 20px;
 }
 
+.errorMessage {
+    color: #dc3545;
+    margin-top: 10px;
+    font-size: 14px;
+}
+

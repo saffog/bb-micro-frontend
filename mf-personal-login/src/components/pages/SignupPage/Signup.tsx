@@ -4,11 +4,11 @@ import InputLabel from '../../molecules/InputLabel';
 import ButtonForm from '../../atoms/Button';
 import CheckboxForm from '../../atoms/CheckBox';
 import Card from '../../molecules/Card';
-
-import './Register.css';
 import usePost from '../../../hooks/usePost';
 
-const Register = () => {
+import './Signup.css';
+
+const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,11 +16,7 @@ const Register = () => {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(true);
 
-  const {data, callPost } = usePost(
-    '/signup',
-    {
-      body: JSON.stringify({ name, email, password, agreeTerms }),
-    });
+  const {data, callPost, error } = usePost('/signup');
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -54,7 +50,9 @@ const Register = () => {
     e.preventDefault();
 
     if (passwordMatch) {
-      callPost();
+      callPost({
+        body: JSON.stringify({ name, email, password }),
+      });
     }
 
   };
@@ -87,6 +85,7 @@ const Register = () => {
             type='password'
           />
           {!passwordMatch && <p className="errorMessage">Las contraseñas no coinciden.</p>}
+          {!!error && <p className="errorMessage">Credenciales incorrectas. Inténtalo de nuevo.</p>}
           <CheckboxForm
             name='agreeTerms'
             checked={agreeTerms}
@@ -100,4 +99,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Signup;
