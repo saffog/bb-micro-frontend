@@ -8,14 +8,16 @@ type FormTemplateProps = {
   title?: string;
   onSubmit: (...args: any[]) => void;
   formType: "login" | "createAccount" | "passwordRecovery";
+  error: string;
 };
 
 const FormTemplate: React.FC<FormTemplateProps> = ({
   title,
   onSubmit,
   formType,
+  error,
 }) => {
-  const formComponent = generateForm(formType, onSubmit);
+  const formComponent = generateForm(formType, onSubmit, error);
 
   return (
     <div>
@@ -27,12 +29,15 @@ const FormTemplate: React.FC<FormTemplateProps> = ({
 
 const generateForm = (
   formType: string,
-  onSubmit: () => void
+  onSubmit: () => void,
+  error: string
 ): JSX.Element | null => {
   const formComponents: Record<string, JSX.Element> = {
-    login: <LoginForm onSubmit={onSubmit} />,
-    createAccount: <CreateAccountForm onSubmit={onSubmit} />,
-    passwordRecovery: <PasswordRecoveryForm onSubmit={onSubmit} />,
+    login: <LoginForm onSubmit={onSubmit} error={error} />,
+    createAccount: <CreateAccountForm onSubmit={onSubmit} error={error} />,
+    passwordRecovery: (
+      <PasswordRecoveryForm onSubmit={onSubmit} error={error} />
+    ),
   };
 
   return formComponents[formType] || null;

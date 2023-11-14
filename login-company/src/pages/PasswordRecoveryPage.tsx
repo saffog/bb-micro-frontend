@@ -8,26 +8,33 @@ type PasswordRecoveryProps = {
 
 const PasswordRecoveryPage: React.FC<PasswordRecoveryProps> = ({ title }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = (email: string) => {
-    fetch("/recovery-password", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer your-token",
-      },
-      body: JSON.stringify({
-        userEmail: email,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setModalOpen(true);
-        console.log(data);
+    if (!email) {
+      setError("Por favor, complete todos los campos");
+      return;
+    } else {
+      fetch("/recovery-password", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer your-token",
+        },
+        body: JSON.stringify({
+          userEmail: email,
+        }),
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          setModalOpen(true);
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      setError("");
+    }
   };
 
   const handleOnClose = () => {
@@ -43,6 +50,7 @@ const PasswordRecoveryPage: React.FC<PasswordRecoveryProps> = ({ title }) => {
         formType="passwordRecovery"
         title="Olvidó Contraseña"
         onSubmit={handleSubmit}
+        error={error}
       />
       {modalOpen && (
         <Modal
