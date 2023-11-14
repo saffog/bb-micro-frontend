@@ -11,7 +11,7 @@ const CreateAccountPage: React.FC<CreateAccountProps> = ({title}) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleSubmit = (empresa: string , representante: string, email: string, password: string, password2: string, ok: boolean) => {
-    fetch('https://mf-login-company.free.beeceptor.com/companies', {
+    fetch('/companies', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -19,7 +19,11 @@ const CreateAccountPage: React.FC<CreateAccountProps> = ({title}) => {
       },
       body: JSON.stringify({
         userName: empresa,
+        representative: representante,
         userEmail: email,
+        password: password,
+        password2: password2,
+        ok: ok,
       })
     })
     .then(response => response.json())

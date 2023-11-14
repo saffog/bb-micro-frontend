@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import Button from '../atoms/Button';
-import '../../styles/Modal.css';
+import React, { useState } from "react";
+import Button from "../atoms/Button";
+import "../../styles/Modal.css";
 
 interface ModalProps {
-    title: string;
-    content: string;
-    onClose: () => void
+  title: string;
+  content: string;
+  onClose: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({title, content, onClose}) => {
-
+const Modal: React.FC<ModalProps> = ({ title, content, onClose }) => {
   return (
     <div className="modal">
       <div className="modal-content">
