@@ -3,23 +3,12 @@ import FormField from "../molecules/FormField";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import { Link } from "react-router-dom";
-
-type CreateAccountFormProps = {
-  onSubmit: (
-    empresa: string,
-    representante: string,
-    email: string,
-    password: string,
-    password2: string,
-    ok: boolean
-  ) => void;
-  error: string;
-};
+import { CreateAccountFormProps } from "../../interfaces/interfaces";
 
 const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   onSubmit,
   error,
-}) => {
+}: CreateAccountFormProps) => {
   const [empresa, setEmpresa] = useState("");
   const [representante, setRepresentante] = useState("");
   const [email, setEmail] = useState("");

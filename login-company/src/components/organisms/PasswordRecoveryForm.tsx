@@ -2,16 +2,12 @@ import React, { useState } from "react";
 import FormField from "../molecules/FormField";
 import Button from "../atoms/Button";
 import { Link } from "react-router-dom";
-
-type PasswordRecoveryFormProps = {
-  onSubmit: (email: string) => void;
-  error: string;
-};
+import { PasswordRecoveryFormProps } from "../../interfaces/interfaces";
 
 const PasswordRecoveryForm: React.FC<PasswordRecoveryFormProps> = ({
   onSubmit,
   error,
-}) => {
+}: PasswordRecoveryFormProps) => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = () => {

@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import FormTemplate from "../components/templates/FormTemplate";
 import { login } from "../apis/apis";
+import { PageProps } from "../interfaces/interfaces";
 
-type LoginProps = {
-  title?: string;
-};
-
-const LoginPage: React.FC<LoginProps> = ({ title }) => {
+const LoginPage: React.FC<PageProps> = ({ title }: PageProps) => {
   const [error, setError] = useState("");
   const handleSubmit = (email: string, password: string) => {
     if (!email || !password) {

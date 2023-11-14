@@ -1,13 +1,16 @@
 import React from "react";
+import { ButtonProps } from "../../interfaces/interfaces";
 
-type ButtonProps = {
-  text: string;
-  styledClass?: string;
-  onClick?: () => void;
-};
-
-const Button: React.FC<ButtonProps> = ({ text, styledClass, onClick }) => {
-  return <button className={styledClass} onClick={onClick}>{text}</button>;
+const Button: React.FC<ButtonProps> = ({
+  text,
+  styledClass,
+  onClick,
+}: ButtonProps) => {
+  return (
+    <button className={styledClass} onClick={onClick}>
+      {text}
+    </button>
+  );
 };
 
 export default Button;

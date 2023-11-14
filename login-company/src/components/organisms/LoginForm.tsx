@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import FormField from "../molecules/FormField";
 import Button from "../atoms/Button";
 import { Link } from "react-router-dom";
+import { LoginFormProps } from "../../interfaces/interfaces";
 
-type LoginFormProps = {
-  onSubmit: (email: string, password: string) => void;
-  error: string;
-};
-
-const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, error }) => {
+const LoginForm: React.FC<LoginFormProps> = ({
+  onSubmit,
+  error,
+}: LoginFormProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

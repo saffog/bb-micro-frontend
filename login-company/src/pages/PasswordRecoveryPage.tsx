@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import FormTemplate from "../components/templates/FormTemplate";
 import Modal from "../components/templates/ModalTemplate";
 import { recoverPassword } from "../apis/apis";
+import { PageProps } from "../interfaces/interfaces";
 
-type PasswordRecoveryProps = {
-  title?: string;
-};
-
-const PasswordRecoveryPage: React.FC<PasswordRecoveryProps> = ({ title }) => {
+const PasswordRecoveryPage: React.FC<PageProps> = ({ title }: PageProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [error, setError] = useState("");
 

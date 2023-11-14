@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import FormTemplate from "../components/templates/FormTemplate";
 import Modal from "../components/templates/ModalTemplate";
 import { createAccount } from "../apis/apis";
+import { PageProps } from "../interfaces/interfaces";
 
-type CreateAccountProps = {
-  title?: string;
-};
-
-const CreateAccountPage: React.FC<CreateAccountProps> = ({ title }) => {
+const CreateAccountPage: React.FC<PageProps> = ({ title }: PageProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [error, setError] = useState("");
 

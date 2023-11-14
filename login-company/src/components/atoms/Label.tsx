@@ -1,14 +1,8 @@
 import React from "react";
+import { LabelProps } from "../../interfaces/interfaces";
 
-type LabelProps = {
-    content: string;
-    styledClass?: string
+const Label: React.FC<LabelProps> = ({ content, styledClass }: LabelProps) => {
+  return <label className={styledClass}>{content}</label>;
 };
-
-const Label: React.FC<LabelProps> = ({content, styledClass}) => {
-  return (
-    <label className={styledClass}>{content}</label>
-  );
-}
 
 export default Label;

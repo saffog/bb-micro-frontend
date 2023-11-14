@@ -1,22 +1,26 @@
 import React from "react";
 import Label from "../atoms/Label";
 import Input from "../atoms/Input";
+import { FormFieldProps } from "../../interfaces/interfaces";
 
-type FormFieldProps = {
-    labelContent: string,
-    inputType: string,
-    inputName: string,
-    inputValue?: string,
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-}
-
-const FormField: React.FC<FormFieldProps> = ({labelContent, inputType, inputName, inputValue, onChange}) => {
+const FormField: React.FC<FormFieldProps> = ({
+  labelContent,
+  inputType,
+  inputName,
+  inputValue,
+  onChange,
+}: FormFieldProps) => {
   return (
-      <div>
-        <Label content={labelContent}/>
-        <Input type={inputType} name={inputName} value={inputValue} onChange={onChange}/>
-      </div>
-  )
-}
+    <div>
+      <Label content={labelContent} />
+      <Input
+        type={inputType}
+        name={inputName}
+        value={inputValue}
+        onChange={onChange}
+      />
+    </div>
+  );
+};
 
 export default FormField;

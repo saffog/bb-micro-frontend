@@ -3,20 +3,13 @@ import LoginForm from "../organisms/LoginForm";
 import CreateAccountForm from "../organisms/CreateAccountForm";
 import PasswordRecoveryForm from "../organisms/PasswordRecoveryForm";
 import "../../styles/Forms.css";
-
-type FormTemplateProps = {
-  title?: string;
-  onSubmit: (...args: any[]) => void;
-  formType: "login" | "createAccount" | "passwordRecovery";
-  error: string;
-};
-
+import { FormTemplateProps } from "../../interfaces/interfaces";
 const FormTemplate: React.FC<FormTemplateProps> = ({
   title,
   onSubmit,
   formType,
   error,
-}) => {
+}: FormTemplateProps) => {
   const formComponent = generateForm(formType, onSubmit, error);
 
   return (

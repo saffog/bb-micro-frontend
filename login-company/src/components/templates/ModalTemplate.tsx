@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import Button from "../atoms/Button";
 import "../../styles/Modal.css";
+import { ModalProps } from "../../interfaces/interfaces";
 
-interface ModalProps {
-  title: string;
-  content: string;
-  onClose: () => void;
-}
-
-const Modal: React.FC<ModalProps> = ({ title, content, onClose }) => {
+const Modal: React.FC<ModalProps> = ({
+  title,
+  content,
+  onClose,
+}: ModalProps) => {
   return (
     <div className="modal">
       <div className="modal-content">
