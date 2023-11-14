@@ -32,7 +32,7 @@ export const handlers = [
       });
     }
   }),
-  http.post("/recovery-password", async ({ request }) => {
+  http.post("/password-recovery", async ({ request }) => {
     const requestBody: RequestBody | undefined =
       (await request.json()) as RequestBody;
     const userEmail = requestBody.userEmail;

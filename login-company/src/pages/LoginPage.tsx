@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FormTemplate from "../components/templates/FormTemplate";
+import { login } from "../apis/apis";
 
 type LoginProps = {
   title?: string;
@@ -11,30 +12,11 @@ const LoginPage: React.FC<LoginProps> = ({ title }) => {
     if (!email || !password) {
       setError("Por favor, complete todos los campos");
       return;
-    } else {
-      fetch("/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer your-token",
-        },
-        body: JSON.stringify({
-          userEmail: email,
-          password: password,
-        }),
-      })
-        .then((response) => {
-          if (response.status === 401) {
-            setError("Usuario o contraseña incorrectos");
-          }
-          return response.json();
-        })
-        .then((data) => console.log(data))
-        .catch((error) => {
-          console.log("Ha ocurrido un error", error);
-        });
-      setError("");
     }
+    login(email, password)
+      .then((data) => console.log(data))
+      .catch((error) => setError(error.message));
+    setError("");
   };
 
   return (

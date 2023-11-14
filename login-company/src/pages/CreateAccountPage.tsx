@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormTemplate from "../components/templates/FormTemplate";
 import Modal from "../components/templates/ModalTemplate";
+import { createAccount } from "../apis/apis";
 
 type CreateAccountProps = {
   title?: string;
@@ -28,32 +29,18 @@ const CreateAccountPage: React.FC<CreateAccountProps> = ({ title }) => {
     ) {
       setError("Por favor, complete todos los campos");
       return;
-    } else {
-      fetch("/companies", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer your-token",
-        },
-        body: JSON.stringify({
-          userName: empresa,
-          representative: representante,
-          userEmail: email,
-          password: password,
-          password2: password2,
-          ok: ok,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setModalOpen(true);
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-      setError("");
     }
+
+    createAccount(empresa, representante, email, password, password2, ok)
+      .then((data) => {
+        setModalOpen(true);
+        console.log(data);
+      })
+      .catch((error) => {
+        setError("Ha ocurrido un error");
+        console.error("Error:", error);
+      });
+    setError("");
   };
 
   const handleOnClose = () => {

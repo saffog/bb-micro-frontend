@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormTemplate from "../components/templates/FormTemplate";
 import Modal from "../components/templates/ModalTemplate";
+import { recoverPassword } from "../apis/apis";
 
 type PasswordRecoveryProps = {
   title?: string;
@@ -15,22 +16,13 @@ const PasswordRecoveryPage: React.FC<PasswordRecoveryProps> = ({ title }) => {
       setError("Por favor, complete todos los campos");
       return;
     } else {
-      fetch("/recovery-password", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer your-token",
-        },
-        body: JSON.stringify({
-          userEmail: email,
-        }),
-      })
-        .then((response) => response.json())
+      recoverPassword(email)
         .then((data) => {
           setModalOpen(true);
           console.log(data);
         })
         .catch((error) => {
+          setError("Ha ocurrido un error");
           console.error("Error:", error);
         });
       setError("");
