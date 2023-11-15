@@ -191,5 +191,9 @@ import('./bootstrap').then(
 
 - Follow the next example if you have doubts about the microfrontend configuration for this project.
   - https://github.com/saffog/bb-micro-frontend/tree/examplemf/landing-app
+
+## References:
   - https://github.com/nebarf/module-federation-react-router-dom
+  - https://stackoverflow.com/questions/70639472/webpack-module-federation-and-react-router-dom
+  - https://stackoverflow.com/questions/75307921/webpack-module-federation-with-react-router-getting-query-params-from-microfro
 
