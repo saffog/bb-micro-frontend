@@ -6,7 +6,7 @@ import { Graphic } from "./componets/graphic";
 import Card from "./componets/card";
 
 const App = () => (
-  <div className="mt-10 text-3xl mx-auto max-w-6xl inline-grid ">
+  <div className="mt-10 text-3xl mx-auto max-w-6xl flex">
     <Graphic/>
     <Card />
   </div>
