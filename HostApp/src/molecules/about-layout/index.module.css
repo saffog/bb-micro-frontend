@@ -1,0 +1,26 @@
+.contentContainer{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    border-radius: 30px;
+    margin-left: 20px;
+}
+
+.contentLayout{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+}
+
+.contentLayout img{
+    display: block;
+    position: relative;
+    width: 200px;
+    margin: auto;
+}
+.contentLayout p{
+    flex:1;
+}

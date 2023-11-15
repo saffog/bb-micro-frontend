@@ -1,0 +1,25 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200&family=Nunito:wght@200&display=swap');
+body{
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Nunito;
+}
+
+h1{
+  font-size: 40px;
+}
+
+h2{
+  font-size: 35px;
+}
+h3{
+  font-size: 25px;
+}
+
+p, span{
+  font-size: 14pt;
+}
+

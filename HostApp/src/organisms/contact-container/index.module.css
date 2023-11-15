@@ -1,0 +1,40 @@
+.mainContainer{
+    padding: 30px;
+    background-color: #8EB010;
+    margin: 0;
+    color: #fff;
+}
+.container{
+    display: flex;
+    justify-content: space-around; /* Ajusta la distribución de espacio entre los elementos */
+    align-items: center; /* Centra los elementos verticalmente */
+    text-align: center; /* Alinea el texto al centro */
+}
+
+.container > div {
+    opacity: 0.4;
+    max-width: 300px;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.container > div:hover {
+    opacity: 1;
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Añade una sombra al pasar el mouse */
+}
+
+.title{
+    text-align: center;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.title p{
+    padding-left: 120px;
+    padding-right: 120px;
+    text-align: justify;
+}
+
