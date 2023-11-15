@@ -1,0 +1,8 @@
+declare module 'landingApp/landingAppIndex'
+declare module 'personalLoginApp/personalLoginAppIndex'
+declare module 'companyLoginApp/companyLoginAppIndex'
+declare module 'internetBankingMenuApp/internetBankingMenuAppIndex'
+declare module 'personalDashboardApp/personalDashboardAppIndex'
+declare module 'companyDashboardApp/companyDashboardAppIndex'
+declare module 'aboutUsApp/aboutUsAppIndex'
+declare module 'productsApp/productsApp'
