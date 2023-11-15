@@ -96,7 +96,6 @@ const App = () => (
         leftMidleText={`**** 8976`}
         rightUpperText={`$45,987.00`}
         />
-
       </div>
     </div>
   </div>
