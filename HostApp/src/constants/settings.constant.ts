@@ -44,6 +44,8 @@ export const settings: Settings = {
         }
       ],
     },
+    contentFolder:"company",
+    content:"CompanyDashboardBase"
   },
   PERSONAL: {
     label: "Cuenta Personal",
@@ -78,5 +80,8 @@ export const settings: Settings = {
         }
       ],
     },
+    contentFolder:"personal",
+    content:"PersonalDashboardBase"
+
   },
 };

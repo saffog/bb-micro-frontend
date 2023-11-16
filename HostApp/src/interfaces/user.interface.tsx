@@ -1,4 +1,4 @@
-export type AccountType="ENTERPRISE" | "PERSONAL";
+export type AccountType = "ENTERPRISE" | "PERSONAL";
 
 export default interface User {
   accountType: AccountType;

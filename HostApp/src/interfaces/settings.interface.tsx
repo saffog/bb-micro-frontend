@@ -1,23 +1,25 @@
 export default interface Settings {
-    ENTERPRISE: ENTERPRISE;
-    PERSONAL:   PERSONAL;
+  ENTERPRISE: ENTERPRISE;
+  PERSONAL: PERSONAL;
 }
-export interface ENTERPRISE extends Setting{}
-export interface PERSONAL extends Setting{}
+export interface ENTERPRISE extends Setting {}
+export interface PERSONAL extends Setting {}
 
 export interface Setting {
-    label: string;
-    color: string;
-    icon:  string;
-    menu:  Menu;
+  label: string;
+  color: string;
+  icon: string;
+  menu: Menu;
+  content: string;
+  contentFolder:string;
 }
 
 export interface Menu {
-    options: Option[];
+  options: Option[];
 }
 
 export interface Option {
-    title: string;
-    icon:  string;
-    route: string;
+  title: string;
+  icon: string;
+  route: string;
 }

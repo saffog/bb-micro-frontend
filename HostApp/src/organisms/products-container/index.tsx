@@ -4,7 +4,7 @@ import { Button } from '../../atoms/button';
 
 export const ProductsContainer = () => {
   return (
-    <div className={styles.mainContainer}>
+    <div className={styles.mainContainer} id='products'>
       <div className={styles.containerImage}>
         <img src='/assets/images/banking-about.jpeg'></img>
       </div>

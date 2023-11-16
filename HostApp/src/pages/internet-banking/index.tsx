@@ -15,9 +15,9 @@ const LandingBaseName = `/${landingAppPrefix}`;
 
 export default () => {
   const [user, setUser] = useState<User>({
-    accountType: "ENTERPRISE",
-    userName: "Jhon Doe",
-    userId: "User Id",
+    accountType: "PERSONAL",
+    userName: "Juanito",
+    userId: "123",
   });
 
   return (
