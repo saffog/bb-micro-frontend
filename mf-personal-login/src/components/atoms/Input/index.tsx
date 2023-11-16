@@ -1,15 +1,15 @@
-import React, {CSSProperties, HTMLProps} from 'react';
-import './index.css';
+import React, {HTMLProps} from 'react';
+import styles from './index.module.css';
 
 export interface InputProps extends HTMLProps<HTMLInputElement> {
   required?: boolean;
-  style?: CSSProperties;
+  className?: string;
 }
 
-const InputForm = ({ value, onChange, required = true, type, style }: InputProps) => {
+const InputForm = ({ value, onChange, required = true, type, className }: InputProps) => {
   return (
     <input
-      className={`${style} inputForm`}
+      className={`${styles.input} ${className}`}
       type={type}
       value={value}
       onChange={onChange}

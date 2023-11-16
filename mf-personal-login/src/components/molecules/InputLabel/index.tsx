@@ -1,16 +1,17 @@
-import React, {CSSProperties} from 'react';
+import React from 'react';
 import LabelForm from '../../atoms/Label';
 import InputForm, {InputProps} from '../../atoms/Input';
-import './index.css';
+import styles from './index.module.css';
 
 interface InputLabelProps extends InputProps {
   title: string;
   name: string;
-  style?: CSSProperties;
+  className?: string;
+  direction?: 'row' | 'column';
 }
-const InputLabel = ({ title, name, type='text', value, onChange, onBlur, required, style }: InputLabelProps) => {
+const InputLabel = ({ direction = 'column', title, name, type='text', value, onChange, onBlur, required, className }: InputLabelProps) => {
   return (
-    <div className={`${style} formGroup`}>
+    <div className={`${styles.formGroup} ${className} ${direction === 'row' ? styles.row : styles.column }`}>
       <LabelForm value={title} name={name} />
       <InputForm
         id={name}
@@ -20,6 +21,7 @@ const InputLabel = ({ title, name, type='text', value, onChange, onBlur, require
         onChange={onChange}
         onBlur={onBlur}
         required={required}
+        className={styles.inputForm}
       />
     </div>
   );

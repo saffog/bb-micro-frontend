@@ -1,20 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import AppRouter from './router/AppRouter';
+import {LocalRoutes} from './router/Routes';
 import {BrowserRouter} from 'react-router-dom';
-
-const deferRender = async () => {
-  if (process.env.NODE_ENV !== 'development') return;
-  const { worker } = await import('./mocks/browser');
-  return worker.start();
-};
+import {deferRender} from './mocks/mockingSetup';
 
 const App = () => (
-  <AppRouter />
+  <LocalRoutes />
 );
 
-const root = ReactDOM.createRoot(document.getElementById('root')!);
+const root = ReactDOM.createRoot(document.getElementById('appPersonalLogin-mfe')!);
 
 deferRender().then(() => {
   root.render(

@@ -1,16 +1,18 @@
-import React, {CSSProperties, ReactNode} from 'react';
+import React, {ReactNode} from 'react';
+
+import styles from './index.module.css';
 
 interface LabelProps {
   name: string;
   value: ReactNode;
   isRequired?: boolean;
-  style?: CSSProperties;
+  className?: string;
 }
-const LabelForm = ({ name, value, isRequired = true, style }: LabelProps) => {
+const LabelForm = ({ name, value, isRequired = true, className }: LabelProps) => {
   return (
     <label
       htmlFor={name}
-      className={`${style} labelForm`}
+      className={`${styles.labelForm} ${className}`}
     >
       {`${value} ${ isRequired ? '*' : ''}`}
     </label>

@@ -1,15 +1,15 @@
-import React, {ButtonHTMLAttributes, CSSProperties, ReactNode} from 'react';
-import './index.css';
+import React, {ButtonHTMLAttributes, ReactNode} from 'react';
+import styles from './index.module.css';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  style?: CSSProperties;
+  className?: string;
   children: ReactNode;
 }
-const ButtonForm = ({ style, children, type }: ButtonProps) => {
+const ButtonForm = ({ className, children, type }: ButtonProps) => {
   return (
     <button
       type={type}
-      className={`${style} buttonForm`}
+      className={`${styles.buttonForm} ${className}`}
     >
       {children}
     </button>

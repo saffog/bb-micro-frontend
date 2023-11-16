@@ -6,7 +6,7 @@ interface ApiResponse<T> {
   data: T | null;
   isPending: boolean;
   error: Error | null;
-  callPost: (options: RequestOptions) => void;
+  callPost: (options: RequestOptions) => Promise<T>;
 }
 
 interface RequestOptions {
@@ -32,13 +32,13 @@ const usePost = <T>(url: string): ApiResponse<T> => {
       });
 
       if(!response.ok) {
-        console.log(response)
         throw new Error(response.statusText);
       }
 
       const json = await response.json();
       setData(json);
       setError(null);
+      return json;
     } catch (error) {
       console.error('ERROR')
       if(error instanceof Error) setError(error);
