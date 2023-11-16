@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ComponentType, LazyExoticComponent, useState } from "react";
 import { AccountType } from "../../interfaces/user.interface";
 import { settings } from "../../constants/settings.constant";
 import {
@@ -19,6 +19,7 @@ import { NavLink } from "react-router-dom";
 import CompanyDashboardBase from "../../pages/dashboard/company";
 import PersonalDashboardBase from "../../pages/dashboard/personal";
 import MyErrorBoundary from "../../boundary/ErrorBoundary";
+
 
 interface Props {
   accountType: AccountType;
@@ -44,9 +45,8 @@ const getIconByName = (iconName: string) => {
       return <FaLandmark />;
     case "FaUser":
       return <FaUser />;
-    // Add more cases for other icons as needed
     default:
-      return null; // You may want to handle unknown icons differently
+      return null;
   }
 };
 
@@ -55,6 +55,10 @@ const SideBar = ({ accountType }: Props) => {
   const toggleOpen = () => {
     setopen(!open);
   };
+  const DashboardComponent = React.lazy(
+    () => import(`../../pages/dashboard/${settings[accountType].contentFolder}`)
+  );
+
   return (
     <div className={open ? styles.containerOpen : styles.containerClosed}>
       <div className={open ? styles.sidenav : styles.sidenavClosed}>
@@ -78,21 +82,15 @@ const SideBar = ({ accountType }: Props) => {
       </div>
       <div className={styles.content}>
         <MyErrorBoundary>
-          {accountType === "ENTERPRISE" ? (
-            // Uncoment this code to check the integration
-            // <CompanyDashboardBase />
-            <>
-              <h1>CompanyDashboardBase</h1>
-              <p>Implement here the MF</p>
-            </>
-          ) : (
-            // Uncoment this code to check the integration
-            // <PersonalDashboardBase />
-            <>
-              <h1>PersonalDashboardBase</h1>
-              <p>Implement here the MF</p>
-            </>
-          )}
+          <React.Suspense fallback={<div>Loading...</div>}>
+            {/* BEGIN Dashboard implementation*/}
+            {/* <DashboardComponent/> */}
+            {/* END Dashboard implementation*/}
+
+            {/* Delete this code when you finished to implement Dashboard MF */}
+            <span>DashboardComponent</span>
+
+          </React.Suspense>
         </MyErrorBoundary>
       </div>
     </div>

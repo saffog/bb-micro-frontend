@@ -4,7 +4,7 @@ import { AboutLayout } from '../../molecules/about-layout/index';
 
 export const AboutContainer = () => {
     return (
-        <div className={styles.mainContainer}>
+        <div className={styles.mainContainer} id='about'>
             <div className={styles.title}>
                 <h1>Nuestros servicios</h1>
                 <p>En BAU-Banking, nos dedicamos a trascender los límites de la banca convencional.

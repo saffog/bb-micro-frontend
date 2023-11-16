@@ -13,7 +13,7 @@ export const HeroContainer = () => {
 
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} id="hero">
             <LoginLayout
                 title="Bienvenido a BAU-Banking: Transformando la Banca para Ti."
                 bodyContent={
