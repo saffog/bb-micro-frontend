@@ -6,11 +6,17 @@ interface RequestBody {
   password: string;
 }
 
+interface User {
+  userId: number;
+  userEmail: string;
+  password: string;
+}
+
 const validUsers = [
-  { userEmail: "juan.jose1983@gmail.com", password: "123456" },
-  { userEmail: "company@correo.com", password: "456789" },
-  { userEmail: "JJEnterprise@correo.com", password: "987654" },
-  { userEmail: "baufest@baufest.com", password: "987654" },
+  { userId: 1, userEmail: "juan.jose1983@gmail.com", password: "123456" },
+  { userId: 2, userEmail: "company@correo.com", password: "456789" },
+  { userId: 3, userEmail: "JJEnterprise@correo.com", password: "987654" },
+  { userId: 4, userEmail: "baufest@baufest.com", password: "987654" },
 ];
 
 export const handlers = [
@@ -19,15 +25,15 @@ export const handlers = [
       (await request.json()) as RequestBody;
     const userEmail = requestBody.userEmail;
     const password = requestBody.password;
-    const isValidUser = verifyUser(userEmail, password);
-    if (!isValidUser) {
+    const validUser = verifyUser(userEmail, password);
+    if (validUser === null) {
       return new HttpResponse(null, {
         status: 401,
         statusText: "Unauthorized",
       });
     } else {
       return HttpResponse.json({
-        userId: 1,
+        userId: validUser.userId,
         userProfie: "enterprise",
       });
     }
@@ -52,12 +58,7 @@ export const handlers = [
   }),
 ];
 
-const verifyUser = (userEmail: string, password: string) => {
-  const user = validUsers.find(
+const verifyUser = (userEmail: string, password: string): User | null =>
+  validUsers.find(
     (user) => user.userEmail === userEmail && user.password === password
-  );
-  if (user) {
-    return true;
-  }
-  return false;
-};
+  ) || null;

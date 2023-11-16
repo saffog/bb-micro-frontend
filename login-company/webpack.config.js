@@ -41,11 +41,11 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "enterpriseLoginApp",
+      name: "companyLoginApp",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./enterpriseLoginApp": "./src/App",
+        "./companyLoginAppIndex": "./src/bootstrap",
       },
       shared: {
         ...deps,

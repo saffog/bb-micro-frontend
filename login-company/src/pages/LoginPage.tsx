@@ -11,13 +11,19 @@ const LoginPage: React.FC<PageProps> = ({ title }: PageProps) => {
       return;
     }
     login(email, password)
-      .then((data) => console.log(data))
+      .then((data) => {
+        const loginSucces = new CustomEvent("[loginCompany] loginSucces", {
+          detail: data,
+        });
+        window.dispatchEvent(loginSucces);
+        console.log(data);
+      })
       .catch((error) => setError(error.message));
     setError("");
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>{title}</h1>
       <FormTemplate
         formType="login"

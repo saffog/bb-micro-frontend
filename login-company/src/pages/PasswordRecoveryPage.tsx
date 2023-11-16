@@ -33,7 +33,7 @@ const PasswordRecoveryPage: React.FC<PageProps> = ({ title }: PageProps) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>{title}</h1>
       <FormTemplate
         formType="passwordRecovery"
