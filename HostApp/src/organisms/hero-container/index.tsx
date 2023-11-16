@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { LoginLayout } from "../../molecules/login-layout";
 import styles from "./index.module.css";
 import { useNavigate } from "react-router-dom";
-import { companyLoginAppPrefix, personalLoginAppPrefix } from "../../constants/routes.constant";
+import { companyLoginAppPrefix, personalLoginAppPrefix, internetBankingMenuAppPrefix } from "../../constants/routes.constant";
 import { Image } from '../../atoms/image/index';
 
 export const HeroContainer = () => {
     const navigate=useNavigate();
     const onClickLoginPersonal = () => { navigate(`/${personalLoginAppPrefix}`)};
     const onClickLoginEnterprise = () => {navigate(`/${companyLoginAppPrefix}`) };
+    const onClickInternetBanking = () => {navigate(`/${internetBankingMenuAppPrefix}`) };
+
 
     return (
         <div className={styles.container}>
@@ -27,6 +29,11 @@ export const HeroContainer = () => {
                     name: "Login Empresarial",
                     type: "button",
                     onClick: onClickLoginEnterprise,
+
+                },{
+                    name: "Internet Banking(Testing)",
+                    type: "button",
+                    onClick: onClickInternetBanking,
 
                 }]}
             />

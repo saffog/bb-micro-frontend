@@ -1,70 +1,33 @@
-import React, { useEffect, useRef } from "react";
-import { mount } from "internetBankingMenuApp/internetBankingMenuAppIndex";
-import { useLocation, useNavigate } from "react-router-dom";
-import { internetBankingMenuAppPrefix } from "../../constants/routes.constant";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../../atoms/button/index";
+import { HeroContainer } from "../../organisms/hero-container/index";
+import { AboutContainer } from "../../organisms/about-container";
+import { ProductsContainer } from "../../organisms/products-container";
+import { ContactContainer } from "../../organisms/contact-container";
+import { landingAppPrefix } from "../../constants/routes.constant";
+import { StatusBar } from "../../organisms/status-bar";
+import User from "../../interfaces/user.interface";
+import SideBar from "../../organisms/side-bar";
+import MyErrorBoundary from "../../boundary/ErrorBoundary";
 
-const InternetBankingBaseName = `/${internetBankingMenuAppPrefix}`;
+const LandingBaseName = `/${landingAppPrefix}`;
 
 export default () => {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [user, setUser] = useState<User>({
+    accountType: "ENTERPRISE",
+    userName: "Jhon Doe",
+    userId: "User Id",
+  });
 
-  // Listen to navigation events dispatched inside appInternetBanking mfe.
-  useEffect(() => {
-    const appInternetBankingNavigationEventHandler = (event: Event) => {
-      const pathname = (event as CustomEvent<string>).detail;
-      const newPathname = `${InternetBankingBaseName}${pathname}`;
-      if (newPathname === location.pathname) {
-        return;
-      }
-      navigate(newPathname);
-    };
-    window.addEventListener("[appInternetBanking] navigated", appInternetBankingNavigationEventHandler);
-
-    return () => {
-      window.removeEventListener(
-        "[appInternetBanking] navigated",
-        appInternetBankingNavigationEventHandler
-      );
-    };
-  }, [location]);
-
-  // Listen for shell location changes and dispatch a notification.
-  useEffect(
-    () => {
-      if (location.pathname.startsWith(InternetBankingBaseName)) {
-        window.dispatchEvent(
-          new CustomEvent("[shell] navigated", {
-            detail: location.pathname.replace(InternetBankingBaseName, ""),
-          })
-        );
-      }
-    },
-    [location],
+  return (
+    <>
+      <div className="container">
+        <MyErrorBoundary>
+          <StatusBar user={user} />
+          <SideBar accountType={user.accountType} />
+        </MyErrorBoundary>
+      </div>
+    </>
   );
-
-  const isFirstRunRef = useRef(true);
-  const unmountRef = useRef(() => {});
-  // Mount appInternetBanking MFE
-  useEffect(
-    () => {
-      if (!isFirstRunRef.current) {
-        return;
-      }
-      unmountRef.current = mount({
-        mountPoint: wrapperRef.current!,
-        initialPathname: location.pathname.replace(
-          InternetBankingBaseName,
-          ''
-        ),
-      });
-      isFirstRunRef.current = false;
-    },
-    [location],
-  );
-
-  useEffect(() => unmountRef.current, []);
-
-  return <div ref={wrapperRef} id="appInternetBanking-mfe" />;
 };
