@@ -1,0 +1,13 @@
+/* Estilo para los campos de entrada de texto y contraseña */
+.inputForm[type="text"],
+.inputForm[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+/* Estilo para el campo de verificación (checkbox) */
+.inputForm[type="checkbox"] {
+  margin-right: 8px;
+}
