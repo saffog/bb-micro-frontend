@@ -11,26 +11,12 @@ export const LayoutRouter = () => {
   const navigate=useNavigate();
 
   useEffect(() => {
-    window.addEventListener('[PersonalLoginApp] login', (event) => {
-      navigate(`/${internetBankingMenuAppPrefix}`)
-      console.log('EVENT LISTENER', event);
-    });
-
-    window.addEventListener('[PersonalLoginApp] signup', (event) => {
-      navigate(`/${personalDashboardAppPrefix}`)
-      console.log('EVENT LISTENER', event);
-    });
-
-    window.addEventListener('[PersonalLoginApp] forgot-password', (event) => {
-      navigate(`/${personalDashboardAppPrefix}`)
-      console.log('EVENT LISTENER', event);
+    window.addEventListener('[LoginApp] login', (event) => {
+      navigate(`/${internetBankingMenuAppPrefix}?id=${event.detail.userId}`)
     });
 
     return () => {
-      window.removeEventListener('[PersonalLoginApp] login', () => null);
-      window.removeEventListener('[PersonalLoginApp] signup', () => null);
-      window.removeEventListener('[PersonalLoginApp] forgot-password', () => null);
-
+      window.removeEventListener('[LoginApp] login', () => null);
     }
   }, []);
 

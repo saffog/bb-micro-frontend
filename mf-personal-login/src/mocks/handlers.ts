@@ -11,7 +11,7 @@ export const handlers = [
 
     if (body.email === 'test@gmail.com' && body.password === '123456') {
       return HttpResponse.json(
-        {userId: 1, userProfile: 'personal'},
+        {userId: 1, accountType: 'PERSONAL', userName: 'Juanito'},
         { status: 201 });
     }
 

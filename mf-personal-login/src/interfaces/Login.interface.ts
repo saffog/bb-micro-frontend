@@ -3,7 +3,10 @@ export interface LoginRequest {
   password: string;
 }
 
+export type AccountType = "ENTERPRISE" | "PERSONAL";
+
 export interface LoginResponse {
-  userId: number,
-  userProfile: string,
+  accountType: AccountType;
+  userName: string;
+  userId: string;
 }
