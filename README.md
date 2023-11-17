@@ -38,6 +38,11 @@ For further details about the structure inside each micro frontend component, re
 
 When we execute the command
 
+## References
+  - https://github.com/nebarf/module-federation-react-router-dom
+  - https://stackoverflow.com/questions/70639472/webpack-module-federation-and-react-router-dom
+  - https://stackoverflow.com/questions/75307921/webpack-module-federation-with-react-router-getting-query-params-from-microfro
+
 ```
 ```
 

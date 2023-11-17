@@ -161,9 +161,39 @@ import('./bootstrap').then(
       return children;
     }	
   ```
+- Expose the bootstrap module in webpack config
+  - ![image](https://github.com/saffog/bb-micro-frontend/assets/44537183/d283cb56-82df-4e8f-8993-b17a3ba0692a)
+  - ```javascript
+        new ModuleFederationPlugin({
+          name: "landingApp",  // name of your app
+          filename: "remoteEntry.js",
+          exposes: {
+            './landingAppIndex':'./src/bootstrap'  // [yourAppIndex]: bootstrap
+          },
+          shared: {
+            ...deps,
+            react: {
+              singleton: true,
+              requiredVersion: deps.react,
+            },
+            "react-dom": {
+              singleton: true,
+              requiredVersion: deps["react-dom"],
+            },
+          },
+        }),
+    ```
+
 
 - That should be that for the microfrontend, run and execute.
+  - HostApp: ```>> npm run start:live```
+  - MFApp:   ```>> npm run start:live```
 
 - Follow the next example if you have doubts about the microfrontend configuration for this project.
   - https://github.com/saffog/bb-micro-frontend/tree/examplemf/landing-app
+
+## References:
+  - https://github.com/nebarf/module-federation-react-router-dom
+  - https://stackoverflow.com/questions/70639472/webpack-module-federation-and-react-router-dom
+  - https://stackoverflow.com/questions/75307921/webpack-module-federation-with-react-router-getting-query-params-from-microfro
 
