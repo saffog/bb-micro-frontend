@@ -1,0 +1,17 @@
+/* Estilo para el botón */
+.buttonForm {
+    padding: 10px 15px;
+    background-color: #4caf50; /* Puedes cambiar esto al color que desees */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px; /* Ajusta el radio para hacer el botón redondeado */
+    transition: background-color 0.3s ease; /* Agrega una transición para suavizar el cambio de color */
+  }
+  
+  /* Estilo adicional para el botón al pasar el ratón sobre él */
+.buttonForm:hover {
+  background-color: #45a049; /* Puedes ajustar este color al que prefieras */
+  transform: scale(1.05); /* Ajusta la escala para dar un efecto de presión */
+}

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import FormField from "../molecules/FormField";
-import Button from "../atoms/Button";
-import { Link } from "react-router-dom";
-import { LoginFormProps } from "../../interfaces/interfaces";
+import FormField from "../../molecules/FormField";
+import Button from "../../atoms/Button";
+import ErrorMessage from "../../atoms/ErrorMessage";
+import { LoginFormProps } from "../../../interfaces/interfaces";
+import RedirectLink from "../../atoms/Link";
 
 const LoginForm: React.FC<LoginFormProps> = ({
   onSubmit,
@@ -31,10 +32,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
         inputValue={password}
         onChange={(event) => setPassword(event.target.value)}
       />
-      {error && <p className="error-message">{error}</p>}
+      {error && <ErrorMessage errorMesage={error} />}
       <Button text="Acceder" onClick={handleSubmit} />
-      <Link to="/password-recovery">¿Olvidó Contraseña?</Link>
-      <Link to="/create-account">Registre su empresa</Link>
+      <RedirectLink to={"/password-recovery"} content={"¿Olvidó Contraseña?"} />
+      <RedirectLink to={"/create-account"} content={"Registre su empresa"} />
     </div>
   );
 };

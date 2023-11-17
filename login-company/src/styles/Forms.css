@@ -3,71 +3,8 @@
   margin: 50px auto; /* Ajusta el margen superior e inferior para centrar verticalmente */
 }
 
-.container-form {
-  max-width: 600px; /* Ajusta el ancho del contenedor según tu preferencia */
-  padding: 20px; /* Añade un poco de espacio interno al contenedor */
-  border: 2px solid #333; /* Ajusta el color del contorno según tu preferencia */
-  border-radius: 10px; /* Ajusta el radio de la esquina para suavizar el contorno */
-}
-
 /* Estilo general para el formulario */
 form {
   display: flex;
   flex-direction: column;
-}
-/* Estilo para las etiquetas */
-label {
-  display: inline-block;
-  margin-bottom: 8px;
-}
-
-/* Estilo para los campos de entrada de texto y contraseña */
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 16px;
-  box-sizing: border-box;
-}
-
-/* Estilo para el campo de verificación (checkbox) */
-input[type="checkbox"] {
-  margin-right: 8px;
-}
-
-/* Estilo para el botón */
-button {
-  padding: 10px 15px;
-  background-color: #4caf50; /* Puedes cambiar esto al color que desees */
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  border-radius: 5px; /* Ajusta el radio para hacer el botón redondeado */
-  transition: background-color 0.3s ease; /* Agrega una transición para suavizar el cambio de color */
-}
-
-/* Estilo adicional para el botón al pasar el ratón sobre él */
-button:hover {
-  background-color: #45a049; /* Puedes ajustar este color al que prefieras */
-  transform: scale(1.05); /* Ajusta la escala para dar un efecto de presión */
-}
-
-/* Estilo para los enlaces */
-a {
-  text-decoration: none;
-  color: #333;
-  margin-right: 10px; /* Ajusta la separación entre enlaces */
-  display: inline-block; /* Hace que los enlaces estén en la misma línea */
-  margin-left: 10px;
-}
-
-/* Estilo adicional para los enlaces al pasar el ratón sobre ellos */
-a:hover {
-  text-decoration: underline;
-}
-
-.error-message {
-  color: red;
-  font-weight: bold;
 }

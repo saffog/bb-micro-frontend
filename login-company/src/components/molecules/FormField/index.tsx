@@ -1,7 +1,7 @@
 import React from "react";
-import Label from "../atoms/Label";
-import Input from "../atoms/Input";
-import { FormFieldProps } from "../../interfaces/interfaces";
+import Label from "../../atoms/Label";
+import Input from "../../atoms/Input";
+import { FormFieldProps } from "../../../interfaces/interfaces";
 
 const FormField: React.FC<FormFieldProps> = ({
   labelContent,

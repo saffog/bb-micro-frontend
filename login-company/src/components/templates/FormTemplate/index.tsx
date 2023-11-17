@@ -1,9 +1,10 @@
 import React from "react";
-import LoginForm from "../organisms/LoginForm";
-import CreateAccountForm from "../organisms/CreateAccountForm";
-import PasswordRecoveryForm from "../organisms/PasswordRecoveryForm";
-import "../../styles/Forms.css";
-import { FormTemplateProps } from "../../interfaces/interfaces";
+import LoginForm from "../../organisms/LoginForm";
+import CreateAccountForm from "../../organisms/AccountForm";
+import PasswordRecoveryForm from "../../organisms/PasswordRecoveryForm";
+import { FormTemplateProps } from "../../../interfaces/interfaces";
+import styles from "./index.module.css";
+
 const FormTemplate: React.FC<FormTemplateProps> = ({
   title,
   onSubmit,
@@ -15,7 +16,7 @@ const FormTemplate: React.FC<FormTemplateProps> = ({
   return (
     <div>
       <h2>{title}</h2>
-      <div className="container-form">{formComponent}</div>
+      <div className={styles.containerForm}>{formComponent}</div>
     </div>
   );
 };

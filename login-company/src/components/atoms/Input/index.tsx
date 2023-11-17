@@ -1,5 +1,6 @@
 import React from "react";
-import { InputProps } from "../../interfaces/interfaces";
+import { InputProps } from "../../../interfaces/interfaces";
+import styles from "./index.module.css";
 
 const Input: React.FC<InputProps> = ({
   type,
@@ -15,7 +16,7 @@ const Input: React.FC<InputProps> = ({
       name={name}
       value={value}
       checked={checked}
-      className={styledClass}
+      className={`${styles.inputForm} ${styledClass}`}
       onChange={onChange}
     />
   );

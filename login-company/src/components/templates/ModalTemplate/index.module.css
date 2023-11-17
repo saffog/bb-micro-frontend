@@ -11,7 +11,7 @@
   }
   
   /* Estilos para el contenido de la ventana modal */
-  .modal-content {
+  .modalContent {
     background-color: #fefefe;
     margin: 15% auto; /* Centra el contenido verticalmente y lo desplaza un poco hacia abajo */
     padding: 20px;

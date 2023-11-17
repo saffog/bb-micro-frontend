@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import FormField from "../molecules/FormField";
-import Button from "../atoms/Button";
-import { Link } from "react-router-dom";
-import { PasswordRecoveryFormProps } from "../../interfaces/interfaces";
+import FormField from "../../molecules/FormField";
+import Button from "../../atoms/Button";
+import { PasswordRecoveryFormProps } from "../../../interfaces/interfaces";
+import RedirectLink from "../../atoms/Link";
+import ErrorMessage from "../../atoms/ErrorMessage";
 
 const PasswordRecoveryForm: React.FC<PasswordRecoveryFormProps> = ({
   onSubmit,
@@ -23,9 +24,9 @@ const PasswordRecoveryForm: React.FC<PasswordRecoveryFormProps> = ({
         inputValue={email}
         onChange={(event) => setEmail(event.target.value)}
       />
-      {error && <p className="error-message">{error}</p>}
+      {error && <ErrorMessage errorMesage={error} />}
       <Button text="Contacte un agente" onClick={handleSubmit} />
-      <Link to="/">Regresar a Login</Link>
+      <RedirectLink to={"/"} content={"Regresar a Login"} />
     </div>
   );
 };

@@ -8,15 +8,36 @@ interface RequestBody {
 
 interface User {
   userId: number;
+  userName: string;
   userEmail: string;
   password: string;
 }
 
 const validUsers = [
-  { userId: 1, userEmail: "juan.jose1983@gmail.com", password: "123456" },
-  { userId: 2, userEmail: "company@correo.com", password: "456789" },
-  { userId: 3, userEmail: "JJEnterprise@correo.com", password: "987654" },
-  { userId: 4, userEmail: "baufest@baufest.com", password: "987654" },
+  {
+    userId: 4,
+    userEmail: "juan.jose1983@gmail.com",
+    password: "123456",
+    userName: "juan jose",
+  },
+  {
+    userId: 5,
+    userEmail: "company@correo.com",
+    password: "456789",
+    userName: "company",
+  },
+  {
+    userId: 6,
+    userEmail: "JJEnterprise@correo.com",
+    password: "987654",
+    userName: "JJEnterprise",
+  },
+  {
+    userId: 7,
+    userEmail: "baufest@baufest.com",
+    password: "987654",
+    userName: "baufest",
+  },
 ];
 
 export const handlers = [
@@ -34,7 +55,8 @@ export const handlers = [
     } else {
       return HttpResponse.json({
         userId: validUser.userId,
-        userProfie: "enterprise",
+        accountType: "ENTERPRISE",
+        userName: validUser.userName,
       });
     }
   }),

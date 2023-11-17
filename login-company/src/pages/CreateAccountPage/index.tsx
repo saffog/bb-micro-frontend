@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import FormTemplate from "../components/templates/FormTemplate";
-import Modal from "../components/templates/ModalTemplate";
-import { createAccount } from "../apis/apis";
-import { PageProps } from "../interfaces/interfaces";
+import FormTemplate from "../../components/templates/FormTemplate";
+import Modal from "../../components/templates/ModalTemplate";
+import { createAccount } from "../../apis/apis";
+import { PageProps } from "../../interfaces/interfaces";
 import { useNavigate } from "react-router-dom";
+import styles from "../index.module.css";
 
 const CreateAccountPage: React.FC<PageProps> = ({ title }: PageProps) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -33,7 +34,6 @@ const CreateAccountPage: React.FC<PageProps> = ({ title }: PageProps) => {
     createAccount(empresa, representante, email, password, password2, ok)
       .then((data) => {
         setModalOpen(true);
-        console.log(data);
       })
       .catch((error) => {
         setError("Ha ocurrido un error");
@@ -48,7 +48,7 @@ const CreateAccountPage: React.FC<PageProps> = ({ title }: PageProps) => {
   };
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <h1>{title}</h1>
       <FormTemplate
         formType="createAccount"

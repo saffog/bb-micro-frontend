@@ -64,3 +64,14 @@ export interface LabelProps {
   content: string;
   styledClass?: string;
 }
+
+export interface ErrorMessageProps {
+  errorMesage: string;
+  styledClass?: string;
+}
+
+export interface RedirectLinkProps {
+  to: string;
+  content: string;
+  styledClass?: string;
+}

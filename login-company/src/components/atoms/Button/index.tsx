@@ -1,5 +1,6 @@
 import React from "react";
-import { ButtonProps } from "../../interfaces/interfaces";
+import { ButtonProps } from "../../../interfaces/interfaces";
+import styles from "./index.module.css";
 
 const Button: React.FC<ButtonProps> = ({
   text,
@@ -7,7 +8,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
 }: ButtonProps) => {
   return (
-    <button className={styledClass} onClick={onClick}>
+    <button className={`${styles.buttonForm} ${styledClass}`} onClick={onClick}>
       {text}
     </button>
   );

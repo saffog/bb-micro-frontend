@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import FormField from "../molecules/FormField";
-import Button from "../atoms/Button";
-import Input from "../atoms/Input";
-import { Link } from "react-router-dom";
-import { CreateAccountFormProps } from "../../interfaces/interfaces";
+import FormField from "../../molecules/FormField";
+import Button from "../../atoms/Button";
+import Input from "../../atoms/Input";
+import { CreateAccountFormProps } from "../../../interfaces/interfaces";
+import styles from "../index.module.css";
+import RedirectLink from "../../atoms/Link";
+import ErrorMessage from "../../atoms/ErrorMessage";
 
 const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   onSubmit,
@@ -60,9 +62,9 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
       <Input type="checkbox" name="ok" value="" onChange={() => setOk(!ok)} />{" "}
       Estoy de acuerdo con los terminos de uso y privacidad
       <br />
-      {error && <p className="error-message">{error}</p>}
+      {error && <ErrorMessage errorMesage={error} />}
       <Button text="Inscribirse" onClick={handleSubmit} />
-      <Link to="/">Regresar a Login</Link>
+      <RedirectLink to={"/"} content="Regresar a Login" />
     </div>
   );
 };
