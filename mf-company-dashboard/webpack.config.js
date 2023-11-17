@@ -48,7 +48,7 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "mf_company_dashboard",
+      name: "companyDashboardApp",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
