@@ -20,7 +20,6 @@ import CompanyDashboardBase from "../../pages/dashboard/company";
 import PersonalDashboardBase from "../../pages/dashboard/personal";
 import MyErrorBoundary from "../../boundary/ErrorBoundary";
 
-import "personalDashboardApp/index"
 import { Dasboard } from "personalDashboardApp/components/pages/Dasboard";
 
 interface Props {

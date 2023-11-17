@@ -1,6 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
@@ -29,13 +28,7 @@ module.exports = (_, argv) => ({
       {
         test: /\.(css|s[ac]ss)$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
-      },
-      {
-        test: /\.css$/,
-        use: [
-          prod ? MiniCssExtractPlugin.loader : "style-loader",
-          "css-loader",
-        ],
+
       },
       {
         test: /\.(ts|tsx|js|jsx)$/,
@@ -85,9 +78,7 @@ module.exports = (_, argv) => ({
         },
       },
     }),
-    new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
-    }),
+    
     new HtmlWebPackPlugin({
       template: "./src/index.html",
     }),
