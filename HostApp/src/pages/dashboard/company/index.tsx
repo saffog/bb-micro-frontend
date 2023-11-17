@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { mount } from "companyDashboardApp/companyDashboardAppIndex";
 import { useLocation, useNavigate } from "react-router-dom";
 import { companyDashboardAppPrefix } from "../../../constants/routes.constant";
+import MyErrorBoundary from "../../../boundary/ErrorBoundary";
 
 const CompanyDashboardBaseName = `/${companyDashboardAppPrefix}`;
 
@@ -20,7 +21,10 @@ export default () => {
       }
       navigate(newPathname);
     };
-    window.addEventListener("[appCompanyDashboard] navigated", appCompanyDashboardNavigationEventHandler);
+    window.addEventListener(
+      "[appCompanyDashboard] navigated",
+      appCompanyDashboardNavigationEventHandler
+    );
 
     return () => {
       window.removeEventListener(
@@ -31,24 +35,21 @@ export default () => {
   }, [location]);
 
   // Listen for shell location changes and dispatch a notification.
-  useEffect(
-    () => {
-      if (location.pathname.startsWith(CompanyDashboardBaseName)) {
-        window.dispatchEvent(
-          new CustomEvent("[shell] navigated", {
-            detail: location.pathname.replace(CompanyDashboardBaseName, ""),
-          })
-        );
-      }
-    },
-    [location],
-  );
+  useEffect(() => {
+    if (location.pathname.startsWith(CompanyDashboardBaseName)) {
+      window.dispatchEvent(
+        new CustomEvent("[shell] navigated", {
+          detail: location.pathname.replace(CompanyDashboardBaseName, ""),
+        })
+      );
+    }
+  }, [location]);
 
   const isFirstRunRef = useRef(true);
   const unmountRef = useRef(() => {});
   // Mount appCompanyDashboard MFE
-  useEffect(
-    () => {
+  useEffect(() => {
+    try {
       if (!isFirstRunRef.current) {
         return;
       }
@@ -56,13 +57,12 @@ export default () => {
         mountPoint: wrapperRef.current!,
         initialPathname: location.pathname.replace(
           CompanyDashboardBaseName,
-          ''
+          ""
         ),
       });
       isFirstRunRef.current = false;
-    },
-    [location],
-  );
+    } catch (error) {}
+  }, [location]);
 
   useEffect(() => unmountRef.current, []);
 

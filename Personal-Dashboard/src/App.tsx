@@ -2,17 +2,15 @@ import React from "react";
 import {createRoot} from "react-dom/client";
 
 import "./index.scss";
-import { Graphic } from "./componets/graphic";
-import Card from "./componets/card";
+import { Dasboard } from "./components/pages/Dasboard";
 
-const App = () => (
-  <div className="mt-10 text-3xl mx-auto max-w-6xl flex">
-    <Graphic/>
-    <Card />
+const Personal_Dashboard = () => (
+  <div>
+    <Dasboard/>
   </div>
 );
 
-const root = createRoot(document.getElementById("app") !);
-root.render(<App/>);
+const root = createRoot(document.getElementById("personal_dashboard") !);
+root.render(<Personal_Dashboard/>);
 
 //ReactDOM.render(<App />, document.getElementById("app"));

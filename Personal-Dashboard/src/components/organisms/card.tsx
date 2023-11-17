@@ -1,19 +1,19 @@
 import React from 'react'
-import { InfoPerson } from "./data";
+import { PiBankDuotone } from "react-icons/pi";
+import { InfoPerson } from "../data";
 
 function Card() {
 
   const InfoPersona = InfoPerson
   
   return (
-  
-    <div className="text-center p-4">
+    <div className="text-center p-4 w-3/12">
       {
         InfoPersona.map( (Info: any) => (
-
             <div key= {Info.userId}>
                 { Info.products.map((Info: any) => (
                     <div className="bg-white border rounded-lg shadow-lg p-5 mt-2" key= {Info.type}>
+                      <PiBankDuotone />
                       <h1 className="text-2xl capitalize" > {Info.type} </h1>
                       <h1 className="text-2xl capitalize" > {Info.description} </h1>
                       

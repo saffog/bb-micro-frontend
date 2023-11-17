@@ -1,7 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import {createRoot} from "react-dom/client";
 
 import "./index.css";
+
+import "PersonalDashboard/index"
+import { Dasboard } from "PersonalDashboard/components/pages/Dasboard";
+
+import "svelte/index"
+import Home from "svelte/Home";
 
 const App = () => (
   <div className="container">
@@ -9,6 +15,12 @@ const App = () => (
     <div>Framework: react</div>
     <div>Language: TypeScript</div>
     <div>CSS: Empty CSS</div>
+    <Home/>
+    <Dasboard/>
   </div>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+
+const root = createRoot(document.getElementById("app") !);
+root.render(<App/>);
+
+//ReactDOM.render(<App />, document.getElementById("app"));

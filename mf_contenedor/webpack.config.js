@@ -44,7 +44,8 @@ module.exports = (_, argv) => ({
       name: "mf_contenedor",
       filename: "remoteEntry.js",
       remotes: {
-        Personal_Dashboard: "Personal_Dashboard@http://localhost:9003/remoteEntry.js"
+        PersonalDashboard: "PersonalDashboard@http://localhost:9004/remoteEntry.js",
+        svelte: "svelte@http://localhost:9010/remoteEntry.js"
       },
       exposes: {},
       shared: {

@@ -76,7 +76,11 @@ module.exports = (_, argv) => ({
       name: "svelte",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        "./Home": "/src/Home.svelte",
+        "./bootloader": "/src/bootloader.js",
+        "./index": "/src/index.scss"
+      },
       shared: {
         ...deps,
         "solid-js": {

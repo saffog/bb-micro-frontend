@@ -1,11 +1,11 @@
-import App from "./App.svelte";
+import Home from "./Home.svelte";
 
 import "./index.scss";
 
-const app = new App({
+const home = new Home({
   target: document.getElementById("app"),
 });
 
-window.app = app;
+window.app = home;
 
-export default app;
+export default home;
