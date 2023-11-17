@@ -2,6 +2,7 @@ import React from "react";
 import IconLabelForm  from "../../molecules/icon-label";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import LabelForm from "../../atoms/label";
+import style from "./account-card.module.css";
 
 export interface AccountCardProps { 
     styleIcon: IconDefinition;
@@ -13,7 +14,7 @@ export interface AccountCardProps {
 
 const AccountCardForm = ({styleIcon, leftUpperText, leftBottomText, leftMidleText, rightUpperText}: AccountCardProps) => {
     return (
-        <div className="border-4 border-indigo-200">
+        <div className={style.caja}>
             <div className="grid grid-cols-2">
                 <div className="grid grid-rows-3">
                     <IconLabelForm name={`1`} value={leftUpperText} styleIcon={styleIcon} />
