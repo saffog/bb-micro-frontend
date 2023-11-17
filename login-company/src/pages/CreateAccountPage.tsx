@@ -3,10 +3,12 @@ import FormTemplate from "../components/templates/FormTemplate";
 import Modal from "../components/templates/ModalTemplate";
 import { createAccount } from "../apis/apis";
 import { PageProps } from "../interfaces/interfaces";
+import { useNavigate } from "react-router-dom";
 
 const CreateAccountPage: React.FC<PageProps> = ({ title }: PageProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (
     empresa: string,
@@ -41,9 +43,8 @@ const CreateAccountPage: React.FC<PageProps> = ({ title }: PageProps) => {
   };
 
   const handleOnClose = () => {
-    console.log("onClose");
     setModalOpen(false);
-    window.location.href = "/";
+    navigate("/");
   };
 
   return (
