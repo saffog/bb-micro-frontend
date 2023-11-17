@@ -1,0 +1,18 @@
+.formGroup {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.inputForm {
+  width: 100%;
+}
