@@ -5,9 +5,9 @@ import Card from "../organisms/card";
 
 export const Dasboard = () => {
   return (
-    <div className="mt-8 text-2xl flex mx-4">
-        <Graphic/> 
+    <div className="mt-8 text-2xl mx-4">
         <Card/>
+        <Graphic/> 
     </div>
   )
 }

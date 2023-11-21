@@ -36,6 +36,9 @@
   "dependencies": {
     "@faker-js/faker": "^8.3.1",
     "chart.js": "^4.4.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss-cli": "^10.1.0",
+    "postcss-prefixer": "^3.0.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
