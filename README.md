@@ -10,8 +10,8 @@ The project includes the required micro frontends to run the web application
 
 ```
 \
-    main
-    login-personal
+    HostApp
+    mf-personal-login
     login-company
     dashboard-personal
     dashboard-company
@@ -20,10 +20,10 @@ The project includes the required micro frontends to run the web application
 In the micro frontends approach, one of the services acts like a host meanwhile the others work as clients. In the case of the project:
 
 - Host
-  - main
+  - HostApp
 
 - Client
-  - login-personal
+  - mf-personal-login
   - login-company
   - dashboard-personal
   - dashboard-company
@@ -34,9 +34,7 @@ For further details about the structure inside each micro frontend component, re
 
 ## Known issues
 
-### Typescript version
-
-When we execute the command
+# TODO: Add problem with tailwind and CSS modules
 
 ## References
   - https://github.com/nebarf/module-federation-react-router-dom

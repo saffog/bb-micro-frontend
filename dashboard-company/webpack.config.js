@@ -27,14 +27,7 @@ module.exports = (_, argv) => ({
       },
       {
         test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", {
-          loader: "css-loader",
-          options: {
-            modules: {
-              localIdentName: "[local]_[hash]"
-            }
-          }
-        }, "postcss-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.(ts|tsx|js|jsx)$/,
@@ -52,7 +45,7 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        './companyDashboardAppIndex':'./src/bootstrap'
+        "./companyDashboardAppIndex": "./src/bootstrap",
       },
       shared: {
         ...deps,
