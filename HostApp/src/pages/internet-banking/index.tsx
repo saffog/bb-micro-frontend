@@ -16,7 +16,7 @@ import MyErrorBoundary from "../../boundary/ErrorBoundary";
 
 const LandingBaseName = `/${landingAppPrefix}`;
 
-const USERS = [
+const USERS: User [] = [
   {
     accountType: "PERSONAL",
     userName: "Juanito",
@@ -67,15 +67,18 @@ export default () => {
   });
 
   useEffect(() => {
-    setUser(USERS.find((user) => user.userId === id) as User);
+    const hasUser = USERS.find((user) => user.userId === id);
+    if(hasUser) setUser(hasUser);
   }, [id]);
+
+  if(!user) return null;
 
   return (
     <>
       <div className="container">
         <MyErrorBoundary>
           <StatusBar user={user} />
-          <SideBar accountType={user.accountType} />
+          <SideBar accountType={user?.accountType} />
         </MyErrorBoundary>
       </div>
     </>

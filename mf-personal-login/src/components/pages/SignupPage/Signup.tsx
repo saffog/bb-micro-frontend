@@ -73,21 +73,21 @@ const Signup = () => {
             <InputLabel name='name' title='Nombre:' value={name} onChange={handleNameChange}/>
             <InputLabel
               name='email'
-              title='Email:'
+              title='Email'
               value={email}
               onChange={handleEmailChange}
               type='email'
             />
             <InputLabel
               name='password'
-              title='Contraseña:'
+              title='Contraseña'
               value={password}
               onChange={handlePasswordChange}
               type='password'
             />
             <InputLabel
               name='confirmPassword'
-              title='Reescribir Contraseña:'
+              title='Reescribir Contraseña'
               value={confirmPassword}
               onChange={handleConfirmPasswordChange}
               onBlur={handleConfirmPasswordBlur}
@@ -101,7 +101,7 @@ const Signup = () => {
               onChange={handleAgreeTermsChange}
               title='Estoy de acuerdo con los términos y condiciones'
             />
-            <ButtonForm type="submit">Registrarse</ButtonForm>
+            <ButtonForm variant="success" type="submit">Registrarse</ButtonForm>
           </form>
         </Card>
       </div>

@@ -1,10 +1,46 @@
 .buttonForm {
-    width: 100%;
+    /*width: 100%;*/
     padding: 10px;
-    background: #007bff;
     color: white;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     margin-top: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.buttonForm-primary {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.buttonForm-secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.buttonForm-success {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.buttonForm-info {
+    background-color: #17a2b8;
+    color: #ffffff;
+}
+
+.buttonForm-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.buttonForm-danger {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.buttonForm:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }

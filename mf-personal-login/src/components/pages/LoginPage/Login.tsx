@@ -47,14 +47,14 @@ const Login = () => {
           <form onSubmit={handleSubmit} className={styles.loginForm}>
             <InputLabel
               name='email'
-              title='Email: '
+              title='Email'
               type='email'
               value={email}
               onChange={handleEmailChange}
             />
             <InputLabel
               name='password'
-              title='Contraseña: '
+              title='Contraseña'
               type='password'
               value={password}
               onChange={handlePasswordChange}
@@ -62,9 +62,9 @@ const Login = () => {
             {!!error && <p className={styles.errorMessage}>Credenciales incorrectas. Inténtalo de nuevo.</p>}
 
             <div className={styles.footer}>
-              <ButtonForm type="submit">Iniciar sesión</ButtonForm>
-              <Link to="/signup">¿Nuevo Usuario?</Link>
-              <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
+              <ButtonForm variant="success" type="submit">Iniciar sesión</ButtonForm>
+              <Link to="signup">¿Nuevo Usuario?</Link>
+              <Link to="forgot-password">¿Olvidaste tu contraseña?</Link>
             </div>
           </form>
         </Card>

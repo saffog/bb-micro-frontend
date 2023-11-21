@@ -51,7 +51,7 @@ const ForgotPassword = () => {
                   type='email'
                 />
                 {!!error && <p className={styles.errorMessage}>{error.message}</p>}
-                <ButtonForm type="submit">Recuperar Contraseña</ButtonForm>
+                <ButtonForm variant="success" type="submit">Recuperar Contraseña</ButtonForm>
               </form>
             )
           }
