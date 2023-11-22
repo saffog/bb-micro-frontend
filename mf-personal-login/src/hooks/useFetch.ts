@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
 
 const DEFAULT_OPTIONS = {
-  headers: { "Content-Type": "application/json" },
-}
-const useFetch = <T>(url: string, options?: any) => {
+  headers: { 'Content-Type': 'application/json' },
+};
+const useFetch = <T>(url: string, options?: RequestInit) => {
   const [data, setData] = useState<T>();
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState<string|null>();

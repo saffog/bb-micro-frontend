@@ -22,7 +22,7 @@ const LocalRoutes = () => {
 };
 
 const remoteRoutes = [{
-  path: "/",
+  path: '/',
   element: (
     <NavigationManager>
       <Outlet />

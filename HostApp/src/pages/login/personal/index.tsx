@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { mount } from "personalLoginApp/personalLoginAppIndex";
 import { useLocation, useNavigate } from "react-router-dom";
 import { personalLoginAppPrefix } from "../../../constants/routes.constant";
+import ErrorBoundary from "../../../boundary/ErrorBoundary";
 
 const PersonalLoginBaseName = `/${personalLoginAppPrefix}`;
 
@@ -66,5 +67,9 @@ export default () => {
 
   useEffect(() => unmountRef.current, []);
 
-  return <div ref={wrapperRef} id="appPersonalLogin-mfe" />;
+  return (
+    <ErrorBoundary>
+      <div ref={wrapperRef} id="appPersonalLogin-mfe" />
+    </ErrorBoundary>
+  );
 };

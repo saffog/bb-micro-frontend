@@ -19,4 +19,4 @@ deferRender().then(() => {
       </BrowserRouter>
     </React.StrictMode>
   );
-})
+});
