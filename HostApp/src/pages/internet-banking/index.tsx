@@ -74,13 +74,11 @@ export default () => {
   if(!user) return null;
 
   return (
-    <>
-      <div className="container">
-        <MyErrorBoundary>
-          <StatusBar user={user} />
-          <SideBar accountType={user?.accountType} />
-        </MyErrorBoundary>
-      </div>
-    </>
+    <div className="container">
+      <MyErrorBoundary>
+        <StatusBar user={user} />
+        <SideBar accountType={user?.accountType} />
+      </MyErrorBoundary>
+    </div>
   );
 };
