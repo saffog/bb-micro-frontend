@@ -14,7 +14,7 @@ export const LayoutRouter = () => {
   useEffect(() => {
     window.addEventListener("[LoginApp] login", (event) => {
       navigate(
-        `/${internetBankingMenuAppPrefix}?userId=${event.detail.userId}`
+        `/${internetBankingMenuAppPrefix}?userId=${(event as CustomEvent<any>).detail.userId}`
       );
     });
 

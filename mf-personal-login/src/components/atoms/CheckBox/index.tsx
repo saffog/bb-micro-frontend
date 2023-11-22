@@ -1,5 +1,5 @@
 import React, {InputHTMLAttributes} from 'react';
-import styles from './index.module.css'
+import styles from './index.module.css';
 interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement>{
   name: string;
   checked: boolean;
@@ -16,7 +16,7 @@ const CheckboxForm = ({name, checked, onChange, title, required = true}: Checkbo
         onChange={onChange}
         required={required}
       />
-      { !!title ? <label htmlFor={name}>{title}</label> : null }
+      { title ? <label htmlFor={name}>{title}</label> : null }
     </div>
   );
 };

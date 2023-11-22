@@ -5,11 +5,12 @@ import styles from './index.module.css';
 interface CardProps {
   children: ReactNode;
   title?: string;
+  className?: string;
 }
-const Card = ({children, title}: CardProps) => {
+const Card = ({children, title, className}: CardProps) => {
   return (
-    <div className={styles.card}>
-      {!!title ? <h2>{title}</h2> : null}
+    <div className={`${styles.card} ${className}`}>
+      {title && <h2>{title}</h2>}
       {children}
     </div>
   );

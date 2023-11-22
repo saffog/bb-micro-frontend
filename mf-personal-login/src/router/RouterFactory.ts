@@ -1,4 +1,4 @@
-import { createBrowserRouter, createMemoryRouter } from "react-router-dom";
+import { createBrowserRouter, createMemoryRouter } from 'react-router-dom';
 
 import {RoutingStrategy} from '../interfaces/Router.interface';
 import {remoteRoutes} from './Routes';
@@ -14,6 +14,6 @@ export function createRouter({ strategy, initialPathname }: CreateRouterProps) {
     return createBrowserRouter(remoteRoutes);
   }
 
-  const initialEntries = [initialPathname || "/"];
+  const initialEntries = [initialPathname || '/'];
   return createMemoryRouter(remoteRoutes, { initialEntries: initialEntries });
 }

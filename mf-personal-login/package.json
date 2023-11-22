@@ -6,7 +6,9 @@
     "build:dev": "webpack --mode development",
     "build:start": "cd dist && PORT=9001 npx serve",
     "start": "webpack serve --open --mode development",
-    "start:live": "webpack serve --open --mode development --live-reload --hot"
+    "start:live": "webpack serve --open --mode development --live-reload --hot",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix"
   },
   "license": "MIT",
   "author": {
@@ -21,9 +23,13 @@
     "@babel/preset-typescript": "^7.23.3",
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.16",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
     "autoprefixer": "^10.4.16",
     "babel-loader": "^8.3.0",
     "css-loader": "^6.8.1",
+    "eslint": "^8.54.0",
+    "eslint-plugin-react": "^7.33.2",
     "html-webpack-plugin": "^5.5.3",
     "msw": "^2.0.8",
     "postcss": "^8.4.31",

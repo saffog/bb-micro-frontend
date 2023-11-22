@@ -5,6 +5,7 @@ import InputLabel from '../../molecules/InputLabel';
 import Card from '../../molecules/Card';
 import ButtonForm from '../../atoms/Button';
 import usePost from '../../../hooks/usePost';
+import ContainerRow from '../../atoms/ContainerRow';
 
 import styles from './Login.module.css';
 
@@ -27,7 +28,7 @@ const Login = () => {
     try {
       const response = await callPost({body: JSON.stringify({ email, password })});
       if (response) {
-        const event = new CustomEvent('[LoginApp] login', {detail: response})
+        const event = new CustomEvent('[LoginApp] login', {detail: response});
         window.dispatchEvent(event);
       }
     } catch (e) {
@@ -42,33 +43,30 @@ const Login = () => {
         <h1>Cuenta Personal</h1>
         <h2>Iniciar Sesión</h2>
       </div>
-      <div className={styles.body}>
-        <Card>
-          <form onSubmit={handleSubmit} className={styles.loginForm}>
-            <InputLabel
-              name='email'
-              title='Email: '
-              type='email'
-              value={email}
-              onChange={handleEmailChange}
-            />
-            <InputLabel
-              name='password'
-              title='Contraseña: '
-              type='password'
-              value={password}
-              onChange={handlePasswordChange}
-            />
-            {!!error && <p className={styles.errorMessage}>Credenciales incorrectas. Inténtalo de nuevo.</p>}
-
-            <div className={styles.footer}>
-              <ButtonForm type="submit">Iniciar sesión</ButtonForm>
-              <Link to="/signup">¿Nuevo Usuario?</Link>
-              <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
-            </div>
-          </form>
-        </Card>
-      </div>
+      <Card className={styles.card}>
+        <form onSubmit={handleSubmit} className={styles.loginForm}>
+          <InputLabel
+            name='email'
+            title='Email'
+            type='email'
+            value={email}
+            onChange={handleEmailChange}
+          />
+          <InputLabel
+            name='password'
+            title='Contraseña'
+            type='password'
+            value={password}
+            onChange={handlePasswordChange}
+          />
+          {!!error && <p className={styles.errorMessage}>Credenciales incorrectas. Inténtalo de nuevo.</p>}
+          <ContainerRow>
+            <ButtonForm variant="success" type="submit">Iniciar sesión</ButtonForm>
+            <Link to="/signup">Nuevo Usuario</Link>
+            <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
+          </ContainerRow>
+        </form>
+      </Card>
     </div>
   );
 };

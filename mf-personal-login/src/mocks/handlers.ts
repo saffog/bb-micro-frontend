@@ -1,17 +1,20 @@
 import {http, HttpResponse, PathParams} from 'msw';
 
-import {LoginRequest, LoginResponse} from '../interfaces/Login.interface';
-import {SignupRequest, SignupResponse} from '../interfaces/Signup.interface';
-import {ForgotPasswordRequest, ForgotPasswordResponse} from '../interfaces/ForgotPassword.interface';
-// import {ErrorResponse} from '../interfaces/Error.interface';
+import {LoginRequest} from '../interfaces/Login.interface';
+import {SignupRequest} from '../interfaces/Signup.interface';
+import {ForgotPasswordRequest} from '../interfaces/ForgotPassword.interface';
+import {USERS_DATA} from '../api/users';
 
 export const handlers = [
-  http.post<PathParams<string>, LoginRequest, LoginResponse | any >('/login', async ({ request }) => {
+  http.post<PathParams<string>, LoginRequest >('/login', async ({ request }) => {
     const body = await request.json();
 
-    if (body.email === 'test@gmail.com' && body.password === '123456') {
+    const foundUser = USERS_DATA.find((user) => user.email === body.email && user.password === body.password);
+
+    if (foundUser) {
+      const { password, ...rest } = foundUser;
       return HttpResponse.json(
-        {userId: 1, accountType: 'PERSONAL', userName: 'Juanito'},
+        {...rest},
         { status: 201 });
     }
 
@@ -20,12 +23,12 @@ export const handlers = [
       statusText: 'Failed to authenticate!'
     });
   }),
-  http.post<PathParams<string>, SignupRequest, SignupResponse | any>('/signup', async ({ request }) => {
+  http.post<PathParams<string>, SignupRequest>('/signup', async ({ request }) => {
     const body = await request.json();
 
     if (!!body.email && !!body.name && !!body.password) {
       return HttpResponse.json(
-        {userId: 1},
+        {userId: 5},
         { status: 200 });
     }
 
@@ -35,10 +38,12 @@ export const handlers = [
     });
   }),
 
-  http.post<PathParams<string>, ForgotPasswordRequest, ForgotPasswordResponse | any >('/forgot-password', async ({ request }) => {
+  http.post<PathParams<string>, ForgotPasswordRequest >('/forgot-password', async ({ request }) => {
     const body = await request.json();
 
-    if (body.email === 'test@gmail.com') {
+    const foundUser = USERS_DATA.find((user) => user.email === body.email);
+
+    if (foundUser) {
       return HttpResponse.json(
         {statusMessage: 'A password email was sent to your email'},
         { status: 201 });

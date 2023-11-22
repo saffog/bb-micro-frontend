@@ -15,7 +15,7 @@ interface RequestOptions {
   body?: BodyInit;
 }
 
-const DEFAULT_OPTIONS = { "Content-Type": "application/json" };
+const DEFAULT_OPTIONS = { 'Content-Type': 'application/json' };
 const usePost = <T>(url: string): ApiResponse<T> => {
   const [data, setData] = useState<T|null>(null);
   const [isPending, setIsPending] = useState(false);
@@ -40,7 +40,7 @@ const usePost = <T>(url: string): ApiResponse<T> => {
       setError(null);
       return json;
     } catch (error) {
-      console.error('ERROR')
+      console.error('ERROR');
       if(error instanceof Error) setError(error);
       else throw new Error(String(error));
 
