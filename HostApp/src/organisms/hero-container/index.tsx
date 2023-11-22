@@ -30,11 +30,6 @@ export const HeroContainer = () => {
                     type: "button",
                     onClick: onClickLoginEnterprise,
 
-                },{
-                    name: "Internet Banking(Testing)",
-                    type: "button",
-                    onClick: onClickInternetBanking,
-
                 }]}
             />
             
