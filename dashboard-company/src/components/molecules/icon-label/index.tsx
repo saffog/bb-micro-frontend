@@ -5,9 +5,9 @@ import IconForm, { IconProps } from "../../atoms/icon";
 export interface IconLabelProps extends LabelProps, IconProps {
 }
 
-const IconLabelForm = ({name, value, styleIcon, tailwindStyle}:IconLabelProps) => {
+const IconLabelForm = ({name, value, styleIcon}:IconLabelProps) => {
     return (
-        <div className={tailwindStyle}>
+        <div>
             <IconForm styleIcon={styleIcon}/>  <LabelForm name={name} value={value}/>
         </div>
     );
