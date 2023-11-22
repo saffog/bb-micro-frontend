@@ -18,7 +18,12 @@ export const NavigationBar = () => {
   };
   return (
     <nav className="navbar">
-      <div className="navbar-left">
+      <div
+        className="navbar-left"
+        style={{
+          display: window.location.href.includes("landing") ? "" : "none",
+        }}
+      >
         <a
           onClick={() => scrollToElement("contact")}
           style={{ marginRight: "1rem" }}
@@ -44,8 +49,10 @@ export const NavigationBar = () => {
           Inicio
         </a>
       </div>
-      <div className="navbar-right">
-        <Image src="/assets/images/Logo.png" alt="logo" />
+      <div className="navbar-right" style={{ display: "flex" }}>
+        <Link to={`/${landingAppPrefix}`}>
+          <Image src="/assets/images/Logo.png" alt="logo" />
+        </Link>
       </div>
     </nav>
   );
