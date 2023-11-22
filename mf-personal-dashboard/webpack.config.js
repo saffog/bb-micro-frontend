@@ -4,7 +4,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:9005/",
+    publicPath: "http://localhost:9004/",
   },
 
   resolve: {
@@ -12,7 +12,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 9005,
+    port: 9004,
     historyApiFallback: true,
   },
 
@@ -27,14 +27,7 @@ module.exports = (_, argv) => ({
       },
       {
         test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", {
-          loader:"css-loader",
-          options:{
-            modules: {
-              localIdentName: "[name]__[local]___[hash:base64:5]",
-            }
-          }
-        }, "postcss-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.(ts|tsx|js|jsx)$/,
@@ -48,11 +41,12 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "companyDashboardApp",
+      name: "personalDashboardApp",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./companyDashboardAppIndex": "./src/bootstrap",
+        './personalDashboardAppIndex':'./src/bootstrap',
+        "./components/pages/Dasboard": "/src/components/pages/Dasboard.tsx"
       },
       shared: {
         ...deps,
@@ -64,8 +58,25 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
+        tailwindcss: {
+          singleton: true,
+          requiredVersion: deps.tailwindcss,
+        },
+        "@faker-js/faker": {
+          singleton: true,
+          requiredVersion: deps["@faker-js/faker"],
+        },
+        "chart.js": {
+          singleton: true,
+          requiredVersion: deps["chart.js"],
+        },
+        "react-chartjs-2": {
+          singleton: true,
+          requiredVersion: deps["react-chartjs-2"],
+        },
       },
     }),
+    
     new HtmlWebPackPlugin({
       template: "./src/index.html",
     }),

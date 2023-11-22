@@ -16,10 +16,7 @@ import {
 } from "react-icons/fa";
 import styles from "./index.module.css";
 import { NavLink } from "react-router-dom";
-import CompanyDashboardBase from "../../pages/dashboard/company";
-import PersonalDashboardBase from "../../pages/dashboard/personal";
 import MyErrorBoundary from "../../boundary/ErrorBoundary";
-
 
 interface Props {
   accountType: AccountType;
@@ -83,13 +80,7 @@ const SideBar = ({ accountType }: Props) => {
       <div className={styles.content}>
         <MyErrorBoundary>
           <React.Suspense fallback={<div>Loading...</div>}>
-            {/* BEGIN Dashboard implementation*/}
-            {/* <DashboardComponent/> */}
-            {/* END Dashboard implementation*/}
-
-            {/* Delete this code when you finished to implement Dashboard MF */}
-            <span>DashboardComponent</span>
-
+            <DashboardComponent />
           </React.Suspense>
         </MyErrorBoundary>
       </div>

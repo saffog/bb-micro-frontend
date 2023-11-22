@@ -52,6 +52,7 @@ export default () => {
       if (!isFirstRunRef.current) {
         return;
       }
+      location.pathname = PersonalDashboardBaseName;
       unmountRef.current = mount({
         mountPoint: wrapperRef.current!,
         initialPathname: location.pathname.replace(
