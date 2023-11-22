@@ -2,12 +2,11 @@ import React, { ReactNode, HTMLProps } from "react";
 
 export interface LabelProps extends  HTMLProps<HTMLLabelElement>{
     name: string;
-    tailwindStyle?:string;
 }
 
-const LabelForm = ({name, value, tailwindStyle}:LabelProps) => {
+const LabelForm = ({name, value}:LabelProps) => {
     return (
-        <label htmlFor={name} className={tailwindStyle}>
+        <label htmlFor={name} >
             {value}
         </label>
     );

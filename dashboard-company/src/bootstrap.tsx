@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { createRouter } from "./routing/router-factory";
 import { RoutingStrategy } from "./routing/types";
-import "./index.scss";
+import "./index.css";
 
 const mount = ({
   mountPoint,
