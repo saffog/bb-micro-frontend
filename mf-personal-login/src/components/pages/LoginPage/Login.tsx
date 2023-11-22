@@ -28,7 +28,7 @@ const Login = () => {
     try {
       const response = await callPost({body: JSON.stringify({ email, password })});
       if (response) {
-        const event = new CustomEvent('[LoginApp] login', {detail: response})
+        const event = new CustomEvent('[LoginApp] login', {detail: response});
         window.dispatchEvent(event);
       }
     } catch (e) {

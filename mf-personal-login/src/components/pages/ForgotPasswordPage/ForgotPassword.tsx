@@ -24,7 +24,7 @@ const ForgotPassword = () => {
     try {
       const response = await callPost({body: JSON.stringify({email})});
       if (response) {
-        const event = new CustomEvent('[PersonalLoginApp] forgot-password', {detail: response})
+        const event = new CustomEvent('[PersonalLoginApp] forgot-password', {detail: response});
         window.dispatchEvent(event);
       }
     } catch (e) {
@@ -55,7 +55,7 @@ const ForgotPassword = () => {
                 {!!error && <p className={styles.errorMessage}>{error.message}</p>}
                 <ContainerRow>
                   <ButtonForm variant="success" type="submit">Recuperar Contraseña</ButtonForm>
-                  <Link to="/login">Iniciar Sesión</Link>
+                  <Link to="/">Iniciar Sesión</Link>
                 </ContainerRow>
               </form>
             )

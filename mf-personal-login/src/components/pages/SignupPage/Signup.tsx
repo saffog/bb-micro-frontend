@@ -55,7 +55,7 @@ const Signup = () => {
     try {
       const response = await callPost({body: JSON.stringify({ name, email, password })});
       if (response) {
-        const event = new CustomEvent('[PersonalLoginApp] signup', {detail: response})
+        const event = new CustomEvent('[PersonalLoginApp] signup', {detail: response});
         window.dispatchEvent(event);
       }
     } catch (e) {
@@ -105,7 +105,7 @@ const Signup = () => {
             />
             <ContainerRow>
               <ButtonForm variant="success" type="submit">Registrarse</ButtonForm>
-              <Link to="/login">Iniciar Sesión</Link>
+              <Link to="/">Iniciar Sesión</Link>
             </ContainerRow>
           </form>
         </Card>

@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { matchRoutes, useLocation, useNavigate } from 'react-router-dom';
 
 import {remoteRoutes} from '../../router/Routes';
@@ -21,18 +21,18 @@ export const NavigationManager = ({ children }: NavigationManagerProps) => {
       navigate(pathname);
     }
 
-    window.addEventListener("[host] navigated", hostNavigationHandler);
+    window.addEventListener('[host] navigated', hostNavigationHandler);
 
     return () => {
-      window.removeEventListener("[host] navigated", hostNavigationHandler);
+      window.removeEventListener('[host] navigated', hostNavigationHandler);
     };
   }, [location]);
 
   useEffect(() => {
     window.dispatchEvent(
-      new CustomEvent("[PersonalLoginApp] navigated", { detail: location.pathname })
+      new CustomEvent('[PersonalLoginApp] navigated', { detail: location.pathname })
     );
   }, [location]);
 
   return children;
-}
+};
