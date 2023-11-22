@@ -7,6 +7,8 @@ import Card from '../../molecules/Card';
 import usePost from '../../../hooks/usePost';
 
 import styles from './Signup.module.css';
+import ContainerRow from '../../atoms/ContainerRow';
+import {Link} from 'react-router-dom';
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -49,13 +51,13 @@ const Signup = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (passwordMatch) return;
-      try {
-        const response = await callPost({body: JSON.stringify({ name, email, password })});
-        if (response) {
-          const event = new CustomEvent('[PersonalLoginApp] signup', {detail: response})
-          window.dispatchEvent(event);
-        }
 
+    try {
+      const response = await callPost({body: JSON.stringify({ name, email, password })});
+      if (response) {
+        const event = new CustomEvent('[PersonalLoginApp] signup', {detail: response})
+        window.dispatchEvent(event);
+      }
     } catch (e) {
       console.error(e);
     }
@@ -101,7 +103,10 @@ const Signup = () => {
               onChange={handleAgreeTermsChange}
               title='Estoy de acuerdo con los términos y condiciones'
             />
-            <ButtonForm variant="success" type="submit">Registrarse</ButtonForm>
+            <ContainerRow>
+              <ButtonForm variant="success" type="submit">Registrarse</ButtonForm>
+              <Link to="/login">Iniciar Sesión</Link>
+            </ContainerRow>
           </form>
         </Card>
       </div>

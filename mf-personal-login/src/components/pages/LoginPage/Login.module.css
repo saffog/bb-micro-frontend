@@ -11,17 +11,8 @@
   width: 600px;
 }
 
-.body {
-  width: 600px;
-}
-
-.footer {
-  display: flex;
-  gap: 16px;
-  width: 100%;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+.card {
+  width: 560px;
 }
 
 .loginForm {

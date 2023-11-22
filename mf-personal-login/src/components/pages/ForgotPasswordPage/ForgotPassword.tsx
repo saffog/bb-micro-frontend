@@ -1,10 +1,12 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
+import {Link} from 'react-router-dom';
 
+import {ForgotPasswordResponse} from '../../../interfaces/ForgotPassword.interface';
 import InputLabel from '../../molecules/InputLabel';
 import ButtonForm from '../../atoms/Button';
 import Card from '../../molecules/Card';
 import usePost from '../../../hooks/usePost';
-import {ForgotPasswordResponse} from '../../../interfaces/ForgotPassword.interface';
+import ContainerRow from '../../atoms/ContainerRow';
 
 import styles from './ForgotPassword.module.css';
 
@@ -51,7 +53,10 @@ const ForgotPassword = () => {
                   type='email'
                 />
                 {!!error && <p className={styles.errorMessage}>{error.message}</p>}
-                <ButtonForm variant="success" type="submit">Recuperar Contraseña</ButtonForm>
+                <ContainerRow>
+                  <ButtonForm variant="success" type="submit">Recuperar Contraseña</ButtonForm>
+                  <Link to="/login">Iniciar Sesión</Link>
+                </ContainerRow>
               </form>
             )
           }
