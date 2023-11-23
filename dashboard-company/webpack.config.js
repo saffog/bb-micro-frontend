@@ -27,14 +27,18 @@ module.exports = (_, argv) => ({
       },
       {
         test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", {
-          loader:"css-loader",
-          options:{
-            modules: {
-              localIdentName: "[name]__[local]___[hash:base64:5]",
-            }
-          }
-        }, "postcss-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[name]__[local]___[hash:base64:5]",
+              },
+            },
+          },
+          "postcss-loader",
+        ],
       },
       {
         test: /\.(ts|tsx|js|jsx)$/,
@@ -63,6 +67,18 @@ module.exports = (_, argv) => ({
         "react-dom": {
           singleton: true,
           requiredVersion: deps["react-dom"],
+        },
+        "@faker-js/faker": {
+          singleton: true,
+          requiredVersion: deps["@faker-js/faker"],
+        },
+        "chart.js": {
+          singleton: true,
+          requiredVersion: deps["chart.js"],
+        },
+        "react-chartjs-2": {
+          singleton: true,
+          requiredVersion: deps["react-chartjs-2"],
         },
       },
     }),
