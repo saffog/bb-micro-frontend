@@ -1,4 +1,5 @@
 import Settings from "../interfaces/settings.interface";
+import { companyDashboardAppPrefix, internetBankingMenuAppPrefix, personalDashboardAppPrefix } from "./routes.constant";
 
 export const settings: Settings = {
   ENTERPRISE: {
@@ -10,7 +11,7 @@ export const settings: Settings = {
         {
           title:"Inicio",
           icon:"FaHome",
-          route:"/home"
+          route:`${internetBankingMenuAppPrefix}`
         },
         {
           title:"Inversiones",
@@ -56,7 +57,7 @@ export const settings: Settings = {
         {
           title:"Inicio",
           icon:"FaHome",
-          route:"/home"
+          route:`${internetBankingMenuAppPrefix}`
         },
         {
           title:"Pagar",

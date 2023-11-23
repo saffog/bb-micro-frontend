@@ -68,10 +68,18 @@ const SideBar = ({ accountType }: Props) => {
               key={menu.title}
               className={styles.sideitem}
               to={menu.route}
+              style={
+                menu.title === "Inicio"
+                  ? ({
+                      backgroundColor: "#1937561c",
+                    })
+                  : ({})
+                  
+              }
             >
               {getIconByName(menu.icon)}
               <span className={open ? styles.linkText : styles.linkTextClosed}>
-                {menu.title}
+                {open ? menu.title : getIconByName(menu.icon)}
               </span>
             </NavLink>
           );
