@@ -5,6 +5,14 @@ import { createRouter } from "./routing/router-factory";
 import { RoutingStrategy } from "./routing/types";
 import "./index.css";
 
+async function enableMocking() {
+  if (process.env.NODE_ENV !== "development") {
+    return;
+  }
+  const { worker } = await import("./components/mock-request/setupMSW");
+  return worker.start();
+}
+
 const mount = ({
   mountPoint,
   initialPathname,
@@ -15,10 +23,11 @@ const mount = ({
   routingStrategy?: RoutingStrategy;
 }) => {
   const router = createRouter({ strategy: routingStrategy, initialPathname });
-  const root = createRoot(mountPoint);
-  root.render(<RouterProvider router={router} />);
-
-  return () => queueMicrotask(() => root.unmount());
+  enableMocking().then(() => {
+    const root = createRoot(mountPoint);
+    root.render(<RouterProvider router={router} />);
+    return () => queueMicrotask(() => root.unmount());
+  });
 };
 
 export { mount };
