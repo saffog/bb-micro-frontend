@@ -14,10 +14,10 @@ const HomePage = () => {
         {companyAccounts.map((data: any) => (
           <div key={data.userId} className={style.productContainer}>
             {data.products.map((product: any) => (
-              <div className={style.productContainer}>
+              <div key={product.type} className={style.productContainer}>
                 <h1>{product.description}</h1>
                 {product.accounts.map((account: any) => (
-                  <div className={style.accountContainer}>
+                  <div key={account.id} className={style.accountContainer}>
                     <AccountCardForm
                       styleIcon={icon({ name: "user" })}
                       leftUpperText={account.description}
