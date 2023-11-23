@@ -41,9 +41,9 @@ const Login = () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1>Cuenta Personal</h1>
-        <h2>Iniciar Sesión</h2>
+        {/*<h2>Iniciar Sesión</h2>*/}
       </div>
-      <Card className={styles.card}>
+      <Card title='Iniciar Sesión' className={styles.card}>
         <form onSubmit={handleSubmit} className={styles.loginForm}>
           <InputLabel
             name='email'
@@ -61,7 +61,7 @@ const Login = () => {
           />
           {!!error && <p className={styles.errorMessage}>Credenciales incorrectas. Inténtalo de nuevo.</p>}
           <ContainerRow>
-            <ButtonForm variant="success" type="submit">Iniciar sesión</ButtonForm>
+            <ButtonForm disabled={!Boolean(email && password)} variant="success" type="submit">Iniciar sesión</ButtonForm>
             <Link to="/signup">Nuevo Usuario</Link>
             <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
           </ContainerRow>

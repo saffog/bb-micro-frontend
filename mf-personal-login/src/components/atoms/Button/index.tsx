@@ -8,13 +8,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant: TypeButtonVariant;
 }
-const ButtonForm = ({ className, children, type, variant='primary' }: ButtonProps) => {
+const ButtonForm = ({ className, children, type, variant='primary', ...props }: ButtonProps) => {
   const buttonVariantClass = `buttonForm-${variant}`;
 
   return (
     <button
       type={type}
       className={`${styles.buttonForm} ${styles[buttonVariantClass]} ${className}`}
+      {...props}
     >
       {children}
     </button>

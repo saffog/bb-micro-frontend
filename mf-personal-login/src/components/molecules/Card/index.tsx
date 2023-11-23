@@ -10,7 +10,7 @@ interface CardProps {
 const Card = ({children, title, className}: CardProps) => {
   return (
     <div className={`${styles.card} ${className}`}>
-      {title && <h2>{title}</h2>}
+      {title && <h3>{title}</h3>}
       {children}
     </div>
   );
