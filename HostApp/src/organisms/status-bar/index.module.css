@@ -4,10 +4,11 @@
     padding: 15px;
 }
 .section{
-    flex: 1;
+    flex: 2;
     font-size: 13pt;
     font-weight: bold;
     font-style: normal;
+    flex-direction: column;
 }
 .section:nth-child(1){
     text-align: start

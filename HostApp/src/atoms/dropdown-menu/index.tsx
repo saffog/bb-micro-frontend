@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./index.module.css";
-import { FcPortraitMode } from "react-icons/fc";
+import { FcBusinessman, FcDepartment, FcPortraitMode } from "react-icons/fc";
+import { USERS } from "../../constants/users.constant";
 
 
 interface MenuItem{
@@ -43,6 +44,14 @@ const DropdownMenu = ({ items, title }: Props) => {
     }
   };
 
+  const getTitleIcon=(title:string)=>{
+    if(USERS.find(user=>user.userName===title)?.accountType==="ENTERPRISE"){
+        return <FcDepartment style={{ marginRight: "0.5rem" }}/> 
+    }else{
+        return <FcBusinessman style={{ marginRight: "0.5rem" }}/> 
+    }
+  }
+
   useEffect(() => {
     if (isOpen) {
       dropdownListRef.current.querySelector("a").focus();
@@ -61,7 +70,7 @@ const DropdownMenu = ({ items, title }: Props) => {
         onClick={clickHandler}
         ref={activatorRef}
       >
-        <FcPortraitMode/> {title}{" "}
+        {getTitleIcon(title)} {title}{" "}
         {isOpen ? (
           <svg
             height="24"
@@ -85,6 +94,7 @@ const DropdownMenu = ({ items, title }: Props) => {
             <path d="m7.41 8.59 4.59 4.58 4.59-4.58 1.41 1.41-6 6-6-6z" />
           </svg>
         )}
+
       </button>
       <ul
         ref={dropdownListRef}

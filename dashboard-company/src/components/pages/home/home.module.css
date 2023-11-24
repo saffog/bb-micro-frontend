@@ -1,39 +1,47 @@
 .homePageContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .graphsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 200px;
+  overflow-y: auto;
+}
+
+.graphsContainer canvas[style] {
+  min-width: 300px !important;
+  min-height: 200px !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .cardsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding: 1%;
-    background-color: rgb(244, 149, 115);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 1%;
+  min-height: 200px;
+  overflow-y: auto;
 }
 
 .productContainer {
-    /* background-color: rgb(103, 255, 80);*/
-    width: 100%;
+  /* background-color: rgb(103, 255, 80);*/
+  width: 100%;
 }
 
 .accountContainer {
-    /*background-color: rgb(255, 80, 173);*/
-    padding: 1%;
+  /*background-color: rgb(255, 80, 173);*/
+  padding: 1%;
 }

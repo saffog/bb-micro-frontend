@@ -44,11 +44,19 @@
 
 .linkTextClosed {
   composes: linkText;
-  visibility: hidden;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+  padding: 0%;
+  /* visibility: hidden; */
+}
+
+.itemActive{
+  background-color: #1937561c;
 }
 
 .sideitem:hover {
-  background-color: #244f7d1c;
+  background-color: #1d2f421c;
 }
 
 .menuBtn {

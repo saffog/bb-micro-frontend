@@ -18,12 +18,7 @@ export const StatusBar = ({ user }: Props) => {
       style={{ background: `${settings[user.accountType].color}` }}
     >
       <div className={styles.section}>
-        {user.accountType === "ENTERPRISE" ? (
-          <FcDepartment />
-        ) : (
-          <FcBusinessman />
-        )}
-        {settings[user.accountType].label}
+        <span><i>{settings[user.accountType].label}</i></span>
       </div>
       <div className={styles.section}>
         <DropdownMenu title={user.userName} items={[
@@ -32,7 +27,7 @@ export const StatusBar = ({ user }: Props) => {
             anchor: "Mi perfil",
           },
           {
-            slug: "logout",
+            slug: "landing",
             anchor: "Logout",
           },
         ]} />
