@@ -6,7 +6,7 @@ export interface InputProps extends HTMLProps<HTMLInputElement> {
   className?: string;
 }
 
-const InputForm = ({ value, onChange, required = true, type, className }: InputProps) => {
+const InputForm = ({ value, onChange, required = true, type, className, ...props }: InputProps) => {
   return (
     <input
       className={`${styles.input} ${className}`}
@@ -14,6 +14,7 @@ const InputForm = ({ value, onChange, required = true, type, className }: InputP
       value={value}
       onChange={onChange}
       required={required}
+      {...props}
     />
   );
 };

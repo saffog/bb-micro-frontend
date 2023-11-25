@@ -1,3 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700&display=swap');
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #f5f5f5;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.8em;
+  font-weight: 300;
+  margin-bottom: 0.5em;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-weight: 400;
+  margin: 0.5em 0;
+
+}
+
+h5 {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 0.5em 0;
+}
+
+h6 {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0.5em 0;
+}
+
+p {
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0;
+}
+
+a {
+  font-size: 1em;
+  font-weight: 500;
+  text-decoration: none; /* Elimina la subrayado predeterminado de los enlaces */
+  color: #8EB010;
+}
+
+ul, ol {
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.25em; /* Espaciado inferior más pequeño entre elementos de la lista */
+}
+
+blockquote {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 1em 0; /* Espaciado alrededor de bloques de cita */
+}
+
+code {
+  font-family: 'Courier New', monospace; /* Cambia la fuente según tus preferencias para el código */
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+pre {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  font-weight: 400;
+  margin: 1em 0;
+  padding: 1em;
+  background-color: #f8f9fa; /* Fondo gris claro para bloques de código */
+  overflow: auto;
+}
+
+mark {
+  background-color: #ffcc00; /* Fondo amarillo para resaltar texto */
+  color: #000; /* Color de texto dentro del marcado */
+}
+
+h4, h5, h6, label, p {
+  color: #4A4A4A;
 }

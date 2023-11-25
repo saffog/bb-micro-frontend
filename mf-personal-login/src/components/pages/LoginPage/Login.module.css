@@ -3,23 +3,36 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  width: 600px;
-}
-
-.card {
-  width: 560px;
+  height: 100vh;
 }
 
 .loginForm {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
+  width: 350px;
+}
+
+.containerSaveData {
+  width: 100%;
+}
+
+.saveData.saveData {
+  justify-content: flex-start;
+  margin: 0.5em 0 0;
+}
+
+.actionForm {
+  width: 100%;
+  margin: 0 0 1em 0;
+}
+
+.forgotPassword {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.25em 0;
 }
 
 .errorMessage {
@@ -27,8 +40,3 @@
   margin-top: 10px;
   font-size: 14px;
 }
-
-h2 {
-  margin: 0 0 0.67em;
-}
-

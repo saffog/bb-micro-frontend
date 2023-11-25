@@ -4,10 +4,11 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement>{
   name: string;
   checked: boolean;
   title?: string;
+  className?: string;
 }
-const CheckboxForm = ({name, checked, onChange, title, required = true}: CheckboxProps) => {
+const CheckboxForm = ({name, checked, onChange, title, required = true, className}: CheckboxProps) => {
   return (
-    <div className={styles.checkboxForm}>
+    <div className={`${styles.checkboxForm} ${className}`}>
       <input
         type="checkbox"
         id={name}
@@ -16,7 +17,7 @@ const CheckboxForm = ({name, checked, onChange, title, required = true}: Checkbo
         onChange={onChange}
         required={required}
       />
-      { title ? <label htmlFor={name}>{title}</label> : null }
+      { title ? <p>{title}</p> : null }
     </div>
   );
 };
