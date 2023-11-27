@@ -1,4 +1,5 @@
 import React, {InputHTMLAttributes} from 'react';
+
 import styles from './index.module.css';
 interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement>{
   name: string;
@@ -6,16 +7,14 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement>{
   title?: string;
   className?: string;
 }
-const CheckboxForm = ({name, checked, onChange, title, required = true, className}: CheckboxProps) => {
+const CheckboxForm = ({name, title, required = true, className, ...props}: CheckboxProps) => {
   return (
     <div className={`${styles.checkboxForm} ${className}`}>
       <input
         type="checkbox"
         id={name}
-        name={name}
-        checked={checked}
-        onChange={onChange}
         required={required}
+        {...props}
       />
       { title ? <p>{title}</p> : null }
     </div>

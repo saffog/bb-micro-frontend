@@ -17,3 +17,13 @@
 .inputForm {
   width: 100%;
 }
+
+.infoMessage {
+  color: #7f7f7f;
+  font-size: 14px;
+}
+
+.errorMessage {
+  color: #dc3545;
+  font-size: 14px;
+}

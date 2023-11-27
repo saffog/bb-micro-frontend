@@ -3,10 +3,10 @@ import {http, HttpResponse, PathParams} from 'msw';
 import {LoginRequest} from '../interfaces/Login.interface';
 import {SignupRequest} from '../interfaces/Signup.interface';
 import {ForgotPasswordRequest} from '../interfaces/ForgotPassword.interface';
-import {USERS_DATA} from '../api/users';
+import {USERS_DATA} from '../services/users';
 
 export const handlers = [
-  http.post<PathParams<string>, LoginRequest >('/login', async ({ request }) => {
+  http.post<PathParams<string>, LoginRequest >('/login-person', async ({ request }) => {
     const body = await request.json();
 
     const foundUser = USERS_DATA.find((user) => user.email === body.email && user.password === body.password);
@@ -23,7 +23,7 @@ export const handlers = [
       statusText: 'Failed to authenticate!'
     });
   }),
-  http.post<PathParams<string>, SignupRequest>('/signup', async ({ request }) => {
+  http.post<PathParams<string>, SignupRequest>('/signup-person', async ({ request }) => {
     const body = await request.json();
 
     if (!!body.email && !!body.name && !!body.password) {
@@ -38,7 +38,7 @@ export const handlers = [
     });
   }),
 
-  http.post<PathParams<string>, ForgotPasswordRequest >('/forgot-password', async ({ request }) => {
+  http.post<PathParams<string>, ForgotPasswordRequest >('/forgot-password-person', async ({ request }) => {
     const body = await request.json();
 
     const foundUser = USERS_DATA.find((user) => user.email === body.email);

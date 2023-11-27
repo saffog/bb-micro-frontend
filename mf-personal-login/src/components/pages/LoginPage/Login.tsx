@@ -3,20 +3,19 @@ import {Link} from 'react-router-dom';
 
 import { FaUserLock } from "react-icons/fa6";
 
+import ButtonForm from '../../atoms/Button';
+import CheckboxForm from '../../atoms/CheckBox';
 import InputLabel from '../../molecules/InputLabel';
 import Card from '../../molecules/Card';
-import ButtonForm from '../../atoms/Button';
 import usePost from '../../../hooks/usePost';
-import ContainerRow from '../../atoms/ContainerRow';
 
 import styles from './Login.module.css';
-import CheckboxForm from '../../atoms/CheckBox';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [saveData, setSaveData] = useState(false);
-  const {callPost, error} = usePost('/login');
+  const {callPost, error} = usePost('/login-person');
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -65,9 +64,9 @@ const Login = () => {
               onChange={() => setSaveData(!saveData)}
               title='¿Recuerdame?'
               className={styles.saveData}
+              required={false}
             />
           </div>
-
           {!!error && <p className={styles.errorMessage}>Credenciales incorrectas. Inténtalo de nuevo.</p>}
           <div className={styles.actionForm}>
             <ButtonForm

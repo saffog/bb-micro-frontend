@@ -19,7 +19,7 @@ const Signup = () => {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(true);
 
-  const {callPost, error } = usePost('/signup');
+  const {callPost, error } = usePost('/signup-person');
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -68,7 +68,12 @@ const Signup = () => {
     <div className={styles.container}>
       <Card title='REGISTRARSE' icon={FaUserPlus}>
         <form onSubmit={handleSubmit} className={styles.signupForm}>
-          <InputLabel name='name' title='Nombre:' value={name} onChange={handleNameChange}/>
+          <InputLabel
+            name='name'
+            title='Nombre'
+            value={name}
+            onChange={handleNameChange}
+          />
           <InputLabel
             name='email'
             title='Email'
@@ -82,6 +87,8 @@ const Signup = () => {
             value={password}
             onChange={handlePasswordChange}
             type='password'
+            infoMessage='La constraseña al menos debe tener 8 caracteres, un numero y una letra en mayuscula.'
+            withPattern
           />
           <InputLabel
             name='confirmPassword'
@@ -101,7 +108,13 @@ const Signup = () => {
               onChange={handleAgreeTermsChange}
               title='Estoy de acuerdo con los términos y condiciones'
             />
-            <ButtonForm variant="success" type="submit">REGISTRARSE</ButtonForm>
+            <ButtonForm
+              variant="success"
+              disabled={!Boolean(email && password && name && agreeTerms)}
+              type="submit"
+            >
+              REGISTRARSE
+            </ButtonForm>
           </div>
           <p>¿Estás registrado? <Link to="/">Inicia Sesión</Link></p>
         </form>
