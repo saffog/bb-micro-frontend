@@ -19,14 +19,14 @@ const LoginForm: React.FC<LoginFormProps> = ({
   return (
     <div>
       <FormField
-        labelContent="Email"
+        labelContent="* Email"
         inputType="text"
         inputName="email"
         inputValue={email}
         onChange={(event) => setEmail(event.target.value)}
       />
       <FormField
-        labelContent="Contraseña"
+        labelContent="* Contraseña"
         inputType="password"
         inputName="password"
         inputValue={password}
