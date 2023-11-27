@@ -18,7 +18,7 @@ const PasswordRecoveryForm: React.FC<PasswordRecoveryFormProps> = ({
   return (
     <div>
       <FormField
-        labelContent="Email"
+        labelContent="* Email"
         inputType="text"
         inputName="email"
         inputValue={email}
