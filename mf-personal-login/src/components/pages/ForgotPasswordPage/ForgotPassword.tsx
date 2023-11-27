@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {Link} from 'react-router-dom';
 
-import { FaUserShield } from "react-icons/fa6";
+import { FaUserShield } from 'react-icons/fa6';
 
 import {ForgotPasswordResponse} from '../../../interfaces/ForgotPassword.interface';
 import InputLabel from '../../molecules/InputLabel';
@@ -53,7 +53,7 @@ const ForgotPassword = () => {
               <ButtonForm
                 variant="success"
                 type="submit"
-                disabled={!Boolean(email)}
+                disabled={!email}
               >
                 Recuperar Contraseña
               </ButtonForm>

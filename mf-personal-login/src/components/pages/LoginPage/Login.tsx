@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {Link} from 'react-router-dom';
 
-import { FaUserLock } from "react-icons/fa6";
+import { FaUserLock } from 'react-icons/fa6';
 
 import ButtonForm from '../../atoms/Button';
 import CheckboxForm from '../../atoms/CheckBox';
@@ -70,7 +70,7 @@ const Login = () => {
           {!!error && <p className={styles.errorMessage}>Credenciales incorrectas. Inténtalo de nuevo.</p>}
           <div className={styles.actionForm}>
             <ButtonForm
-              disabled={!Boolean(email && password)}
+              disabled={!(email && password)}
               variant="success"
               type="submit"
             >

@@ -1,4 +1,4 @@
-import React, {FocusEvent, HTMLProps} from 'react';
+import React, {HTMLProps} from 'react';
 import styles from './index.module.css';
 
 export interface InputProps extends HTMLProps<HTMLInputElement> {

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import {LocalRoutes} from './router/Routes';
 import {BrowserRouter} from 'react-router-dom';
 import {deferRender} from './mocks/mockingSetup';
-import "./index.css";
+import './index.css';
 
 const App = () => (
   <LocalRoutes />

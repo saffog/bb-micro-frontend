@@ -15,7 +15,7 @@ export const valuesHandlerError: ValuesHandlerError = {
 export const valuesWithPatternHandlerError: ValuesHandlerError = {
   email: {
     errorMessage: 'El texto ingresado, no es un correo valido.',
-    pattern: "[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$",
+    pattern: '[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$',
   },
   password: {
     errorMessage: 'La contraseña ingresada no cumple con los requerimientos.',

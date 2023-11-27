@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {Link} from 'react-router-dom';
 
-import { FaUserPlus } from "react-icons/fa6";
+import { FaUserPlus } from 'react-icons/fa6';
 
 import InputLabel from '../../molecules/InputLabel';
 import ButtonForm from '../../atoms/Button';
@@ -110,7 +110,7 @@ const Signup = () => {
             />
             <ButtonForm
               variant="success"
-              disabled={!Boolean(email && password && name && agreeTerms)}
+              disabled={!(email && password && name && agreeTerms)}
               type="submit"
             >
               REGISTRARSE
