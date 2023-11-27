@@ -29,6 +29,9 @@ const CreateAccountPage: React.FC<PageProps> = ({ title }: PageProps) => {
     ) {
       setError("Por favor, complete todos los campos");
       return;
+    } else if (password !== password2) {
+      setError("Las contraseñas no coinciden");
+      return;
     }
 
     createAccount(empresa, representante, email, password, password2, ok)

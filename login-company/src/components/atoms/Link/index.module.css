@@ -1,13 +1,7 @@
 /* Estilo para los enlaces */
 .linkForm {
-  text-decoration: none;
-  color: #333;
+  text-decoration: underline;
   margin-right: 10px; /* Ajusta la separación entre enlaces */
   display: inline-block; /* Hace que los enlaces estén en la misma línea */
   margin-left: 10px;
-}
-
-/* Estilo adicional para los enlaces al pasar el ratón sobre ellos */
-.linkForm:hover {
-  text-decoration: underline;
 }
