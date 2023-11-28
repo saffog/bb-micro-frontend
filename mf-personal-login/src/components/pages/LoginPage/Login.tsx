@@ -1,19 +1,21 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {Link} from 'react-router-dom';
 
+import { FaUserLock } from 'react-icons/fa6';
+
+import ButtonForm from '../../atoms/Button';
+import CheckboxForm from '../../atoms/CheckBox';
 import InputLabel from '../../molecules/InputLabel';
 import Card from '../../molecules/Card';
-import ButtonForm from '../../atoms/Button';
 import usePost from '../../../hooks/usePost';
-import ContainerRow from '../../atoms/ContainerRow';
 
 import styles from './Login.module.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const {callPost, error} = usePost('/login');
+  const [saveData, setSaveData] = useState(false);
+  const {callPost, error} = usePost('/login-person');
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -39,32 +41,46 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <h1>Cuenta Personal</h1>
-        <h2>Iniciar Sesión</h2>
-      </div>
-      <Card className={styles.card}>
+      <Card title='Iniciar Sesión' icon={FaUserLock}>
         <form onSubmit={handleSubmit} className={styles.loginForm}>
           <InputLabel
             name='email'
-            title='Email'
+            title='Correo Electronico'
             type='email'
             value={email}
             onChange={handleEmailChange}
           />
-          <InputLabel
-            name='password'
-            title='Contraseña'
-            type='password'
-            value={password}
-            onChange={handlePasswordChange}
-          />
+          <div className={styles.containerSaveData}>
+            <InputLabel
+              name='password'
+              title='Contraseña'
+              type='password'
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <CheckboxForm
+              name='agreeTerms'
+              checked={saveData}
+              onChange={() => setSaveData(!saveData)}
+              title='¿Recuerdame?'
+              className={styles.saveData}
+              required={false}
+            />
+          </div>
           {!!error && <p className={styles.errorMessage}>Credenciales incorrectas. Inténtalo de nuevo.</p>}
-          <ContainerRow>
-            <ButtonForm variant="success" type="submit">Iniciar sesión</ButtonForm>
-            <Link to="/signup">Nuevo Usuario</Link>
-            <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
-          </ContainerRow>
+          <div className={styles.actionForm}>
+            <ButtonForm
+              disabled={!(email && password)}
+              variant="success"
+              type="submit"
+            >
+              Iniciar sesión
+            </ButtonForm>
+            <div className={styles.forgotPassword}>
+              <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
+            </div>
+          </div>
+          <p>¿Eres nuevo usuario? <Link to="/signup">Registrate!</Link></p>
         </form>
       </Card>
     </div>

@@ -1,13 +1,12 @@
 .buttonForm {
-    /*width: 100%;*/
     padding: 10px;
     color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: 10px;
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-
+    font-size: 1rem;
+    width: 100%;
 }
 
 .buttonForm-primary {
@@ -21,7 +20,7 @@
 }
 
 .buttonForm-success {
-    background-color: #4caf50;
+    background-color: #8EB010;
     color: #ffffff;
 }
 
@@ -40,7 +39,13 @@
     color: #ffffff;
 }
 
-.buttonForm:hover {
+.buttonForm:not(:disabled):hover {
     filter: brightness(1.2);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+    background-color: #d3d3d3;
+    color: #808080;
+    cursor: not-allowed;
 }

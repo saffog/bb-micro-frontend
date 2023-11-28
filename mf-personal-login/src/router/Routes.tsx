@@ -7,7 +7,7 @@ import {NavigationManager} from '../handlers/navigation';
 const LocalRoutes = () => {
   return useRoutes([
     {
-      path: 'login',
+      path: '/',
       element: <LoginPage/>,
     },
     {

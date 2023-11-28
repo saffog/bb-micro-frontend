@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {ReactNode} from 'react'
 import { Button } from '../../atoms/button';
 import ButtonProps from '../../interfaces/button-props.interface';
 import styles from './index.module.css';
 
 interface Props {
     title: string;
-    bodyContent: string | Element;
+    bodyContent: ReactNode;
     buttonProps?: Array<ButtonProps>;
     backgroundColor?: string;
 

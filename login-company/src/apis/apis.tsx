@@ -5,10 +5,7 @@ export const login = (email: string, password: string) => {
       "Content-Type": "application/json",
       Authorization: "Bearer your-token",
     },
-    body: JSON.stringify({
-      userEmail: email,
-      password: password,
-    }),
+    body: JSON.stringify({ email, password }),
   })
     .then((response) => {
       if (response.status === 401) {
@@ -39,7 +36,7 @@ export const createAccount = (
     body: JSON.stringify({
       userName: empresa,
       representative: representante,
-      userEmail: email,
+      email,
       password: password,
       password2: password2,
       ok: ok,
@@ -59,7 +56,7 @@ export const recoverPassword = (email: string) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      userEmail: email,
+      email,
     }),
   })
     .then((response) => response.json())

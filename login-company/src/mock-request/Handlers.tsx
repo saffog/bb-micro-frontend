@@ -2,39 +2,39 @@ import { http, HttpResponse } from "msw";
 
 interface RequestBody {
   userName: string;
-  userEmail: string;
+  email: string;
   password: string;
 }
 
 interface User {
   userId: number;
   userName: string;
-  userEmail: string;
+  email: string;
   password: string;
 }
 
 const validUsers = [
   {
     userId: 4,
-    userEmail: "juan.jose1983@gmail.com",
+    email: "juan.jose1983@gmail.com",
     password: "123456",
     userName: "juan jose",
   },
   {
     userId: 5,
-    userEmail: "company@correo.com",
+    email: "company@correo.com",
     password: "456789",
     userName: "company",
   },
   {
     userId: 6,
-    userEmail: "JJEnterprise@correo.com",
+    email: "JJEnterprise@correo.com",
     password: "987654",
     userName: "JJEnterprise",
   },
   {
     userId: 7,
-    userEmail: "baufest@baufest.com",
+    email: "baufest@baufest.com",
     password: "987654",
     userName: "baufest",
   },
@@ -44,7 +44,7 @@ export const handlers = [
   http.post("/login", async ({ request }) => {
     const requestBody: RequestBody | undefined =
       (await request.json()) as RequestBody;
-    const userEmail = requestBody.userEmail;
+    const userEmail = requestBody.email;
     const password = requestBody.password;
     const validUser = verifyUser(userEmail, password);
     if (validUser === null) {
@@ -63,24 +63,24 @@ export const handlers = [
   http.post("/password-recovery", async ({ request }) => {
     const requestBody: RequestBody | undefined =
       (await request.json()) as RequestBody;
-    const userEmail = requestBody.userEmail;
+    const userEmail = requestBody.email;
     return HttpResponse.json({
-      userEmail: userEmail,
+      email: userEmail,
     });
   }),
   http.post("/companies", async ({ request }) => {
     const requestBody: RequestBody | undefined =
       (await request.json()) as RequestBody;
     const userName = requestBody.userName;
-    const userEmail = requestBody.userEmail;
+    const userEmail = requestBody.email;
     return HttpResponse.json({
       userName: userName,
-      userEmail: userEmail,
+      email: userEmail,
     });
   }),
 ];
 
-const verifyUser = (userEmail: string, password: string): User | null =>
+const verifyUser = (email: string, password: string): User | null =>
   validUsers.find(
-    (user) => user.userEmail === userEmail && user.password === password
+    (user) => user.email === email && user.password === password
   ) || null;

@@ -1,13 +1,14 @@
 .input {
-    padding: 10px;
-    margin: 0;
-    border: 1px solid black;
-    border-radius: 4px;
+  padding: 10px;
+  margin: 0;
+  border: 2px solid #c6c6c6;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
-.input {
-    width: 100%;
-    box-sizing: border-box; /* add this */
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
+/*.input:invalid {*/
+/*  border: 2px solid #dc3545;*/
+/*}*/

@@ -1,9 +1,7 @@
 import {http, HttpResponse, PathParams} from 'msw';
 
-import {LoginRequest} from '../interfaces/Login.interface';
-import {SignupRequest} from '../interfaces/Signup.interface';
-import {ForgotPasswordRequest} from '../interfaces/ForgotPassword.interface';
-import {USERS_DATA} from '../services/users';
+import {ForgotPasswordRequest, LoginRequest, SignupRequest} from '../interfaces/request.interface';
+import {USERS_DATA, COMPANY_DATA} from '../services/users';
 
 export const handlers = [
   http.post<PathParams<string>, LoginRequest >('/login-person', async ({ request }) => {
@@ -52,6 +50,49 @@ export const handlers = [
     return new HttpResponse(null, {
       status: 400,
       statusText: 'The email was not found'
+    });
+  }),
+
+  http.post("/login", async ({ request }) => {
+    const requestBody: LoginRequest | undefined =
+      (await request.json()) as LoginRequest;
+    const userEmail = requestBody?.email;
+    const password = requestBody.password;
+
+    const validUser = COMPANY_DATA
+      .find((user) => user.email === userEmail && user.password === password) || null;
+
+    if (validUser === null) {
+      return new HttpResponse(null, {
+        status: 401,
+        statusText: "Unauthorized",
+      });
+    } else {
+      return HttpResponse.json({
+        userId: validUser.userId,
+        accountType: "ENTERPRISE",
+        userName: validUser.userName,
+      });
+    }
+  }),
+
+  http.post("/password-recovery", async ({ request }) => {
+    const requestBody: ForgotPasswordRequest | undefined =
+      (await request.json()) as ForgotPasswordRequest;
+    const userEmail = requestBody.email;
+    return HttpResponse.json({
+      userEmail: userEmail,
+    });
+  }),
+
+  http.post("/companies", async ({ request }) => {
+    const requestBody: SignupRequest | undefined =
+      (await request.json()) as SignupRequest;
+    const userName = requestBody.name;
+    const userEmail = requestBody.email;
+    return HttpResponse.json({
+      userName: userName,
+      userEmail: userEmail,
     });
   }),
 ];

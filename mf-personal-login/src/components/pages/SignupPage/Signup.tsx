@@ -1,4 +1,7 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
+import {Link} from 'react-router-dom';
+
+import { FaUserPlus } from 'react-icons/fa6';
 
 import InputLabel from '../../molecules/InputLabel';
 import ButtonForm from '../../atoms/Button';
@@ -7,8 +10,6 @@ import Card from '../../molecules/Card';
 import usePost from '../../../hooks/usePost';
 
 import styles from './Signup.module.css';
-import ContainerRow from '../../atoms/ContainerRow';
-import {Link} from 'react-router-dom';
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -18,7 +19,7 @@ const Signup = () => {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [passwordMatch, setPasswordMatch] = useState(true);
 
-  const {callPost, error } = usePost('/signup');
+  const {callPost, error } = usePost('/signup-person');
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -65,51 +66,59 @@ const Signup = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <h1>Cuenta Personal</h1>
-        <h2>Crear Cuenta</h2>
-      </div>
-      <div className={styles.body}>
-        <Card>
-          <form onSubmit={handleSubmit} className={styles.signupForm}>
-            <InputLabel name='name' title='Nombre:' value={name} onChange={handleNameChange}/>
-            <InputLabel
-              name='email'
-              title='Email'
-              value={email}
-              onChange={handleEmailChange}
-              type='email'
-            />
-            <InputLabel
-              name='password'
-              title='Contraseña'
-              value={password}
-              onChange={handlePasswordChange}
-              type='password'
-            />
-            <InputLabel
-              name='confirmPassword'
-              title='Reescribir Contraseña'
-              value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
-              onBlur={handleConfirmPasswordBlur}
-              type='password'
-            />
-            {!passwordMatch && <p className={styles.errorMessage}>Las contraseñas no coinciden.</p>}
-            {!!error && <p className={styles.errorMessage}>Credenciales incorrectas. Inténtalo de nuevo.</p>}
+      <Card title='REGISTRARSE' icon={FaUserPlus}>
+        <form onSubmit={handleSubmit} className={styles.signupForm}>
+          <InputLabel
+            name='name'
+            title='Nombre'
+            value={name}
+            onChange={handleNameChange}
+          />
+          <InputLabel
+            name='email'
+            title='Email'
+            value={email}
+            onChange={handleEmailChange}
+            type='email'
+          />
+          <InputLabel
+            name='password'
+            title='Contraseña'
+            value={password}
+            onChange={handlePasswordChange}
+            type='password'
+            infoMessage='La constraseña al menos debe tener 8 caracteres, un numero y una letra en mayuscula.'
+            withPattern
+          />
+          <InputLabel
+            name='confirmPassword'
+            title='Reescribir Contraseña'
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+            onBlur={handleConfirmPasswordBlur}
+            type='password'
+          />
+          {!passwordMatch && <p className={styles.errorMessage}>Las contraseñas no coinciden.</p>}
+          {!!error && <p className={styles.errorMessage}>Credenciales incorrectas. Inténtalo de nuevo.</p>}
+
+          <div className={styles.actionForm}>
             <CheckboxForm
               name='agreeTerms'
               checked={agreeTerms}
               onChange={handleAgreeTermsChange}
               title='Estoy de acuerdo con los términos y condiciones'
             />
-            <ContainerRow>
-              <ButtonForm variant="success" type="submit">Registrarse</ButtonForm>
-              <Link to="/">Iniciar Sesión</Link>
-            </ContainerRow>
-          </form>
-        </Card>
-      </div>
+            <ButtonForm
+              variant="success"
+              disabled={!(email && password && name && agreeTerms)}
+              type="submit"
+            >
+              REGISTRARSE
+            </ButtonForm>
+          </div>
+          <p>¿Estás registrado? <Link to="/">Inicia Sesión</Link></p>
+        </form>
+      </Card>
     </div>
   );
 };
