@@ -1,6 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Host from './Host';
-import { BrowserRouter } from 'react-router-dom';
+import {deferRender} from './mocks/mockingSetup';
 
-ReactDOM.render(<Host />, document.getElementById("hostApp"));
+deferRender().then(() => {
+  ReactDOM.render(<Host />, document.getElementById("hostApp"));
+});
+
