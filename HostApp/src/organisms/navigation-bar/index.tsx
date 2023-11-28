@@ -18,8 +18,13 @@ export const NavigationBar = () => {
   };
   return (
     <nav className="navbar">
+      <div className="navbar-left">
+        <Link to={`/${landingAppPrefix}`}>
+          <Image src="/assets/images/Logo.png" alt="logo" />
+        </Link>
+      </div>
       <div
-        className="navbar-left"
+        className="navbar-right"
         style={{
           display: window.location.href.includes("landing") ? "" : "none",
         }}
@@ -48,11 +53,6 @@ export const NavigationBar = () => {
         >
           Inicio
         </a>
-      </div>
-      <div className="navbar-right" style={{ display: "flex" }}>
-        <Link to={`/${landingAppPrefix}`}>
-          <Image src="/assets/images/Logo.png" alt="logo" />
-        </Link>
       </div>
     </nav>
   );

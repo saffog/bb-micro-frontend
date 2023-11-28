@@ -2,7 +2,13 @@
 .navbar {
     background-color: #ffffff;
     overflow: auto;
-    padding: 8px 16px;
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Navbar links */
@@ -13,12 +19,13 @@
     color: rgb(0, 0, 0);
     text-decoration: none;
     font-size: 17px;
+    border-bottom: 5px solid #ffffff;
 }
 
 /* Navbar links on mouse-over */
 .navbar a:hover {
     cursor: pointer;
-    border-bottom: 5px solid #04AA6D ;
+    border-bottom: 5px solid #8EB010;
     transition: 0.1s ease-in;
 }
 
@@ -26,7 +33,7 @@
 
 /* Current/active navbar link */
 .active {
-    background-color: #04AA6D;
+    background-color: #8EB010;
 }
 
 .navbar-right Link {
