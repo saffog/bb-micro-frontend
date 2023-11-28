@@ -15,7 +15,7 @@ const HomePage = () => {
           <div key={data.userId} className={style.productContainer}>
             {data.products.map((product: any) => (
               <div key={product.type} className={style.productContainer}>
-                <h1>{product.description}</h1>
+                <h1 className={style.productTitle}>{product.description}</h1>
                 {product.accounts.map((account: any) => (
                   <div key={account.id} className={style.accountContainer}>
                     <AccountCardForm

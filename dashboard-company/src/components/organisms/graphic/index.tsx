@@ -7,6 +7,7 @@ import {
   dataChart,
   optionsChart,
 } from "../../../data/company-data";
+import style from "./index.module.css";
 
 export const Graphic = () => {
   // const [options, setOptions] = useState({});
@@ -29,7 +30,7 @@ export const Graphic = () => {
 
   return (
     <div>
-      <h1>Información sobre la cuenta</h1>
+      <h1 className={style.graphicsTitle}>Información sobre la cuenta</h1>
       <div>
         <div>
           <Line options={options} data={data} />
