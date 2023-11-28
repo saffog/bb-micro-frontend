@@ -2,10 +2,11 @@ import React from 'react'
 
 import { Graphic } from "../organisms/graphic";
 import Card from "../organisms/card";
+import styles from "../../styles/styles.module.css";
 
-export const Dasboard = () => {
+export const Dashboard = () => {
   return (
-    <div className="mt-8 text-2xl mx-4">
+    <div className={styles.dashboard}>
         <Card/>
         <Graphic/> 
     </div>

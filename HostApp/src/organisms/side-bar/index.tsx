@@ -71,7 +71,7 @@ const SideBar = ({ accountType }: Props) => {
               style={
                 menu.title === "Inicio"
                   ? ({
-                      backgroundColor: "#1937561c",
+                      backgroundColor: "#f5f5f5",
                     })
                   : ({})
                   

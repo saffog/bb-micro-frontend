@@ -46,7 +46,7 @@ module.exports = (_, argv) => ({
       remotes: {},
       exposes: {
         './personalDashboardAppIndex':'./src/bootstrap',
-        "./components/pages/Dasboard": "/src/components/pages/Dasboard.tsx"
+        "./components/pages/Dashboard": "/src/components/pages/Dashboard.tsx"
       },
       shared: {
         ...deps,

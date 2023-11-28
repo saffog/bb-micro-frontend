@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from "react-router-dom";
 import { NavigationManager } from '../components/managers/navigation-manager';
-import {Dasboard} from '../components/pages/Dasboard';
+import {Dashboard} from '../components/pages/Dashboard';
 
 
 export const routes = [
@@ -15,11 +15,11 @@ export const routes = [
     children: [
       {
         index: true,
-        element: <Dasboard />,
+        element: <Dashboard />,
       },
       {
         path: "main",
-        element: <Dasboard />,
+        element: <Dashboard />,
       }
     ],
   },
