@@ -1,40 +1,40 @@
 .cardContainer {
-    display: flex;
-    padding: 2%; 
-    border: 2px solid #333; 
-    border-radius: 10px; 
-    background-color: antiquewhite;
+  display: flex;
+  padding: 2%;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: antiquewhite;
 }
 
 .cardColumn {
-    display: flex;
-    grid-column: auto;
-    width: 100%;
-    /* background-color: yellow; */
+  display: flex;
+  grid-column: auto;
+  width: 100%;
+  /* background-color: yellow; */
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    text-align: left;
-    /* background-color: blueviolet; */
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: left;
+  /* background-color: blueviolet; */
 }
 
 .rowHeader {
-    font-size: larger;
-    /* background-color: pink; */
+  font-size: larger;
+  /* background-color: pink; */
 }
 
 .rowText {
-    font-size: small;
-    /* background-color: orange; */
+  font-size: small;
+  /* background-color: orange; */
 }
 
 .columnMoney {
-    width: 50%;
-    text-align: center;
-    font-weight: bold;
-    font-size: x-large;
-    /* background-color: cadetblue; */
+  width: 50%;
+  text-align: center;
+  font-weight: bold;
+  font-size: x-large;
+  /* background-color: cadetblue; */
 }
