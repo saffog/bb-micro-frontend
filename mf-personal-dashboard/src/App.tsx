@@ -1,12 +1,11 @@
 import React from "react";
 import {createRoot} from "react-dom/client";
 
-import "./index.scss";
-import { Dasboard } from "./components/pages/Dasboard";
+import { Dashboard } from "./components/pages/Dashboard";
 
 const Personal_Dashboard = () => (
   <div>
-    <Dasboard/>
+    <Dashboard/>
   </div>
 );
 
