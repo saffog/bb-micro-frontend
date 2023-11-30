@@ -19,6 +19,7 @@ const PasswordRecoveryPage: React.FC = () => {
     } else {
       recoverPassword(email)
         .then((data) => {
+          console.log(data);
           setModalOpen(true);
         })
         .catch((error) => {
