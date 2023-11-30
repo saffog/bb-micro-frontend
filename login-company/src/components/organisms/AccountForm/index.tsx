@@ -7,6 +7,8 @@ import RedirectLink from "../../atoms/Link";
 import ErrorMessage from "../../atoms/ErrorMessage";
 
 import styles from "./index.module.css";
+import Modal from "../../templates/ModalTemplate";
+import { contentTermsAndConditions } from "../../../constants/termsCond.constant";
 
 const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   onSubmit,
@@ -18,10 +20,19 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [ok, setOk] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleSubmit = () => {
     onSubmit(empresa, representante, email, password, password2, ok);
   };
+
+  const handleOnClose = () => {
+    setModalOpen(false);
+  };
+
+  const onClickTermsAndConditions=()=>{
+    setModalOpen(true);
+  }
 
   return (
     <div className={styles.container}>
@@ -66,7 +77,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
       <div className={styles.actionForm}>
         <div className={styles.containerCheckbox}>
           <Input type="checkbox" name="ok" value="" onChange={() => setOk(!ok)} />
-          <p>Estoy de acuerdo con los términos y condiciones</p>
+          <p>Estoy de acuerdo con los <a href="#" onClick={onClickTermsAndConditions}>términos y condiciones</a></p>
         </div>
         <Button
           text="Inscribirse"
@@ -75,6 +86,14 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
         />
       </div>
       <p>¿Tu empresa esta registrada? <RedirectLink to={"/"} content="Inicia Sesión" /></p>
+      {modalOpen && (
+        <Modal
+          title="Terminos y Condiciones"
+          content={contentTermsAndConditions}
+          onClose={handleOnClose}
+          buttonTitle="Volver"
+        />
+      )}
     </div>
   );
 };
