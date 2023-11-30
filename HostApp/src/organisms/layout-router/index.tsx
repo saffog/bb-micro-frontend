@@ -1,12 +1,8 @@
 import React, { useEffect } from "react";
-import {
-  personalLoginAppPrefix,
-  companyLoginAppPrefix,
-  personalDashboardAppPrefix,
-  internetBankingMenuAppPrefix,
-} from "../../constants/routes.constant";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import {internetBankingMenuAppPrefix} from "../../constants/routes.constant";
+import { Outlet, useNavigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar";
+import "./index.css";
 
 export const LayoutRouter = () => {
   const navigate = useNavigate();
@@ -24,9 +20,13 @@ export const LayoutRouter = () => {
   }, []);
 
   return (
-    <>
-      <NavigationBar />
-      <Outlet />
-    </>
+    <div className='root'>
+      <div>
+        <NavigationBar />
+      </div>
+      <div>
+        <Outlet />
+      </div>
+    </div>
   );
 };

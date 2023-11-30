@@ -1,7 +1,4 @@
 /* Estilo para los enlaces */
 .linkForm {
-  text-decoration: underline;
-  margin-right: 10px; /* Ajusta la separación entre enlaces */
   display: inline-block; /* Hace que los enlaces estén en la misma línea */
-  margin-left: 10px;
 }

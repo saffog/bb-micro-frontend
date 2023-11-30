@@ -5,6 +5,8 @@ import { PasswordRecoveryFormProps } from "../../../interfaces/interfaces";
 import RedirectLink from "../../atoms/Link";
 import ErrorMessage from "../../atoms/ErrorMessage";
 
+import styles from "./index.module.css";
+
 const PasswordRecoveryForm: React.FC<PasswordRecoveryFormProps> = ({
   onSubmit,
   error,
@@ -16,17 +18,19 @@ const PasswordRecoveryForm: React.FC<PasswordRecoveryFormProps> = ({
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <FormField
         labelContent="* Email"
-        inputType="text"
+        inputType="email"
         inputName="email"
         inputValue={email}
         onChange={(event) => setEmail(event.target.value)}
+        infoMessage="Se enviarán instrucciones al correo electrónico vinculado a su cuenta."
+        required
       />
       {error && <ErrorMessage errorMesage={error} />}
-      <Button text="Contacte un agente" onClick={handleSubmit} />
-      <RedirectLink to={"/"} content={"Regresar a Login"} />
+      <Button text="Recuperar Contraseña" onClick={handleSubmit} disabled={!email} />
+      <p>Deseas regresar? <RedirectLink to={"/"} content={"Iniciar Sesión"} /></p>
     </div>
   );
 };

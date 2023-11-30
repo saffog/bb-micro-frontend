@@ -1,26 +1,21 @@
 import React from "react";
+
+import { IconType } from 'react-icons';
+import { BsBuildingFillAdd, BsBuildingFillLock } from "react-icons/bs";
+import { FaBuildingShield } from "react-icons/fa6";
+
 import LoginForm from "../../organisms/LoginForm";
 import CreateAccountForm from "../../organisms/AccountForm";
 import PasswordRecoveryForm from "../../organisms/PasswordRecoveryForm";
 import { FormTemplateProps } from "../../../interfaces/interfaces";
-import styles from "./index.module.css";
+import Card from '../../molecules/Card';
 
-const FormTemplate: React.FC<FormTemplateProps> = ({
-  title,
-  onSubmit,
-  formType,
-  error,
-}: FormTemplateProps) => {
-  const formComponent = generateForm(formType, onSubmit, error);
 
-  return (
-    <div>
-      <h2>{title}</h2>
-      <div className={styles.containerForm}>{formComponent}</div>
-    </div>
-  );
-};
-
+const iconsForm: {[key: string]: IconType} = {
+  login: BsBuildingFillLock,
+  createAccount: BsBuildingFillAdd,
+  passwordRecovery: FaBuildingShield
+}
 const generateForm = (
   formType: string,
   onSubmit: () => void,
@@ -35,6 +30,19 @@ const generateForm = (
   };
 
   return formComponents[formType] || null;
+};
+
+const FormTemplate: React.FC<FormTemplateProps> = ({
+  title,
+  onSubmit,
+  formType,
+  error,
+}: FormTemplateProps) => {
+  const formComponent = generateForm(formType, onSubmit, error);
+
+  return (
+    <Card title={title} icon={iconsForm[formType]}>{formComponent}</Card>
+  );
 };
 
 export default FormTemplate;

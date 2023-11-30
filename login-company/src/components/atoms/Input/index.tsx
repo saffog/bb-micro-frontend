@@ -9,7 +9,11 @@ const Input: React.FC<InputProps> = ({
   checked,
   styledClass,
   onChange,
+  onBlur,
+  pattern,
+  required,
 }: InputProps) => {
+
   return (
     <input
       type={type}
@@ -18,6 +22,9 @@ const Input: React.FC<InputProps> = ({
       checked={checked}
       className={`${styles.inputForm} ${styledClass}`}
       onChange={onChange}
+      onBlur={onBlur}
+      pattern={pattern}
+      required={required}
     />
   );
 };
