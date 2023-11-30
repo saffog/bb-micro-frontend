@@ -1,10 +1,12 @@
 /* Style the navigation bar */
 .navbar {
     background-color: #ffffff;
-    overflow: auto;
-    position: absolute;
-    z-index: 10;
+    /*overflow: auto;*/
+    /*z-index: 10;*/
+
     width: 100%;
+    position: absolute;
+    height: auto;
 
     display: flex;
     justify-content: space-between;
@@ -41,9 +43,9 @@
   }
 
 /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
-@media screen and (max-width: 500px) {
-    .navbar a {
-        float: none;
-        display: block;
-    }
-}
+/*@media screen and (max-width: 500px) {*/
+/*    .navbar a {*/
+/*        float: none;*/
+/*        display: block;*/
+/*    }*/
+/*}*/

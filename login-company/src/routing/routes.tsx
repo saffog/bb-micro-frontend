@@ -16,15 +16,15 @@ export const routes = [
     children: [
       {
         index: true,
-        element: <LoginPage title="Cuenta Empresarial" />,
+        element: <LoginPage />,
       },
       {
         path: "/",
-        element: <LoginPage title="Cuenta Empresarial" />,
+        element: <LoginPage />,
       },
       {
         path: "/create-account",
-        element: <CreateAccountPage title="Cuenta Empresarial" />,
+        element: <CreateAccountPage />,
       },
       {
         path: "/password-recovery",
