@@ -10,12 +10,15 @@ import Card from '../../molecules/Card';
 import usePost from '../../../hooks/usePost';
 
 import styles from './Login.module.css';
+import Modal from './../../templates/ModalTemplate/index';
+import { contentTermsAndConditions } from './../../../constants/termsCond.constant';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [saveData, setSaveData] = useState(false);
   const {callPost, error} = usePost('/login-person');
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -24,6 +27,14 @@ const Login = () => {
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
+
+  const handleOnClose = () => {
+    setModalOpen(false);
+  };
+
+  const onClickTermsAndConditions=()=>{
+    setModalOpen(true);
+  }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -62,6 +73,7 @@ const Login = () => {
               name='agreeTerms'
               checked={saveData}
               onChange={() => setSaveData(!saveData)}
+              callbackMap={new Map().set('agreeTerms', onClickTermsAndConditions)}
               title='¿Recuerdame?'
               className={styles.saveData}
               required={false}
@@ -83,7 +95,16 @@ const Login = () => {
           <p>¿Eres nuevo usuario? <Link to="/signup">Registrate!</Link></p>
         </form>
       </Card>
+      {modalOpen && (
+        <Modal
+          title="Terminos y Condiciones"
+          content={contentTermsAndConditions}
+          onClose={handleOnClose}
+          buttonTitle="Volver"
+        />
+      )}
     </div>
+    
   );
 };
 
