@@ -8,6 +8,8 @@ import { ContactContainer } from '../../organisms/contact-container';
 
 // const LandingBaseName = `/${landingAppPrefix}`;
 
+import "./index.css";
+
 export default () => {
 
   return (

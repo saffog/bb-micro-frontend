@@ -1,6 +1,7 @@
 import React from 'react'
+import { AboutLayout } from '../../molecules/about-layout';
+
 import styles from './index.module.css';
-import { AboutLayout } from '../../molecules/about-layout/index';
 
 export const AboutContainer = () => {
     return (
