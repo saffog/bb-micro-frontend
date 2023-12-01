@@ -40,7 +40,7 @@ export const settings: Settings = {
         },
         {
           title:"Referir amigo",
-          icon:"fa FaUserPlus",
+          icon:"FaUserPlus",
           route:"/referir"
         }
       ],

@@ -1,8 +1,9 @@
-.mainContainer{
-    padding: 30px;
+.mainContainer {
     background-color: #e9e9e9;
     margin: 0;
-
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 .container{
     display: flex;
@@ -25,16 +26,25 @@
 }
 
 .title{
-    text-align: center;
-    flex:1;
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .title p{
-    padding-left: 120px;
-    padding-right: 120px;
     text-align: justify;
 }
 
+@media screen and (min-width: 768px) {
+    .mainContainer {
+        padding: 8vh 4vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .mainContainer {
+        padding: 8vh 8vw;
+    }
+}

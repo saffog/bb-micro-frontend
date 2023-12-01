@@ -30,7 +30,7 @@ const InputLabel = ({
   const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
     const {target} = event;
 
-    if (!target.validity.valid && target.required) {
+    if (target.value && !target.validity.valid && target.required) {
       const valuesError = withPattern ? valuesWithPatternHandlerError : valuesHandlerError;
       setError(valuesError[target.type].errorMessage);
     }

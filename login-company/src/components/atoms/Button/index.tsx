@@ -6,9 +6,15 @@ const Button: React.FC<ButtonProps> = ({
   text,
   styledClass,
   onClick,
+  disabled,
 }: ButtonProps) => {
   return (
-    <button className={`${styles.buttonForm} ${styledClass}`} onClick={onClick}>
+    <button
+      className={`${styles.buttonForm}
+       ${styledClass}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {text}
     </button>
   );
