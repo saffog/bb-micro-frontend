@@ -5,7 +5,7 @@ type TypeButtonVariant = 'primary' | 'secondary' | 'success' | 'info' | 'warning
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
   variant: TypeButtonVariant;
 }
 const ButtonForm = ({ className, children, type, variant='primary', ...props }: ButtonProps) => {

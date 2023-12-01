@@ -16,6 +16,7 @@ export interface ModalProps {
   title: string;
   content: string;
   onClose: () => void;
+  buttonTitle?:string;
 }
 
 export interface LoginFormProps {
