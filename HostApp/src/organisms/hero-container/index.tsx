@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import { LoginLayout } from "../../molecules/login-layout";
-import { companyLoginAppPrefix, personalLoginAppPrefix, internetBankingMenuAppPrefix } from "../../constants/routes.constant";
+import { companyLoginAppPrefix, personalLoginAppPrefix } from "../../constants/routes.constant";
 
 import styles from "./index.module.css";
 
@@ -10,7 +10,7 @@ export const HeroContainer = () => {
     const navigate=useNavigate();
     const onClickLoginPersonal = () => { navigate(`/${personalLoginAppPrefix}`)};
     const onClickLoginEnterprise = () => {navigate(`/${companyLoginAppPrefix}`) };
-    const onClickInternetBanking = () => {navigate(`/${internetBankingMenuAppPrefix}`) };
+    // const onClickInternetBanking = () => {navigate(`/${internetBankingMenuAppPrefix}`) };
 
 
     return (
