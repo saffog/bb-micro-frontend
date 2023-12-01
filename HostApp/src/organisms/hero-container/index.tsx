@@ -38,7 +38,6 @@ export const HeroContainer = () => {
           <div className={styles.imageContainer}>
               <img className={styles.image} src={'/assets/images/hero-banking.png'} alt="Hero"/>
           </div>
-            
         </div>
     );
 };

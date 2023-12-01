@@ -20,13 +20,16 @@ export const LayoutRouter = () => {
   }, []);
 
   return (
-    <div className='root'>
-      <div>
+    <div className="root">
+      <header>
         <NavigationBar />
-      </div>
-      <div>
+      </header>
+      <main>
         <Outlet />
-      </div>
+      </main>
+      <footer>
+        hola soy el footer
+      </footer>
     </div>
   );
 };

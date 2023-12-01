@@ -1,4 +1,18 @@
 .root {
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
+
+header {
+  height: auto;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  height: 30px;
+}
+
