@@ -43,7 +43,9 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "personalDashboardApp",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        vue: "vue@http://localhost:9011/remoteEntry.js",
+      },
       exposes: {
         './personalDashboardAppIndex':'./src/bootstrap',
         "./components/pages/Dashboard": "/src/components/pages/Dashboard.tsx"
