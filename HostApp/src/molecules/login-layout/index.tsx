@@ -10,7 +10,7 @@ interface Props {
     backgroundColor?: string;
 
 }
-export const LoginLayout = ({ title, bodyContent, buttonProps, backgroundColor }: Props) => {
+export const LoginLayout = ({ title, bodyContent, buttonProps }: Props) => {
     return (
         <div className={styles.container}>
             <div className={styles.header} >
