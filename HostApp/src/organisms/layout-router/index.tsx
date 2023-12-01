@@ -27,9 +27,8 @@ export const LayoutRouter = () => {
       <main>
         <Outlet />
       </main>
-      <footer>
-        hola soy el footer
-      </footer>
+      {/*<footer>*/}
+      {/*</footer>*/}
     </div>
   );
 };
