@@ -58,32 +58,40 @@ const SideBar = ({ accountType }: Props) => {
 
   return (
     <div className={open ? styles.containerOpen : styles.containerClosed}>
-      <div className={open ? styles.sidenav : styles.sidenavClosed}>
-        <button className={styles.menuBtn} onClick={toggleOpen}>
-          {open ? <FaAngleDoubleLeft /> : <FaAngleDoubleRight />}
-        </button>
-        {settings[accountType].menu.options.map((menu) => {
-          return (
-            <NavLink
-              key={menu.title}
-              className={styles.sideitem}
-              to={menu.route}
-              style={
-                menu.title === "Inicio"
-                  ? ({
+      <div className={open ? styles.containerSidenav : styles.containerSidenavClosed}>
+        <div className={open ? styles.sidenav : styles.sidenavClosed}>
+          <button className={styles.menuBtn} onClick={toggleOpen}>
+            {open ?
+              <div className={styles.headerSidenav}>
+                <FaAngleDoubleLeft />
+                <p>{settings[accountType].label}</p>
+              </div>  :
+              <FaAngleDoubleRight />
+            }
+          </button>
+          {settings[accountType].menu.options.map((menu) => {
+            return (
+              <NavLink
+                key={menu.title}
+                className={styles.sideitem}
+                to={menu.route}
+                style={
+                  menu.title === "Inicio"
+                    ? ({
                       backgroundColor: "#f5f5f5",
                     })
-                  : ({})
-                  
-              }
-            >
-              {getIconByName(menu.icon)}
-              <span className={open ? styles.linkText : styles.linkTextClosed}>
+                    : ({})
+
+                }
+              >
+                {getIconByName(menu.icon)}
+                <span className={open ? styles.linkText : styles.linkTextClosed}>
                 {open ? menu.title : getIconByName(menu.icon)}
               </span>
-            </NavLink>
-          );
-        })}
+              </NavLink>
+            );
+          })}
+        </div>
       </div>
       <div className={styles.content}>
         <MyErrorBoundary>

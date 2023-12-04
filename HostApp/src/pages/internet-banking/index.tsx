@@ -39,7 +39,6 @@ export default () => {
   return (
     <div className="container">
       <MyErrorBoundary>
-        <StatusBar user={user} />
         <SideBar accountType={user?.accountType} />
       </MyErrorBoundary>
     </div>
