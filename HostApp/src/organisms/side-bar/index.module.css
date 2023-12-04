@@ -47,7 +47,7 @@
 .content {
   flex: 1;
   overflow: auto;
-  padding: 20px; /* Ajusta según sea necesario */
+  padding: 1rem;
 }
 
 .sideItem {
@@ -75,7 +75,7 @@
   margin: auto;
   text-align: left;
   align-items: center;
-  padding: 0%;
+  padding: 0;
   /* visibility: hidden; */
 }
 
