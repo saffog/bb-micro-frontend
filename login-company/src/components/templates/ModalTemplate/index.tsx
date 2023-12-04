@@ -7,13 +7,18 @@ const Modal: React.FC<ModalProps> = ({
   title,
   content,
   onClose,
+  buttonTitle="Aceptar"
+
 }: ModalProps) => {
+  const createMarkup = () => {
+    return { __html: content };
+  };
   return (
     <div className={styles.modal}>
       <div className={styles.modalContent}>
         <h2>{title}</h2>
-        <p>{content}</p>
-        <Button text="Aceptar" onClick={onClose} />
+        <p dangerouslySetInnerHTML={createMarkup()}></p>
+        <Button text={buttonTitle} onClick={onClose} />
       </div>
     </div>
   );

@@ -3,9 +3,12 @@ import FormField from "../../molecules/FormField";
 import Button from "../../atoms/Button";
 import Input from "../../atoms/Input";
 import { CreateAccountFormProps } from "../../../interfaces/interfaces";
-import styles from "../index.module.css";
 import RedirectLink from "../../atoms/Link";
 import ErrorMessage from "../../atoms/ErrorMessage";
+
+import styles from "./index.module.css";
+import Modal from "../../templates/ModalTemplate";
+import { contentTermsAndConditions } from "../../../constants/termsCond.constant";
 
 const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   onSubmit,
@@ -17,13 +20,22 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [ok, setOk] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleSubmit = () => {
     onSubmit(empresa, representante, email, password, password2, ok);
   };
 
+  const handleOnClose = () => {
+    setModalOpen(false);
+  };
+
+  const onClickTermsAndConditions=()=>{
+    setModalOpen(true);
+  }
+
   return (
-    <div>
+    <div className={styles.container}>
       <FormField
         labelContent="* Empresa"
         inputType="text"
@@ -51,20 +63,37 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
         inputName="password"
         inputValue={password}
         onChange={(event) => setPassword(event.target.value)}
+        infoMessage="La constraseña al menos debe tener 8 caracteres, un numero y una letra en mayuscula."
       />
       <FormField
-        labelContent="* Recordar Contraseña"
+        labelContent="* Reingresa tu Contraseña"
         inputType="password"
         inputName="password2"
         inputValue={password2}
         onChange={(event) => setPassword2(event.target.value)}
       />
-      <Input type="checkbox" name="ok" value="" onChange={() => setOk(!ok)} />{" "}
-      Estoy de acuerdo con los terminos de uso y privacidad
-      <br />
       {error && <ErrorMessage errorMesage={error} />}
-      <Button text="Inscribirse" onClick={handleSubmit} />
-      <RedirectLink to={"/"} content="Regresar a Login" />
+
+      <div className={styles.actionForm}>
+        <div className={styles.containerCheckbox}>
+          <Input type="checkbox" name="ok" value="" onChange={() => setOk(!ok)} />
+          <p>Estoy de acuerdo con los <a href="#" onClick={onClickTermsAndConditions}>términos y condiciones</a></p>
+        </div>
+        <Button
+          text="Inscribirse"
+          onClick={handleSubmit}
+          disabled={!(email && password && empresa && representante && ok)}
+        />
+      </div>
+      <p>¿Tu empresa esta registrada? <RedirectLink to={"/"} content="Inicia Sesión" /></p>
+      {modalOpen && (
+        <Modal
+          title="Terminos y Condiciones"
+          content={contentTermsAndConditions}
+          onClose={handleOnClose}
+          buttonTitle="Volver"
+        />
+      )}
     </div>
   );
 };

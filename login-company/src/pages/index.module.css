@@ -1,5 +1,7 @@
 .container {
-    max-width: 600px; /* Ajusta el ancho del contenedor según tu preferencia */
-    margin: 50px auto; /* Ajusta el margen superior e inferior para centrar verticalmente */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

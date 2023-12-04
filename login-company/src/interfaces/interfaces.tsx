@@ -1,3 +1,5 @@
+import {ChangeEvent, FocusEventHandler} from 'react';
+
 export interface PageProps {
   title?: string;
 }
@@ -7,12 +9,14 @@ export interface FormTemplateProps {
   onSubmit: (...args: any[]) => void;
   formType: "login" | "createAccount" | "passwordRecovery";
   error: string;
+
 }
 
 export interface ModalProps {
   title: string;
   content: string;
   onClose: () => void;
+  buttonTitle?:string;
 }
 
 export interface LoginFormProps {
@@ -42,13 +46,18 @@ export interface FormFieldProps {
   inputType: string;
   inputName: string;
   inputValue?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
+  withPattern?: boolean;
+  infoMessage?: string;
+  required?: boolean;
 }
 
 export interface ButtonProps {
   text: string;
   styledClass?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 export interface InputProps {
@@ -57,7 +66,10 @@ export interface InputProps {
   name?: string;
   checked?: boolean;
   styledClass?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
+  pattern?: string;
+  required?: boolean;
 }
 
 export interface LabelProps {
@@ -74,4 +86,13 @@ export interface RedirectLinkProps {
   to: string;
   content: string;
   styledClass?: string;
+}
+
+type ValueErrorType = {
+  errorMessage: string,
+  pattern?: string,
+}
+
+export interface ValuesHandlerError {
+  [key: string]: ValueErrorType;
 }

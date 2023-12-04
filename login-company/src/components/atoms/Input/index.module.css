@@ -1,10 +1,15 @@
 /* Estilo para los campos de entrada de texto y contraseña */
 .inputForm[type="text"],
+.inputForm[type="email"],
 .inputForm[type="password"] {
+  padding: 10px;
+  margin: 0;
+  border: 2px solid #c6c6c6;
+  border-radius: 8px;
   width: 100%;
-  padding: 8px;
-  margin-bottom: 16px;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 /* Estilo para el campo de verificación (checkbox) */
