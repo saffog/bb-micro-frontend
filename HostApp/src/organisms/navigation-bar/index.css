@@ -5,7 +5,9 @@
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-  padding: 20px 4vw 6px;
+  padding: 20px 2vw 6px;
+  position: fixed;
+  width: 100vw;
 }
 
 .navbarLeft {

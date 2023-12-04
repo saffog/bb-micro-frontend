@@ -19,12 +19,14 @@
 }
 
 .sidenav {
+  position: fixed;
   width: 250px;
-  transition: width 0.3s ease-in-out;
   height: 100vh;
-  background-color: #e2e2e2;
-  padding-top: 28px;
-  flex-shrink: 0;
+  padding: 0;
+  transition: width 0.3s ease-in-out;
+  background-color: #fff;
+  /*border: 1px solid #c6c6c6;*/
+  /*border-radius: 0.5rem;*/
 }
 
 .headerSidenav {
@@ -32,6 +34,8 @@
   flex-direction: row;
   align-items: center;
   gap: 1rem;
+  font-size: 16px;
+  transition: width 0.3s ease-in-out;
 }
 
 .sidenavClosed {
@@ -46,21 +50,24 @@
   padding: 20px; /* Ajusta según sea necesario */
 }
 
-.sideitem {
+.sideItem {
   display: flex;
   align-items: center;
   padding: 10px 20px;
   cursor: pointer;
   color: #000000;
   text-decoration: none;
-  font-weight: none;
-  font-variant: normal;
-  font-size: 13pt;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /*font-weight: none;*/
+  /*font-variant: normal;*/
+  /*font-size: 13pt;*/
 }
 
 .linkText {
   padding-left: 16px;
-  font-size: 13pt;
+  font-size: 16px;
 }
 
 .linkTextClosed {
@@ -76,17 +83,25 @@
   background-color: #f5f5f5;
 }
 
-.sideitem:hover {
-  background-color: #f5f5f5;
+.sideItem:hover {
+  background-color: #8eb010;
+  color: #fff;
+  border-radius: 0.5rem;
+}
+
+.containerButton {
+  width: 250px;
+  height: auto;
 }
 
 .menuBtn {
-  align-self: center;
-  align-self: flex-start;
-  justify-self: flex-end;
-  color: #000000;
-  background-color: transparent;
+  color: #fff;
+  background-color: #2F4858;
   border: none;
   cursor: pointer;
-  padding-left: 20px;
+  padding: 1.5rem 1.25rem;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
