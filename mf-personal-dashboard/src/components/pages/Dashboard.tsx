@@ -2,14 +2,14 @@ import React from 'react'
 
 import { Graphic } from "../organisms/graphic";
 import Card from "../organisms/card";
-import { Investments } from '../organisms/investments';
+import { Promos } from '../organisms/promos';
 import styles from "../../styles/styles.module.css";
 
 export const Dashboard = () => {
   
   return (
     <div className={styles.dashboard}>
-        <Investments/>
+        <Promos/>
         <Card/>
         <Graphic/> 
     </div>

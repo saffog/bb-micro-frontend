@@ -46,12 +46,12 @@ module.exports = (_, argv) => ({
   plugins: [
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
-      name: "vue",
+      name: "marketingApp",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
         './vue' :'./src/bootstrap',
-        './mf/investments' : './src/main.ts'
+        './promos' : './src/main.ts'
       },
       shared: require("./package.json").dependencies,
     }),

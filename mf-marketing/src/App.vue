@@ -1,16 +1,16 @@
 <template>
-  <div class="mt-10 text-3xl">
-    <investments/>
+  <div>
+    <promos/>
   </div>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import investments from "./investments.vue"
+  import promos from "./promos.vue"
   
   export default defineComponent({ 
     components: {
-      investments
+      promos
     } 
   });
 </script>

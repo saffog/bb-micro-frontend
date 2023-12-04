@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import {mount} from "vue/mf/investments"
+import { mount } from "marketingApp/promos"
 
-export const Investments = () => {
+export const Promos = () => {
   const ref = useRef(null);
   useEffect(() => {
     mount(ref.current);  
