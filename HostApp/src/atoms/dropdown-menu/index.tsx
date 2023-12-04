@@ -1,19 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./index.module.css";
-import { FcBusinessman, FcDepartment, FcPortraitMode } from "react-icons/fc";
+
+import { FcBusinessman, FcDepartment } from "react-icons/fc";
+
 import { USERS } from "../../constants/users.constant";
+import {Props} from '../../interfaces/dropdown-props.interface';
+
+import styles from "./index.module.css";
 
 
-interface MenuItem{
-    slug: string
-    anchor: string
-}
-
-interface Props {
-  items: Array<MenuItem>;
-  title: string;
-
-}
 
 const DropdownMenu = ({ items, title }: Props) => {
   const activatorRef = useRef(null);

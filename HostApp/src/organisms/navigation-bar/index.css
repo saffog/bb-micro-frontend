@@ -1,25 +1,31 @@
 /* Style the navigation bar */
 .navbar {
-  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   background-color: #fff;
   padding: 20px 4vw 6px;
 }
 
 .navbarLeft {
   max-height: 250px;
+  border-bottom: 5px solid #fff;
 }
 
 .navbarRight {
-  float: right;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 }
 
 /* Navbar links */
 .navbarRight a {
-  padding: 12px;
   font-size: 17px;
   text-decoration: none;
   color: #1a1b1b;
   border-bottom: 5px solid #fff;
+  padding-bottom: 0.5rem;
 }
 
 /* Navbar links on mouse-over */
@@ -35,6 +41,12 @@
 }
 
 @media screen and (max-width: 500px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
   .navbarRight a {
     float: none;
     display: block;
@@ -43,6 +55,6 @@
   }
 
   .navbarRight {
-    float: none;
+    flex-direction: column;
   }
 }

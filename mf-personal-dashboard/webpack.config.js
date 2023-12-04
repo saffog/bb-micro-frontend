@@ -44,7 +44,7 @@ module.exports = (_, argv) => ({
       name: "personalDashboardApp",
       filename: "remoteEntry.js",
       remotes: {
-        vue: "vue@http://localhost:9011/remoteEntry.js",
+        // vue: "vue@http://localhost:9011/remoteEntry.js",
       },
       exposes: {
         './personalDashboardAppIndex':'./src/bootstrap',
