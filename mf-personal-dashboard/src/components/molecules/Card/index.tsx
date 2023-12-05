@@ -1,6 +1,8 @@
+import React from 'react';
 import {IconType} from 'react-icons';
 import {Link} from 'react-router-dom';
-import React from 'react';
+
+import styles from './index.module.css';
 
 interface CardProps {
   icon: IconType;
@@ -11,32 +13,32 @@ interface CardProps {
   url?: string;
 }
 const Card = ({icon: Icon, title, total, description, number, url}: CardProps) => (
-  <div className="flex-1 flex flex-col mt-3 text-gray-700 bg-white rounded-lg shadow-lg">
+  <div className={styles.card}>
     <div className="p-4">
-      <div className="flex items-center pb-4">
+      <div className={styles.header_card}>
         <div className="pr-2">
           <Icon className="text-gray-600" size='20'/>
         </div>
-        <div className="px-1 ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+        <div className={styles.title}>
           {title}
         </div>
-        <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+        <span className={styles.label_number}>
           numero
         </span>
-        <div className="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+        <div className={styles.number}>
           {number}
         </div>
       </div>
-      <h4 className="mt-1 text-xl font-semibold uppercase leading-tight truncate">
+      <h4 className={styles.description}>
         {description}
       </h4>
       <div className="mt-1">
         {total}
-        <span className="text-gray-600 text-sm">   /wk</span>
+        <span className={styles.label_total}>   /total</span>
       </div>
       <div className="mt-2 flex justify-end">
         <Link to={url ? url : '/'}>
-          <span className="text-md font-semibold text-button">Más detalles</span>
+          <span className={styles.link_card}>Más detalles</span>
         </Link>
         {/*<span className="text-sm text-gray-600">(based on 234 ratings)</span>*/}
       </div>
