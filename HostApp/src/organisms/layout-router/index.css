@@ -1,16 +1,12 @@
 .root {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 header {
-  height: auto;
+  height: 60px;
 }
 
-main {
-  flex: 1;
-}
+main {}
 
 footer {
   height: 30px;

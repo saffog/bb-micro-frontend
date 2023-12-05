@@ -55,9 +55,9 @@
 }
 
 .card_button {
-    @apply p-2 rounded-lg cursor-pointer text-white bg-button font-black shadow-shaButton text-base shadow-baufest;
+    @apply p-2 rounded-lg  text-white bg-button font-black shadow-shaButton text-base shadow-baufest;
 }
 
 .button {
-    @apply p-2 mt-4 rounded-lg cursor-pointer text-white bg-button font-black shadow-shaButton shadow-baufest;
+    @apply p-2 mt-4 rounded-lg  text-white bg-button font-black shadow-shaButton shadow-baufest;
 }

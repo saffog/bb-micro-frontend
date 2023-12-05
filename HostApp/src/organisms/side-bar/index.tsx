@@ -64,7 +64,7 @@ const SideBar = ({ accountType }: Props) => {
             {open ?
               <div className={styles.headerSidenav}>
                 <FaAngleDoubleLeft />
-                <p>{settings[accountType].label}</p>
+                {settings[accountType].label.toUpperCase()}
               </div>  :
               <FaAngleDoubleRight />
             }
@@ -73,7 +73,7 @@ const SideBar = ({ accountType }: Props) => {
             return (
               <NavLink
                 key={menu.title}
-                className={styles.sideitem}
+                className={styles.sideItem}
                 to={menu.route}
                 style={
                   menu.title === "Inicio"
@@ -84,7 +84,7 @@ const SideBar = ({ accountType }: Props) => {
 
                 }
               >
-                {getIconByName(menu.icon)}
+                {open && getIconByName(menu.icon)}
                 <span className={open ? styles.linkText : styles.linkTextClosed}>
                 {open ? menu.title : getIconByName(menu.icon)}
               </span>
