@@ -15,9 +15,9 @@
   flex: 1;
 }
 
-.graphsContainer canvas[style] {
-  min-width: 300px !important;
-  min-height: 200px !important;
-  width: 100% !important;
-  height: 100% !important;
-}
+/*.graphsContainer canvas[style] {*/
+/*  min-width: 300px !important;*/
+/*  min-height: 200px !important;*/
+/*  width: 100% !important;*/
+/*  height: 100% !important;*/
+/*}*/

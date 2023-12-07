@@ -20,7 +20,7 @@ const ICONS: {[key: string] : IconDefinition} = {
 const HomePage = () => {
   return (
     <div className={style.homePageContainer}>
-      <div className={style.accountsContainer} style={{flex:1}}>
+      <div className={style.accountsContainer} >
         {companyAccounts.map((company) =>
           company.products.map((product) => (
             <AccountsSection title={product.description} action={() => null} >
