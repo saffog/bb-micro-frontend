@@ -1,40 +1,75 @@
 .cardContainer {
   display: flex;
-  padding: 2%;
-  border: 2px solid #333;
-  border-radius: 10px;
-  background-color: antiquewhite;
+  flex-direction: row;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  gap: 1rem;
 }
+
+.backgroundGrey {
+  background-color: #f8f9fd;
+}
+
+.backgroundWhite {
+  background-color: white;
+}
+
+.iconColumn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: #9b9b9b;
+}
+
 
 .cardColumn {
   display: flex;
   grid-column: auto;
   width: 100%;
-  /* background-color: yellow; */
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  text-align: left;
-  /* background-color: blueviolet; */
+  align-items: flex-start;
+  justify-content: center;
+  flex: auto;
 }
 
 .rowHeader {
-  font-size: larger;
-  /* background-color: pink; */
+  font-size: 1rem;
+}
+
+.labelNumber {
+  border-radius: 9999px;
+  background-color: #98f6e4;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  color: #0f5e59;
 }
 
 .rowText {
-  font-size: small;
-  /* background-color: orange; */
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity))
 }
 
 .columnMoney {
-  width: 50%;
-  text-align: center;
-  font-weight: bold;
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
   font-size: x-large;
-  /* background-color: cadetblue; */
 }

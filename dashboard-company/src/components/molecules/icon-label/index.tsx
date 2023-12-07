@@ -3,7 +3,7 @@ import LabelForm, { LabelProps } from "../../atoms/label";
 import IconForm, { IconProps } from "../../atoms/icon";
 import styles from "./index.module.css";
 
-export interface IconLabelProps extends LabelProps, IconProps {}
+export interface IconLabelProps extends LabelProps, Omit<IconProps, "size" | "className"> {}
 
 const IconLabelForm = ({ name, value, styleIcon }: IconLabelProps) => {
   return (

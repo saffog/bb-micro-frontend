@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Line, Radar } from "react-chartjs-2";
+import React from "react";
+import { Line } from "react-chartjs-2";
 // import { ingresosEgresos, inversiones } from "../../../apis/apis";
 import {
   options,
@@ -7,7 +7,8 @@ import {
   dataChart,
   optionsChart,
 } from "../../../data/company-data";
-import style from "./index.module.css";
+import styles from "./index.module.css";
+import AccountsSection from '../accounts-section';
 
 export const Graphic = () => {
   // const [options, setOptions] = useState({});
@@ -29,16 +30,13 @@ export const Graphic = () => {
   // }, []);
 
   return (
-    <div>
-      <h1 className={style.graphicsTitle}>Información sobre la cuenta</h1>
-      <div>
-        <div>
-          <Line options={options} data={data} />
-        </div>
-        <div>
-          <Line options={optionsChart} data={dataChart} />
-        </div>
-      </div>
+    <div className={styles.graphsContainer}>
+      <AccountsSection title="Inversiones">
+        <Line options={options} data={data} />
+      </AccountsSection>
+      <AccountsSection title="Ingresos & Egresos">
+        <Line options={optionsChart} data={dataChart} />
+      </AccountsSection>
     </div>
   );
 };
