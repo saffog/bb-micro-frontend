@@ -1,33 +1,44 @@
 import React from "react";
-import IconLabelForm  from "../../molecules/icon-label";
+
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+
 import LabelForm from "../../atoms/label";
-import style from "./account-card.module.css";
+import IconForm from '../../atoms/icon';
+
+import styles from "./account-card.module.css";
 
 export interface AccountCardProps { 
     styleIcon: IconDefinition;
     leftUpperText?: string;
-    leftMidleText?: string;
+    leftMiddleText?: string;
     leftBottomText?: string;
     rightUpperText?: string;
+    grayBackground?: boolean;
 }
 
-const AccountCardForm = ({styleIcon, leftUpperText, leftBottomText, leftMidleText, rightUpperText}: AccountCardProps) => {
+const AccountCardForm = ({styleIcon, leftUpperText, leftBottomText, leftMiddleText, rightUpperText, grayBackground}: AccountCardProps) => {
     return (
-        <div className={style.cardContainer}>
-            <div className={style.cardColumn}>
-                <div className={style.column}>
-                    <div className={style.rowHeader}>
-                        <IconLabelForm name={`1`} value={leftUpperText} styleIcon={styleIcon} />
+        <div className={`${styles.cardContainer} ${grayBackground ? styles.backgroundGrey : styles.backgroundWhite }` }>
+            <div className={styles.iconColumn}>
+                <IconForm styleIcon={styleIcon} size='2x' className={styles.icon} />
+            </div>
+            <div className={styles.cardColumn}>
+                <div className={styles.column}>
+                    <div className={styles.rowHeader}>
+                        <LabelForm name={`2`} value={leftUpperText}/>
                     </div>
-                    <div className={style.rowText}>
-                        <LabelForm name={`2`} value={leftMidleText}/>
-                    </div>
-                    <div className={style.rowText}>
-                        <LabelForm name={`3`} value={leftBottomText}/>                        
+                    <div className={styles.rowText}>
+                        <LabelForm name={`2`} value={leftMiddleText}/>
                     </div>
                 </div>
-                <div className={style.columnMoney}>
+                <div className={styles.columnMoney}>
+                    <div className={styles.rowText}>
+                        <span className={styles.labelNumber}>
+                            numero
+                        </span>
+                        {` `}
+                        <LabelForm name={`3`} value={leftBottomText}/>
+                    </div>
                     <LabelForm name={`4`} value={rightUpperText}/>
                 </div>
             </div>

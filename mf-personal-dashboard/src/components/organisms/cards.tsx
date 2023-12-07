@@ -10,8 +10,6 @@ import SectionCards from '../molecules/SectionCards';
 import Card from '../molecules/Card';
 import { InfoPerson as Persons } from "../data";
 
-import styles from "../../styles/styles.module.css";
-
 const ICONS: {[key: string]: IconType} = {
   inversiones: FaMoneyBillTrendUp,
   cheques: CiMoneyCheck1,
@@ -22,9 +20,8 @@ const ICONS: {[key: string]: IconType} = {
 const Cards = () => {
   return (
     <div>
-      {Children.toArray(Persons.map( (person) => (
-        <div key= {person.userId}>
-          {Children.toArray(person.products.map((product) => (
+      {Children.toArray(Persons.map( (person) =>
+          Children.toArray(person.products.map((product) => (
             <SectionCards titleSection={product.description} action={() => null} >
               {Children.toArray(product.accounts.map((account) => (
                 <Card
@@ -36,9 +33,8 @@ const Cards = () => {
                 />
               )))}
             </SectionCards>
-          )))}
-        </div>
-      )))}
+          )))
+      ))}
     </div>
   )
 }

@@ -1,0 +1,36 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  width: 100%;
+  gap: 1rem;
+}
+
+.headerSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.375;
+}
+
+.button.button {
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #2F4858;
+  text-transform: uppercase;
+  color: white;
+  font-size: 0.75rem;
+}
+
+.children {
+  display: flex;
+  flex-direction: column;
+}

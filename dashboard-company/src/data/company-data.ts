@@ -46,6 +46,14 @@ export const companyAccounts = [
             amount: "$45,987.00",
             icon: "other",
           },
+          {
+            id: 3,
+            type: "cheques",
+            number: "****7890",
+            description: "JJ & Asociados cheques",
+            amount: "$45,987.00",
+            icon: "credit",
+          },
         ],
       },
       {
