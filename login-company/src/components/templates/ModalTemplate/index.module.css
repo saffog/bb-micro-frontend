@@ -14,8 +14,12 @@
   .modalContent {
     background-color: #fefefe;
     margin: 15% auto; /* Centra el contenido verticalmente y lo desplaza un poco hacia abajo */
-    padding: 20px;
+    padding: 40px;
     border: 1px solid #888;
     width: 30%;
     border-radius: 10px; /* Ajusta el radio de la esquina para suavizar el contorno */
   }
+
+.title {
+  text-align: center;
+}

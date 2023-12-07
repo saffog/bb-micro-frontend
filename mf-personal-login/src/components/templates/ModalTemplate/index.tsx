@@ -1,29 +1,32 @@
-import React, { useState } from 'react';
+import React, {ReactNode} from 'react';
 import Button from '../../atoms/Button';
 import styles from './index.module.css';
 
 export interface Props {
   title: string;
-  content: string;
+  content?: string;
   onClose: () => void;
   buttonTitle?:string;
+  children?: ReactNode;
 }
 
-const Modal: React.FC<Props> = ({
+const Modal = ({
   title,
   content,
   onClose,
   buttonTitle = 'Aceptar',
+  children,
 }: Props) => {
   const createMarkup = () => {
-    return { __html: content };
+    return { __html: content ?? <></> };
   };
   return (
     <div className={styles.modal}>
       <div className={styles.modalContent}>
-        <h2>{title}</h2>
-        <p dangerouslySetInnerHTML={createMarkup()}></p>
-        <Button onClick={onClose} variant={'primary'} >{buttonTitle}</Button>
+        <h2 className={styles.title}>{title}</h2>
+        {content && <p dangerouslySetInnerHTML={createMarkup()}></p>}
+        {children}
+        <Button onClick={onClose} variant={'success'} >{buttonTitle}</Button>
       </div>
     </div>
   );

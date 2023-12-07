@@ -1,5 +1,5 @@
 export const login = (email: string, password: string) => {
-  return fetch("/login", {
+  return fetch("/login-companies", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -27,19 +27,17 @@ export const createAccount = (
   password2: string,
   ok: boolean
 ) => {
-  return fetch("/companies", {
+  return fetch("/signup-companies", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: "Bearer your-token",
     },
     body: JSON.stringify({
-      userName: empresa,
+      name: empresa,
       representative: representante,
       email,
-      password: password,
-      password2: password2,
-      ok: ok,
+      password,
     }),
   })
     .then((response) => response.json())
@@ -50,7 +48,7 @@ export const createAccount = (
 };
 
 export const recoverPassword = (email: string) => {
-  return fetch("/password-recovery", {
+  return fetch("/password-recovery-companies", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

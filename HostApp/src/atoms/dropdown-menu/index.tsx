@@ -10,8 +10,8 @@ import styles from "./index.module.css";
 
 
 const DropdownMenu = ({ items, title }: Props) => {
-  const activatorRef = useRef(null);
-  const dropdownListRef = useRef(null);
+  const activatorRef = useRef<null | HTMLButtonElement>(null);
+  const dropdownListRef = useRef<null | HTMLUListElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const clickHandler = () => {
@@ -29,7 +29,7 @@ const DropdownMenu = ({ items, title }: Props) => {
     if (dropdownListRef.current) {
       if (
         dropdownListRef.current.contains(event.target) ||
-        activatorRef.current.contains(event.target)
+        activatorRef?.current?.contains(event.target)
       ) {
         return;
       }
@@ -48,7 +48,7 @@ const DropdownMenu = ({ items, title }: Props) => {
 
   useEffect(() => {
     if (isOpen) {
-      dropdownListRef.current.querySelector("a").focus();
+      dropdownListRef?.current?.querySelector("a")?.focus();
       document.addEventListener("mousedown", clickOutsideHandler);
     } else {
       document.addEventListener("mousedown", clickOutsideHandler);
