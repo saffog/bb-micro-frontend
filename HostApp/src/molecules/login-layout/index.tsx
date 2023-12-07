@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react'
+import React, {Children, ReactNode} from 'react'
 import { Button } from '../../atoms/button';
 import ButtonProps from '../../interfaces/button-props.interface';
 import styles from './index.module.css';
@@ -20,7 +20,7 @@ export const LoginLayout = ({ title, bodyContent, buttonProps }: Props) => {
                 <span>{bodyContent}</span>
             </div>
             <div className={styles.actions} >
-                {buttonProps?.map(btn => <Button {...btn} />)}
+                {Children.toArray(buttonProps?.map(btn => <Button {...btn} />))}
             </div>
 
         </div>

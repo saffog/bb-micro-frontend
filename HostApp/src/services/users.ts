@@ -1,5 +1,5 @@
-type TypeUserSData = {
-  userId: number,
+export type TypeUserSData = {
+  userId?: number,
   email: string,
   password: string,
   accountType?: string,

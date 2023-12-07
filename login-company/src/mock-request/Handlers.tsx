@@ -41,7 +41,7 @@ const validUsers = [
 ];
 
 export const handlers = [
-  http.post("/login", async ({ request }) => {
+  http.post("/login-companies", async ({ request }) => {
     const requestBody: RequestBody | undefined =
       (await request.json()) as RequestBody;
     const userEmail = requestBody.email;
@@ -60,7 +60,7 @@ export const handlers = [
       });
     }
   }),
-  http.post("/password-recovery", async ({ request }) => {
+  http.post("/password-recovery-companies", async ({ request }) => {
     const requestBody: RequestBody | undefined =
       (await request.json()) as RequestBody;
     const userEmail = requestBody.email;
@@ -68,7 +68,7 @@ export const handlers = [
       email: userEmail,
     });
   }),
-  http.post("/companies", async ({ request }) => {
+  http.post("/signup-companies", async ({ request }) => {
     const requestBody: RequestBody | undefined =
       (await request.json()) as RequestBody;
     const userName = requestBody.userName;
