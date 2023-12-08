@@ -4,4 +4,4 @@ import "./index.scss";
 
 import App from "./App.vue";
 
-createApp(App).mount("#mf-vue");
+createApp(App).mount("#mf-marketing");

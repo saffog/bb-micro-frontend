@@ -10,8 +10,6 @@ import SectionCards from '../molecules/SectionCards';
 import Card from '../molecules/Card';
 import { InfoPerson as Persons } from "../data";
 
-import styles from "../../styles/styles.module.css";
-
 const ICONS: {[key: string]: IconType} = {
   inversiones: FaMoneyBillTrendUp,
   cheques: CiMoneyCheck1,
