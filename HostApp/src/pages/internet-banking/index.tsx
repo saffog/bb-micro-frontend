@@ -37,7 +37,7 @@ export default () => {
   if(!user) return null;
 
   return (
-    <div className="container">
+    <div>
       <MyErrorBoundary>
         <SideBar accountType={user?.accountType} />
       </MyErrorBoundary>
