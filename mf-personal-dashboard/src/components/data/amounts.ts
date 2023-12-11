@@ -9,6 +9,7 @@ import { faker } from '@faker-js/faker';
 
     const optionsChart = {
         responsive: true,
+        maintainAspectRatio : false,
         plugins: {
         legend: {
             position: 'top' as const,
@@ -40,6 +41,7 @@ import { faker } from '@faker-js/faker';
 
     const options = {
         responsive: true,
+        maintainAspectRatio : false,
         plugins: {
           legend: {
             position: 'top' as const,

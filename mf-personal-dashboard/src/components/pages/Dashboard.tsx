@@ -9,7 +9,7 @@ export const Dashboard = () => {
   
   return (
     <div className={styles.dashboard}>
-      {/*<Promos/>*/}
+      <Promos/>
       <div className="flex flex-row gap-8">
         <div className="flex-1">
           <Cards/>

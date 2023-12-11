@@ -32,10 +32,10 @@ export const Graphic = () => {
   return (
     <div className={styles.graphsContainer}>
       <AccountsSection title="Inversiones">
-        <Line options={options} data={data} />
+        <Line className={styles.graphs} options={options} data={data} />
       </AccountsSection>
       <AccountsSection title="Ingresos & Egresos">
-        <Line options={optionsChart} data={dataChart} />
+        <Line className={styles.graphs} options={optionsChart} data={dataChart} />
       </AccountsSection>
     </div>
   );
