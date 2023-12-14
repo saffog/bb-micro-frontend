@@ -28,8 +28,6 @@ export const deleteShadowContainer = (id: string) => {
 };
 
 const insertStyle = (style: any) => {
-  console.log('ESTILOS en INSERT STYLES', styles);
-
   // Update the style list for newly created shadow containers
   styles.push(style);
 
