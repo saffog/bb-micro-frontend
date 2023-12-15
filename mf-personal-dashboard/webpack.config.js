@@ -27,7 +27,12 @@ module.exports = (_, argv) => ({
       },
       {
         test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: [{
+          loader: 'style-loader',
+          options: {
+            insert: require.resolve('./styleLoader.ts'),
+          },
+        }, "css-loader", "postcss-loader"],
       },
       {
         test: /\.(ts|tsx|js|jsx)$/,
