@@ -1,6 +1,6 @@
 import('./bootstrap').then(
     ({ mount }) => {
-      const localRoot = document.getElementById('personal_dashboard'); 
+      const localRoot = document.getElementById('appPersonalDashboard-mfe');
   
       mount({
         mountPoint: localRoot!,
