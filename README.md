@@ -34,8 +34,10 @@ For further details about the structure inside each micro frontend component, re
 
 1. Execute in powershell `start.cmd`
 
-As an alternate way, execute:
+As an alternative method, execute:
 
 1. `npm install`
 2. `npm run install:all`
 3. `npm run start:all`
+
+Despite of the method the main app should be at http://localhost:9000/landing
