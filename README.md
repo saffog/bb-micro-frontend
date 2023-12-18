@@ -32,7 +32,10 @@ For further details about the structure inside each micro frontend component, re
 
 ### To run this project locally
 
-1. For each MF (Host & Clients) perform `npm install`.
-2. For each MF perform `npm start`, notice the last to execute this command should be HostApp.
+1. Execute in powershell `start.cmd`
 
+As an alternate way, execute:
 
+1. `npm install`
+2. `npm run install:all`
+3. `npm run start:all`
