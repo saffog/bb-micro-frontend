@@ -1,6 +1,6 @@
 import { createApp } from "vue";
-import "./index.scss";
 import App from "./App.vue";
+import "./index.scss";
 
 const mount = (el: string | Element) => {
     createApp(App).mount(el);
