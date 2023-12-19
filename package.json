@@ -5,6 +5,8 @@
   "name": "multiple-react-projects",
   "scripts": {
     "install:all": "concurrently \"cd HostApp && npm install\" \"cd mf-personal-login && npm install\" \"cd login-company && npm install\" \"cd mf-personal-dashboard && npm install\" \"cd dashboard-company && npm install\" \"cd mf-marketing && npm install\"",
-    "start:all": "concurrently \"cd HostApp && npm start\" \"cd mf-personal-login && npm start\" \"cd login-company && npm start\" \"cd mf-personal-dashboard && npm start\" \"cd dashboard-company && npm start\" \"cd mf-marketing && npm start\""
+    "start:all": "concurrently \"cd HostApp && npm start\" \"cd mf-personal-login && npm start\" \"cd login-company && npm start\" \"cd mf-personal-dashboard && npm start\" \"cd dashboard-company && npm start\" \"cd mf-marketing && npm start\"",
+    "mac-install:all": "concurrently 'cd HostApp && npm install' 'cd mf-personal-login && npm install' 'cd login-company && npm install' 'cd mf-personal-dashboard && npm install' 'cd dashboard-company && npm install' 'cd mf-marketing && npm install'",
+    "mac-start:all": "concurrently 'cd HostApp && npm start' 'cd mf-personal-login && npm start' 'cd login-company && npm start' 'cd mf-personal-dashboard && npm start' 'cd dashboard-company && npm start' 'cd mf-marketing && npm start'"
   }
 }
