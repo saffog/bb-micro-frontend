@@ -37,10 +37,13 @@ const insertStyle = (style: any) => {
     // Update the style list for already existing shadow containers.
     // This will provide them with any lazy loaded styles.
     Promise.resolve().then(() => {
+      console.log("CONTAINERS", containers);
       Object.values(containers).forEach((container) => {
         container.shadowRoot.appendChild(style.cloneNode(true));
       });
     });
+    console.log("STYLE", styles);
+
   }
 };
 

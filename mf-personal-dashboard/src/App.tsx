@@ -9,7 +9,7 @@ const Personal_Dashboard = () => (
   </div>
 );
 
-const root = createRoot(document.getElementById("appPersonalDashboard-mfe") !);
+const root = createRoot(document.getElementById("appPersonalDashboard-mfe")!);
 root.render(<Personal_Dashboard/>);
 
 //ReactDOM.render(<App />, document.getElementById("app"));

@@ -40,22 +40,24 @@ module.exports = (_, argv) => ({
       },
       {
         test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              insert: require.resolve('./styleLoader.ts'),
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: "[name]_[local]__[hash:base64:5]",
+              },
+            }
+          },
+          "postcss-loader"
+        ]
       },
-      // {
-      //   test: /\.(css|s[ac]ss)$/i,
-      //   use: [
-      //     "vue-style-loader",
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         modules: true,
-      //         localIdentName: '[local]_[hash:base64:8]'
-      //       }
-      //     },
-      //     "postcss-loader"
-      //   ]
-      // },
     ],
   },
 
@@ -70,15 +72,14 @@ module.exports = (_, argv) => ({
       },
       shared: {
         ...deps,
-        ...devDeps,
         vue: {
           singleton: true,
           requiredVersion: deps.vue
         },
-        // tailwindcss: {
-        //   singleton: true,
-        //   requiredVersion: devDeps.tailwindcss,
-        // },
+        tailwindcss: {
+          singleton: true,
+          requiredVersion: devDeps.tailwindcss,
+        },
       }
     }),
     new HtmlWebPackPlugin({
