@@ -5,8 +5,9 @@ import('./bootstrap').then(
       mount({
         mountPoint: localRoot!,
         routingStrategy: 'browser',
+        isStandalone: true,
       });
     }
   );
-  
+
 export {};

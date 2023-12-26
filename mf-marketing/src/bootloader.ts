@@ -1,7 +1,10 @@
-import { createApp } from "vue";
+import Vue, { createApp } from "vue";
 
-import "./index.scss";
+import "./index.css";
 
 import App from "./App.vue";
+import {createShadowContainer} from '../styleLoader';
 
-createApp(App).mount("#mf-marketing");
+const appPlaceholder = createShadowContainer('mf-marketing');
+
+createApp(App).mount(appPlaceholder!);

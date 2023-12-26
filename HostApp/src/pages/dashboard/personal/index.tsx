@@ -67,5 +67,5 @@ export default () => {
 
   useEffect(() => unmountRef.current, []);
 
-  return <div ref={wrapperRef} id="appPersonalLogin-mfe" />;
+  return <div ref={wrapperRef} id="appPersonalDashboard-mfe" />;
 };

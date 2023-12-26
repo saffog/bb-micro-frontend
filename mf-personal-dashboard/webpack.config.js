@@ -27,7 +27,7 @@ module.exports = (_, argv) => ({
       },
       {
         test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: ['style-loader', "css-loader", "postcss-loader"],
       },
       {
         test: /\.(ts|tsx|js|jsx)$/,
@@ -47,7 +47,7 @@ module.exports = (_, argv) => ({
         marketingApp: "marketingApp@http://localhost:9011/remoteEntry.js",
       },
       exposes: {
-        './personalDashboardAppIndex':'./src/bootstrap',
+        "./personalDashboardAppIndex":"./src/bootstrap",
         "./components/pages/Dashboard": "/src/components/pages/Dashboard.tsx"
       },
       shared: {
