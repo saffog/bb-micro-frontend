@@ -54,7 +54,9 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "personalLoginApp",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        personalLoginApp: 'personalLoginApp@http://localhost:9001/remoteEntry.js',
+      },
       exposes: {
         './personalLoginAppIndex': './src/remote',
       },
