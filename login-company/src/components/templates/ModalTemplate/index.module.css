@@ -13,13 +13,19 @@
   /* Estilos para el contenido de la ventana modal */
   .modalContent {
     background-color: #fefefe;
-    margin: 15% auto; /* Centra el contenido verticalmente y lo desplaza un poco hacia abajo */
+    margin: 25vh 15%;
     padding: 40px;
     border: 1px solid #888;
-    width: 30%;
     border-radius: 10px; /* Ajusta el radio de la esquina para suavizar el contorno */
   }
 
 .title {
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modalContent {
+    margin: 15% auto; /* Centra el contenido verticalmente y lo desplaza un poco hacia abajo */
+    width: 30%;
+  }
 }

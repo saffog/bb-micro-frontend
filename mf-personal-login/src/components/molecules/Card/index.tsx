@@ -2,7 +2,6 @@ import React, {ReactNode} from 'react';
 import { IconType } from 'react-icons';
 
 import styles from './index.module.css';
-import useDevice from '../../../hooks/useDevice';
 
 interface CardProps {
   icon?: IconType;
