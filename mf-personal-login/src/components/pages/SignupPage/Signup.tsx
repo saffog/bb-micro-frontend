@@ -90,7 +90,7 @@ const Signup = () => {
 
   return (
     <div className={styles.container}>
-      <Card title="REGISTRARSE" icon={FaUserPlus}>
+      <Card title="REGISTRARSE" icon={FaUserPlus} className={styles.card}>
         <form onSubmit={handleSubmit} className={styles.signupForm}>
           <InputLabel
             name="name"
@@ -158,7 +158,7 @@ const Signup = () => {
             buttonTitle="Volver"
           />
         )}
-        {modalOpenSuccess && (
+        {!modalOpenSuccess && (
           <Modal title='¡Exito!' buttonTitle='Aceptar' onClose={handleCloseModalSuccess}>
             <div className={styles.contentModalSuccess}>
               <FaCircleCheck className={styles.iconSuccess}/>

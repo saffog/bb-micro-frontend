@@ -35,7 +35,7 @@ const ForgotPassword = () => {
 
   return (
     <div className={styles.container}>
-      <Card title='Olvide mi Contraseña' icon={FaUserShield}>
+      <Card title='Olvide mi Contraseña' icon={FaUserShield} className={styles.card}>
         {!!data && !error ?
           (
             <p className={styles.successMessage}>{data?.statusMessage}</p>
