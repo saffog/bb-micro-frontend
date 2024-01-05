@@ -27,7 +27,16 @@ module.exports = (_, argv) => ({
       },
       {
         test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: ["style-loader",
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]_[local]__[hash:base64:5]'
+              }
+            }
+          },
+          "postcss-loader"],
       },
       {
         test: /\.(ts|tsx|js|jsx)$/,

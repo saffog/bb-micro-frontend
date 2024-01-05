@@ -1,7 +1,7 @@
 .cardContainer {
   display: flex;
   flex-direction: row;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   border-radius: 0.75rem;
   gap: 1rem;
 }
@@ -27,8 +27,8 @@
 
 .cardColumn {
   display: flex;
-  grid-column: auto;
   width: 100%;
+  gap: 0.25rem;
 }
 
 .column {
@@ -55,6 +55,10 @@
   color: #0f5e59;
 }
 
+.labelTotal {
+  font-size: 1rem;
+}
+
 .rowText {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -70,6 +74,24 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
   font-size: x-large;
+}
+
+@media screen and (min-width: 769px) {
+  .labelTotal {
+    font-size: 1.5rem;
+  }
+
+  .cardColumn {
+    gap: 0;
+  }
+
+  .cardContainer {
+    padding: 1rem;
+  }
+
+  .columnMoney {
+    align-items: flex-end;
+  }
 }

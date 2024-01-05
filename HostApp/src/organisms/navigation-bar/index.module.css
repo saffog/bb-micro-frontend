@@ -1,0 +1,80 @@
+/* Style the navigation bar */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 20px 2vw 6px;
+  position: fixed;
+  width: 100vw;
+  z-index: 1000;
+}
+
+.navbarMobile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbarLeft {
+  max-height: 250px;
+  border-bottom: 5px solid #fff;
+}
+
+.navbarRight {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.navbarRight a {
+  float: none;
+  display: block;
+  text-align: left;
+  padding: 12px 0;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  cursor: pointer;
+  border-bottom: 5px solid #8EB010;
+  transition: 0.1s ease-in;
+}
+
+/* Current/active navbar link */
+.active {
+  background-color: #8EB010;
+}
+
+.hamburgerButton {
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menuClosed {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .navbar {
+    gap: 2rem;
+    flex-direction: row;
+  }
+
+  .navbarRight {
+    flex-direction: row;
+  }
+
+  .navbarRight a {
+    font-size: 17px;
+    text-decoration: none;
+    color: #1a1b1b;
+    border-bottom: 5px solid #fff;
+    padding-bottom: 0.5rem;
+  }
+}

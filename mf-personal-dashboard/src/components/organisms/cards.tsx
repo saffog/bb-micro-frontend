@@ -9,6 +9,8 @@ import { BsFillHousesFill } from "react-icons/bs";
 import SectionCards from '../molecules/SectionCards';
 import Card from '../molecules/Card';
 import { InfoPerson as Persons } from "../data";
+import Carousel from '../molecules/Carousel';
+import useDevice from '../../hooks/useDevice';
 
 const ICONS: {[key: string]: IconType} = {
   inversiones: FaMoneyBillTrendUp,
@@ -18,12 +20,13 @@ const ICONS: {[key: string]: IconType} = {
 };
 
 const Cards = () => {
+  const { isMobile } = useDevice();
   return (
     <div>
       {Children.toArray(Persons.map( (person) =>
           Children.toArray(person.products.map((product) => (
-            <SectionCards titleSection={product.description} action={() => null} >
-              {Children.toArray(product.accounts.map((account) => (
+            <SectionCards titleSection={product.description} action={() => null} enabledButton={isMobile} >
+              { !isMobile && Children.toArray(product.accounts.map((account) => (
                 <Card
                   title={account.type}
                   icon={ICONS[account.type] ?? GiTakeMyMoney}
@@ -32,6 +35,19 @@ const Cards = () => {
                   total={account.amount}
                 />
               )))}
+              { isMobile &&
+                <Carousel items={
+                  Children.toArray(product.accounts.map((account) => (
+                    <Card
+                      title={account.type}
+                      icon={ICONS[account.type] ?? GiTakeMyMoney}
+                      number={account.number}
+                      description={account.description}
+                      total={account.amount}
+                    />
+                  )))
+                }/>
+              }
             </SectionCards>
           )))
       ))}

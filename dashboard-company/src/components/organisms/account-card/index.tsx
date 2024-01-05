@@ -39,7 +39,9 @@ const AccountCardForm = ({styleIcon, leftUpperText, leftBottomText, leftMiddleTe
                         {` `}
                         <LabelForm name={`3`} value={leftBottomText}/>
                     </div>
-                    <LabelForm name={`4`} value={rightUpperText}/>
+                    <div className={styles.labelTotal}>
+                        <LabelForm name={`4`} value={rightUpperText}/>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,33 @@
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.mobileMenu.open {
+  transform: translateX(-100%);
+}
+
+.hamburgerButton {
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menuItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuItems li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}

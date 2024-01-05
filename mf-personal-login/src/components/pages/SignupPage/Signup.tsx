@@ -36,7 +36,6 @@ const Signup = () => {
   };
 
   const onClickTermsAndConditions = () => {
-    console.log('Click!');
     setModalOpen(true);
   };
 
@@ -158,7 +157,7 @@ const Signup = () => {
             buttonTitle="Volver"
           />
         )}
-        {!modalOpenSuccess && (
+        {modalOpenSuccess && (
           <Modal title='¡Exito!' buttonTitle='Aceptar' onClose={handleCloseModalSuccess}>
             <div className={styles.contentModalSuccess}>
               <FaCircleCheck className={styles.iconSuccess}/>

@@ -49,7 +49,7 @@
   font-size: 14px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .loginForm {
     width: 350px;
   }

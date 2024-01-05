@@ -1,13 +1,10 @@
 .container {
-  padding: 0 8vw;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 100px auto 200px;
-  grid-template-areas:
-    ". ."
-    "layout image"
-    ". .";
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .image {
@@ -24,15 +21,15 @@
   align-self: end;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .container {
+    height: 100vh;
+    display: grid;
     padding: 0 4vw;
-
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .container {
-    padding: 0 8vw;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto 200px;
+    grid-template-areas:
+    "layout image"
+    ". .";
   }
 }

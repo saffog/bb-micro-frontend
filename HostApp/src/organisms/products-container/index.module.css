@@ -1,9 +1,8 @@
 .mainContainer {
-    margin: 0;
-    background-color: #f5f5f5;
+    padding: 1.5rem;
     display: flex;
-    flex-direction: row;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container {
@@ -17,7 +16,7 @@
 
 .containerImage img {
     background-size: cover;
-    width: 600px;
+    width: 90vw;
     border-radius: 10px;
 }
 
@@ -30,21 +29,22 @@
     gap: 1rem;
 }
 
-
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 425px) {
     .mainContainer {
-        padding: 8vh 4vw;
-        display: flex;
         flex-direction: column;
-        align-items: center;
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 769px) {
     .mainContainer {
-        padding: 8vh 8vw;
-        display: flex;
+        margin: 0;
+        padding: 8vh 4vw;
+        background-color: #f5f5f5;
         flex-direction: row;
+        gap: 2rem;
+    }
+
+    .containerImage img {
+        width: 600px;
     }
 }
