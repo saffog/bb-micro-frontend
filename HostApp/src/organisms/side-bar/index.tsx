@@ -1,4 +1,4 @@
-import React, { ComponentType, LazyExoticComponent, useState } from "react";
+import React, {useEffect, useState} from "react";
 import { AccountType } from "../../interfaces/user.interface";
 import { settings } from "../../constants/settings.constant";
 import {
@@ -14,9 +14,11 @@ import {
   FaLandmark,
   FaUser,
 } from "react-icons/fa";
-import styles from "./index.module.css";
 import { NavLink } from "react-router-dom";
 import MyErrorBoundary from "../../boundary/ErrorBoundary";
+import useDevice from '../../hooks/useDevice';
+
+import styles from "./index.module.css";
 
 interface Props {
   accountType: AccountType;
@@ -48,9 +50,17 @@ const getIconByName = (iconName: string) => {
 };
 
 const SideBar = ({ accountType }: Props) => {
-  const [open, setopen] = useState(true);
+
+  const [open, setOpen] = useState(true);
+  const { isMobile } = useDevice();
+
+  useEffect(() => {
+    if (isMobile) {
+      setOpen(false)
+    }
+  }, [isMobile]);
   const toggleOpen = () => {
-    setopen(!open);
+    setOpen(!open);
   };
   const DashboardComponent = React.lazy(
     () => import(`../../pages/dashboard/${settings[accountType].contentFolder}`)

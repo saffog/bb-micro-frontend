@@ -52,7 +52,7 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <Card title='Iniciar Sesión' icon={FaUserLock}>
+      <Card title='Iniciar Sesión' icon={FaUserLock} className={styles.card}>
         <form onSubmit={handleSubmit} className={styles.loginForm}>
           <InputLabel
             name='email'

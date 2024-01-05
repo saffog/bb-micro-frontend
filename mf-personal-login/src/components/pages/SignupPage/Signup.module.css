@@ -6,12 +6,20 @@
   height: 100vh;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .signupForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  width: 350px;
+  width: 80vw;
 }
 
 .actionForm {
@@ -37,4 +45,15 @@
   color: #ff0000;
   margin-top: 5px;
   font-size: 14px;
+}
+
+@media screen and (min-width: 769px) {
+  .signupForm {
+    width: 350px;
+  }
+
+  .card {
+    display: block;
+    height: auto;
+  }
 }

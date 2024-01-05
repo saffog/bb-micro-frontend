@@ -38,7 +38,7 @@ module.exports = (_, argv) => ({
             loader: "css-loader",
             options: {
               modules: {
-                localIdentName: "[local]_[hash]",
+                localIdentName: "[name]_[local]__[hash:base64:5]",
               },
             },
           },

@@ -6,12 +6,20 @@
   height: 100vh;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .loginForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  width: 350px;
+  width: 80vw;
 }
 
 .containerSaveData {
@@ -39,4 +47,15 @@
   color: #dc3545;
   margin-top: 10px;
   font-size: 14px;
+}
+
+@media screen and (min-width: 769px) {
+  .loginForm {
+    width: 350px;
+  }
+
+  .card {
+    display: block;
+    height: auto;
+  }
 }

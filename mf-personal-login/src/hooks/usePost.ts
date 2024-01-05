@@ -40,7 +40,6 @@ const usePost = <T>(url: string): ApiResponse<T> => {
       setError(null);
       return json;
     } catch (error) {
-      console.error('ERROR');
       if(error instanceof Error) setError(error);
       else throw new Error(String(error));
 

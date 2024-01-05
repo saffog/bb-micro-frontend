@@ -36,7 +36,6 @@ const Signup = () => {
   };
 
   const onClickTermsAndConditions = () => {
-    console.log('Click!');
     setModalOpen(true);
   };
 
@@ -90,7 +89,7 @@ const Signup = () => {
 
   return (
     <div className={styles.container}>
-      <Card title="REGISTRARSE" icon={FaUserPlus}>
+      <Card title="REGISTRARSE" icon={FaUserPlus} className={styles.card}>
         <form onSubmit={handleSubmit} className={styles.signupForm}>
           <InputLabel
             name="name"

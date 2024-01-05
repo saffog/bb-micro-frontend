@@ -7,9 +7,7 @@ const mount = (el: string | Element) => {
     const appPlaceholder = createShadowContainer('mf-marketing');
     createApp(App).mount(appPlaceholder!);
 
-
-    // createApp(App).mount(appPlaceholder!);
-
+    // createApp(App).mount(el!);
 };
 
 export {mount};
