@@ -30,6 +30,9 @@ In the micro frontends approach, one of the components acts like a host meanwhil
 
 For further details about the structure inside each micro frontend component, review the [wiki](https://github.com/saffog/bb-micro-frontend/wiki/MF-Structure) related section.
 
+### Styling Strategies for Micro Frontends
+This project adopts a Mobile-First approach for styling using CSS and Tailwind for all micro frontends. The Mobile-First design philosophy prioritizes initial creation and styling for mobile devices, progressively enhancing the design for larger screens. This ensures a seamless and optimized user experience across various devices, from smartphones to desktop computers.
+
 ### To run this project locally
 
 1. Execute in powershell `start.cmd`
